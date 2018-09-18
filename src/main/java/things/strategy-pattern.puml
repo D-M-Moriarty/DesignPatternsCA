@@ -1,0 +1,69 @@
+@startuml
+interface EntityRenderer {
+    + {static} {abstract} void update();
+    + {static} {abstract} void draw(Graphics2D g);
+}
+class AlienBulletRenderer implements EntityRenderer {
+    + void update();
+    + void draw(Graphics2D g);
+}
+class AlienInvaders2Renderer implements EntityRenderer {
+    + void update();
+    + void draw(Graphics2D g);
+}
+class BarrelRenderer implements EntityRenderer {
+    + void update();
+    + void draw(Graphics2D g);
+}
+class BarrierRenderer implements EntityRenderer {
+    + void update();
+    + void draw(Graphics2D g);
+}
+class BarrierBlockRenderer implements EntityRenderer {
+    + void draw(Graphics2D g);
+}
+class BulletRenderer implements EntityRenderer {
+    + void update();
+    + void draw(Graphics2D g);
+}
+class TankRenderer implements EntityRenderer {
+    + void update();
+    + void draw();
+}
+
+AlienBullet *- AlienBulletRenderer
+AlienEntity *- AlienEntityRenderer
+AlienInvaders2 *- AlienInvaders2Renderer
+Barrel *- BarrelRenderer
+Barrier *- BarrierRenderer
+BarrierBlock *- BarrierBlockRenderer
+Bullet *- BulletRenderer
+Tank *- TankRenderer
+
+abstract class GameComponent implements EntityRenderer {
+    # EntityRenderer entityRenderer;
+    + GameComponent(int topLeftXPos, int topLeftYPos,
+                    int width, int height, Color color)
+    + void updateEntity();
+    + void drawEntity();
+    + void setEntityRenderer(EntityRenderer entityRenderer);
+}
+class AlienBullet extends GameComponent {
+}
+class AlienEntity extends GameComponent {
+ }
+class AlienInvaders2 extends GameComponent {
+}
+class Barrel extends GameComponent {
+}
+class Barrier extends GameComponent {
+}
+class BarrierBlock extends GameComponent {
+}
+class Bullet extends GameComponent {
+}
+class Tank extends GameComponent {
+}
+
+
+@enduml
