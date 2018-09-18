@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.net.URL;
 import java.util.LinkedList;
 
 /**
@@ -25,10 +26,14 @@ public class GameMain extends JFrame{
     private SpaceInvadersGUI spaceInvadersGUI;
     private HighScores highscores;
 
-    private ImageIcon imageIcon = new ImageIcon("images/1280x960-space-invaders-press-start-wallpaper.jpg");
+    ClassLoader classLoader = getClass().getClassLoader();
+
+    String startImage = classLoader.getResource("images/1280x960-space-invaders-press-start-wallpaper.jpg").getFile();
+    private ImageIcon imageIcon = new ImageIcon(startImage);
     private JButton startGame = new JButton(imageIcon);
 
-    private ImageIcon imageIcon2 = new ImageIcon("images/high-scores.png");
+    String startImage2 = classLoader.getResource("images/high-scores.png").getFile();
+    private ImageIcon imageIcon2 = new ImageIcon(startImage2);
     private JButton startGame2 = new JButton(imageIcon2);
 
     private JMenuBar  jmenuBar;
