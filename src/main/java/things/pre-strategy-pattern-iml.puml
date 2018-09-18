@@ -1,0 +1,40 @@
+@startuml
+abstract class GameComponent {
+    + GameComponent(int topLeftXPos, int topLeftYPos,
+                    int width, int height, Color color)
+    + {abstract} void draw();
+    + {abstract} void update();
+}
+class AlienBullet extends GameComponent {
+    + void draw();
+    + void update();
+}
+class AlienEntity extends GameComponent {
+     + void draw();
+     + void update();
+ }
+class AlienInvaders2 extends GameComponent {
+    + void draw();
+    + void update();
+}
+class Barrel extends GameComponent {
+    + void draw();
+    + void update();
+}
+class Barrier extends GameComponent {
+    + void draw();
+    + void update();
+}
+class BarrierBlock extends GameComponent {
+    + void draw();
+    + void update();
+}
+class Bullet extends GameComponent {
+    + void draw();
+    + void update();
+}
+class Tank extends GameComponent {
+    + void draw();
+    + void update();
+}
+@enduml
