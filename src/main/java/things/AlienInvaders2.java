@@ -21,8 +21,10 @@ public class AlienInvaders2 extends GameComponent {
     // Counts the amount of aliens killed
     private int deathCount;
 
+    ClassLoader classLoader = getClass().getClassLoader();
+    String gerPath = classLoader.getResource("images/ger.png").getFile();
     // Image of the beautiful Geraldine
-    private ImageIcon gerImage = new ImageIcon("images/ger.png");
+    private ImageIcon gerImage = new ImageIcon(gerPath);
 
     // Delta variables for controlling speed
     private int delta = 1;
@@ -33,9 +35,12 @@ public class AlienInvaders2 extends GameComponent {
     private boolean firing = true;
 
     // Imageicons for aliens
-    private ImageIcon alienImage = new ImageIcon("images/Space-large-invader.png");
-    private ImageIcon alienImage2 =  new ImageIcon("images/mS0hGaS.png");
-    private ImageIcon alienImage3 =  new ImageIcon("images/Space-medium-invader.png");
+    String aP = classLoader.getResource("images/Space-large-invader.png").getFile();
+    private ImageIcon alienImage = new ImageIcon(aP);
+    String aP2 = classLoader.getResource("images/mS0hGaS.png").getFile();
+    private ImageIcon alienImage2 =  new ImageIcon(aP2);
+    String aP3 = classLoader.getResource("images/Space-medium-invader.png").getFile();
+    private ImageIcon alienImage3 =  new ImageIcon(aP3);
 
     // The original positions to reset the aliens
     private int originalTopLeftXPos;
