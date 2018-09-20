@@ -1,4 +1,9 @@
 package things.entity.update;
 
-public class UpdateBullet {
+import things.GameComponent;
+
+public class UpdateBullet implements UpdateSprite {
+    public void update() {
+
+    }
 }

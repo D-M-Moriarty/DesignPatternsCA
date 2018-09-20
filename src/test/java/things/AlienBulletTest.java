@@ -27,7 +27,7 @@ public class AlienBulletTest {
         int movement = 5;
         int initialTopLeftYPosition = alienBullet.getTopLeftYPos();
         int predictedYPosition = initialTopLeftYPosition + movement;
-        alienBullet.fireBullet();
+        alienBullet.updateEntity();
         int newYPosition = alienBullet.getTopLeftYPos();
 
         Assert.assertEquals(newYPosition, predictedYPosition);

@@ -1,4 +1,9 @@
 package things.entity.update;
 
-public class UpdateBarrier {
+import things.GameComponent;
+
+public class UpdateBarrier implements UpdateSprite {
+    public void update() {
+
+    }
 }

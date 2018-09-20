@@ -45,7 +45,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
     private Barrel barrel;
     private  Barrier[] barrier;
     public static ArrayList<Bullet> bullets;
-    public static ArrayList<GameComponent> alienBullets;
+    public static ArrayList<AlienBullet> alienBullets;
     private AlienInvaders2 aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
@@ -107,7 +107,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
         aliens = new AlienInvaders2(50, 50, 50, 50, Color.WHITE, gameMain);
 
         // Instantiating the ArrayList of Bullets
-        bullets = new ArrayList<Bullet>();
+        bullets = new ArrayList();
 
         // Instantiating the ArrayList of AlienBullets
         alienBullets = new ArrayList();
@@ -218,7 +218,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
 
         // Drawing ArrayList of AlienBullets
         for(int i = 0; i < alienBullets.size(); i++){
-            alienBullets.get(i).draw(g);
+            alienBullets.get(i).drawEntity(g);
         }
 
 

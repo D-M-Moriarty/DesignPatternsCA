@@ -56,7 +56,7 @@ public class Barrier extends GameComponent {
             Bullet bullet = SpaceInvadersGUI.bullets.get(k);
 
             for (int i = 0; i < SpaceInvadersGUI.alienBullets.size(); i++) {
-                GameComponent alienBullet = SpaceInvadersGUI.alienBullets.get(i);
+                AlienBullet alienBullet = SpaceInvadersGUI.alienBullets.get(i);
 
                 if(alienBullet.collidesWith(bullet)){
                     SpaceInvadersGUI.bullets.remove(k);
@@ -92,7 +92,7 @@ public class Barrier extends GameComponent {
 
         // checking for collisions with alien bullets
         for (int k = 0; k < SpaceInvadersGUI.alienBullets.size(); k++) {
-            GameComponent bullet = SpaceInvadersGUI.alienBullets.get(k);
+            AlienBullet bullet = SpaceInvadersGUI.alienBullets.get(k);
 
 
             for (int i = 0; i < 7; i++) {

@@ -152,7 +152,11 @@ public abstract class GameComponent {
     public abstract void update();
 
     public void updateEntity() {
-        updateSprite.update(this);
+        updateSprite.update();
+    }
+
+    public void drawEntity(Graphics2D graphics2D) {
+        drawSprite.draw(graphics2D);
     }
 
     public UpdateSprite getUpdateSprite() {
