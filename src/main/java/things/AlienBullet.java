@@ -1,5 +1,6 @@
 package things;
 
+import things.entity.draw.DrawSquareSprite;
 import things.entity.update.UpdateAlienBullet;
 
 import java.awt.*;
@@ -29,7 +30,8 @@ public class AlienBullet extends GameComponent {
      */
     public AlienBullet(int topLeftXPos, int topLeftYPos, int width, int height, Color color) {
         super(topLeftXPos, topLeftYPos, width, height, color);
-        setUpdateSprite(new UpdateAlienBullet());
+        setUpdateSprite(new UpdateAlienBullet(this));
+        setDrawSprite(new DrawSquareSprite(this));
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update
@@ -41,7 +43,6 @@ public class AlienBullet extends GameComponent {
     public void removeBullet(){
         if(getTopLeftYPos() + height < 0 || getTopLeftYPos()  > SpaceInvadersGUI.HEIGHT){
             SpaceInvadersGUI.alienBullets.remove(this);
-
         }
     }
 

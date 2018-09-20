@@ -1,5 +1,7 @@
 package things.entity.draw;
 
+import things.GameComponent;
+
 import java.awt.*;
 
 public interface DrawSprite {

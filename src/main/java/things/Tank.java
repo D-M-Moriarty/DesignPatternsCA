@@ -122,7 +122,7 @@ public class Tank extends GameComponent{
 
         // checking for collisions with the tank
         for (int k = 0; k < SpaceInvadersGUI.alienBullets.size(); k++) {
-            GameComponent bullet = SpaceInvadersGUI.alienBullets.get(k);
+            AlienBullet bullet = SpaceInvadersGUI.alienBullets.get(k);
 
 
             if (bullet.collidesWith(this)) {
