@@ -3,6 +3,9 @@ package things;
 //import sun.audio.AudioPlayer;
 //import sun.audio.AudioStream;
 
+import things.entity.draw.DrawSprite;
+import things.entity.update.UpdateSprite;
+
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -31,6 +34,8 @@ public abstract class GameComponent {
     protected int height;
     // The colour of this entity
     protected Color color;
+    protected UpdateSprite updateSprite;
+    protected DrawSprite drawSprite;
 
     /** 5 argument constructor method
      *
@@ -145,6 +150,26 @@ public abstract class GameComponent {
      *
      */
     public abstract void update();
+
+    public void updateEntity() {
+        updateSprite.update(this);
+    }
+
+    public UpdateSprite getUpdateSprite() {
+        return updateSprite;
+    }
+
+    public void setUpdateSprite(UpdateSprite updateSprite) {
+        this.updateSprite = updateSprite;
+    }
+
+    public DrawSprite getDrawSprite() {
+        return drawSprite;
+    }
+
+    public void setDrawSprite(DrawSprite drawSprite) {
+        this.drawSprite = drawSprite;
+    }
 
     /**
      *
