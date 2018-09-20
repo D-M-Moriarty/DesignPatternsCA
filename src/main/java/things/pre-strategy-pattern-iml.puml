@@ -6,35 +6,35 @@ abstract class GameComponent {
     + {abstract} void update();
 }
 class AlienBullet extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 class AlienEntity extends GameComponent {
-     + void draw();
+     + void draw(Graphics2D g);
      + void update();
  }
 class AlienInvaders2 extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 class Barrel extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 class Barrier extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 class BarrierBlock extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 class Bullet extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 class Tank extends GameComponent {
-    + void draw();
+    + void draw(Graphics2D g);
     + void update();
 }
 @enduml

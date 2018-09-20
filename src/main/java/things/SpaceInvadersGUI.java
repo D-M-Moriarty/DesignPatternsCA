@@ -45,7 +45,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
     private Barrel barrel;
     private  Barrier[] barrier;
     public static ArrayList<Bullet> bullets;
-    public static ArrayList<AlienBullet> alienBullets;
+    public static ArrayList<GameComponent> alienBullets;
     private AlienInvaders2 aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
@@ -110,7 +110,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
         bullets = new ArrayList<Bullet>();
 
         // Instantiating the ArrayList of AlienBullets
-        alienBullets = new ArrayList<AlienBullet>();
+        alienBullets = new ArrayList();
 
         // Declaring variables to determine loop length time
         long startTime;
@@ -177,7 +177,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
         }
 
         for(int i = 0; i < alienBullets.size(); i++){
-            alienBullets.get(i).update();
+            alienBullets.get(i).updateEntity();
         }
 
     }

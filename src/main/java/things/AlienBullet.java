@@ -1,5 +1,7 @@
 package things;
 
+import things.entity.update.UpdateAlienBullet;
+
 import java.awt.*;
 
 /**
@@ -27,6 +29,7 @@ public class AlienBullet extends GameComponent {
      */
     public AlienBullet(int topLeftXPos, int topLeftYPos, int width, int height, Color color) {
         super(topLeftXPos, topLeftYPos, width, height, color);
+        setUpdateSprite(new UpdateAlienBullet());
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update

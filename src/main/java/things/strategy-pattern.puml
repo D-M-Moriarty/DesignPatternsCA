@@ -1,52 +1,66 @@
 @startuml
-interface EntityRenderer {
+interface UpdateSprite {
     + {static} {abstract} void update();
+}
+interface DrawSprite {
     + {static} {abstract} void draw(Graphics2D g);
 }
-class AlienBulletRenderer implements EntityRenderer {
+
+class UpdateAlienBullet implements UpdateSprite {
     + void update();
-    + void draw(Graphics2D g);
-}
-class AlienInvaders2Renderer implements EntityRenderer {
-    + void update();
-    + void draw(Graphics2D g);
-}
-class BarrelRenderer implements EntityRenderer {
-    + void update();
-    + void draw(Graphics2D g);
-}
-class BarrierRenderer implements EntityRenderer {
-    + void update();
-    + void draw(Graphics2D g);
-}
-class BarrierBlockRenderer implements EntityRenderer {
-    + void draw(Graphics2D g);
-}
-class BulletRenderer implements EntityRenderer {
-    + void update();
-    + void draw(Graphics2D g);
-}
-class TankRenderer implements EntityRenderer {
-    + void update();
-    + void draw();
 }
 
-AlienBullet *- AlienBulletRenderer
-AlienEntity *- AlienEntityRenderer
-AlienInvaders2 *- AlienInvaders2Renderer
-Barrel *- BarrelRenderer
-Barrier *- BarrierRenderer
-BarrierBlock *- BarrierBlockRenderer
-Bullet *- BulletRenderer
-Tank *- TankRenderer
+class UpdateAlienInvaders2 implements UpdateSprite {
+    + void update();
+}
 
-abstract class GameComponent implements EntityRenderer {
-    # EntityRenderer entityRenderer;
+class UpdateBarrel implements UpdateSprite {
+    + void update();
+}
+
+class UpdateBarrier implements UpdateSprite {
+    + void update();
+}
+
+class UpdateBullet implements UpdateSprite {
+    + void update();
+}
+
+class UpdateTank implements UpdateSprite {
+    + void update();
+}
+
+class DrawSquareSprite implements DrawSprite {
+    + void draw(Graphics2D g);
+}
+
+AlienBullet *- UpdateAlienBullet
+AlienBullet *- DrawSquareSprite
+AlienInvaders2 *- UpdateAlienInvaders2
+Barrel *- UpdateBarrel
+Barrier *- UpdateBarrier
+Bullet *- UpdateBullet
+Tank *- UpdateTank
+
+AlienInvaders2 *- DrawSquareSprite
+Barrel *- DrawSquareSprite
+Barrier *- DrawSquareSprite
+BarrierBlock *- DrawSquareSprite
+Bullet *- DrawSquareSprite
+Tank *- DrawSquareSprite
+
+GameComponent *- DrawSprite
+GameComponent *- UpdateSprite
+
+abstract class GameComponent {
+    # UpdateSprite updateSprite;
+    # DrawSprite drawSprite;
     + GameComponent(int topLeftXPos, int topLeftYPos,
                     int width, int height, Color color)
     + void updateEntity();
     + void drawEntity();
-    + void setEntityRenderer(EntityRenderer entityRenderer);
+    + void setUpdateSprite(UpdateSprite updateSprite);
+    + void setDrawSprite(DrawSprite drawSprite);
 }
 class AlienBullet extends GameComponent {
 }
@@ -64,6 +78,5 @@ class Bullet extends GameComponent {
 }
 class Tank extends GameComponent {
 }
-
 
 @enduml

@@ -221,7 +221,7 @@ public class AlienInvaders2 extends GameComponent {
 
             // Checking for collision between alien and tank bullets
             for (int i = 0; i < SpaceInvadersGUI.alienBullets.size(); i++) {
-                AlienBullet alienBullet = SpaceInvadersGUI.alienBullets.get(i);
+                GameComponent alienBullet = SpaceInvadersGUI.alienBullets.get(i);
 
                 // removing the bullets
                 if (alienBullet.collidesWith(bullet)){
