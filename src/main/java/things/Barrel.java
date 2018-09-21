@@ -105,7 +105,9 @@ public class Barrel extends GameComponent {
         // checking to see if firing is true
         if (firing){
             // Adding a new instance of a bullet to the arrayList of bullets
-            SpaceInvadersGUI.bullets.add(new Bullet(this.getTopLeftXPos() + (width / 4), 570, 5, 10, Color.WHITE));
+            SpaceInvadersGUI.bullets.add(
+                    new Bullet(this.getTopLeftXPos() + (width / 4), 570, 5, 10, Color.WHITE, false)
+            );
             try{
                 playSound("sounds/shoot.wav");
             } catch (Exception e) {

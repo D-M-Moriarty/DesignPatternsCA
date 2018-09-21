@@ -1,5 +1,8 @@
 package things;
 
+import things.entity.draw.DrawSquareSprite;
+import things.entity.update.UpdateBullet;
+
 import java.awt.*;
 
 /**
@@ -18,7 +21,8 @@ public class Bullet extends GameComponent {
 
     /* The difference between the initial y position and the new y position
         This is the amount of pixels the entity will move per second/update */
-    private final int DELTA_Y = 5;
+    private static final int DELTA_Y = 5;
+    private boolean isAlienBullet;
 
     /**
      *
@@ -28,13 +32,19 @@ public class Bullet extends GameComponent {
      * @param height
      * @param color
      */
-    public Bullet(int topLeftXPos, int topLeftYPos, int width, int height, Color color) {
+    public Bullet(int topLeftXPos, int topLeftYPos, int width, int height, Color color, boolean isAlienBullet) {
         super(topLeftXPos, topLeftYPos, width, height, color);
+        this.isAlienBullet = isAlienBullet;
+        setUpdateSprite(new UpdateBullet(this));
+        setDrawSprite(new DrawSquareSprite(this));
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update
     public void fireBullet(){
-        topLeftYPos -= DELTA_Y;
+        if (isAlienBullet)
+            topLeftYPos += DELTA_Y;
+        else
+            topLeftYPos -= DELTA_Y;
     }
 
     // This method removes a bullet from the ArrayList of bullets once its hit an enemy or passed the top of the screen

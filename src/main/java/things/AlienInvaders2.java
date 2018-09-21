@@ -168,11 +168,11 @@ public class AlienInvaders2 extends GameComponent {
                 timeWaiting -= 1;
 
                 if(timeWaiting <= 0 && firing && !alienEntities[randomFireRow][randomFire].isDestroyed()){
-                    SpaceInvadersGUI.alienBullets.add(new AlienBullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
-                            alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10, Color.RED));
+                    SpaceInvadersGUI.alienBullets.add(new Bullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
+                            alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10, Color.RED, true));
 
-                    SpaceInvadersGUI.alienBullets.add(new AlienBullet(getGerX() + 20,
-                            10 + 40, 5, 10, Color.YELLOW));
+                    SpaceInvadersGUI.alienBullets.add(new Bullet(getGerX() + 20,
+                            10 + 40, 5, 10, Color.YELLOW, true));
 
                     // resetting the time waiting
                     timeWaiting = bulletTimingDelay;
@@ -189,7 +189,8 @@ public class AlienInvaders2 extends GameComponent {
             for (int j = 0; j < 11; j++) {
                 if(alienEntities[i][j].getTopLeftYPos() + alienEntities[i][j].getHeight() >= 430){
                     //Create the player class
-                    player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null, "The aliens have reached you\nPlease enter your name: "));
+                    player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null,
+                            "The aliens have reached you\nPlease enter your name: "));
                     // Resetting the static score
                     SpaceInvadersGUI.setPlayerScore(0);
 
