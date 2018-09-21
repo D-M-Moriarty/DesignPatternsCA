@@ -45,7 +45,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
     private Barrel barrel;
     private  Barrier[] barrier;
     public static ArrayList<Bullet> bullets;
-    public static ArrayList<AlienBullet> alienBullets;
+    public static ArrayList<Bullet> alienBullets;
     private AlienInvaders2 aliens;
     private static int playerScore = 0;
     private GameMain gameMain;

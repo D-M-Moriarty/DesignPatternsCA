@@ -6,10 +6,6 @@ interface DrawSprite {
     + {static} {abstract} void draw(Graphics2D g);
 }
 
-class UpdateAlienBullet implements UpdateSprite {
-    + void update();
-}
-
 class UpdateAlienInvaders2 implements UpdateSprite {
     + void update();
 }
@@ -34,8 +30,6 @@ class DrawSquareSprite implements DrawSprite {
     + void draw(Graphics2D g);
 }
 
-AlienBullet *- UpdateAlienBullet
-AlienBullet *- DrawSquareSprite
 AlienInvaders2 *- UpdateAlienInvaders2
 Barrel *- UpdateBarrel
 Barrier *- UpdateBarrier
@@ -61,8 +55,6 @@ abstract class GameComponent {
     + void drawEntity();
     + void setUpdateSprite(UpdateSprite updateSprite);
     + void setDrawSprite(DrawSprite drawSprite);
-}
-class AlienBullet extends GameComponent {
 }
 class AlienEntity extends GameComponent {
  }

@@ -1,9 +1,19 @@
 package things.entity.update;
 
+import things.Bullet;
 import things.GameComponent;
 
 public class UpdateBullet implements UpdateSprite {
-    public void update() {
+    private GameComponent gameComponent;
 
+    public UpdateBullet(GameComponent gameComponent) {
+        this.gameComponent = gameComponent;
+    }
+
+    public void update() {
+        // TODO use Factory Method here?
+        Bullet bullet = (Bullet) gameComponent;
+        bullet.fireBullet();
+        bullet.removeBullet();
     }
 }

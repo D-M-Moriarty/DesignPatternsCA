@@ -8,9 +8,9 @@ import org.junit.jupiter.api.BeforeEach;
 import java.awt.*;
 
 
-public class AlienBulletTest {
+public class BulletTest {
 
-    private AlienBullet alienBullet;
+    private Bullet alienBullet;
 
     @BeforeEach
     public void setUp() {
@@ -22,8 +22,8 @@ public class AlienBulletTest {
 
     @Test
     public void fireBullet() {
-        alienBullet = new AlienBullet(0,
-                0, 100, 50, Color.BLACK);
+        alienBullet = new Bullet(0,
+                0, 100, 50, Color.BLACK, true);
         int movement = 5;
         int initialTopLeftYPosition = alienBullet.getTopLeftYPos();
         int predictedYPosition = initialTopLeftYPosition + movement;
@@ -35,8 +35,8 @@ public class AlienBulletTest {
 
     @Test
     public void removeBullet() {
-        alienBullet = new AlienBullet(100,
-                100, 100, 50, Color.BLACK);
+        alienBullet = new Bullet(100,
+                100, 100, 50, Color.BLACK, true);
 
         GameMain gameMain = new GameMain();
     }
