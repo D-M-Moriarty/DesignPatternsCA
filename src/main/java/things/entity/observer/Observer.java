@@ -1,5 +1,7 @@
 package things.entity.observer;
 
+import things.Bullet;
+
 public interface Observer {
-    void updateObserver();
+    void updateObserver(Bullet bullet);
 }

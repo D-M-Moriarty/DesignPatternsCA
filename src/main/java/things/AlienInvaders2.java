@@ -1,5 +1,6 @@
 package things;
 
+import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ import java.util.Random;
 /**
  * Created by Darren Moriarty on 17/11/2016.
  */
-public class AlienInvaders2 extends GameComponent {
+public class AlienInvaders2 extends GameComponent implements Observer {
 
 
     // 2d array of alien entities
@@ -176,6 +177,7 @@ public class AlienInvaders2 extends GameComponent {
                     Bullet bullet = new Bullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
                             alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10,
                             Color.RED, true);
+                    bullet.registerObserver(this);
                     alienBulls.addBullet(bullet);
 
                     Bullet gerBullet = new Bullet(getGerX() + 20,
@@ -441,4 +443,11 @@ public class AlienInvaders2 extends GameComponent {
     }
 
 
+    public void updateObserver(Bullet bullet) {
+        if (bullet.isAlienBullet()) {
+            // TODO check for collisions
+        } else {
+
+        }
+    }
 }

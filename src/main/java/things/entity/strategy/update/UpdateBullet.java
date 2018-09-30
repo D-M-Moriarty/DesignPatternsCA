@@ -14,6 +14,6 @@ public class UpdateBullet implements UpdateSprite {
         // TODO use Factory Method here?
         Bullet bullet = (Bullet) gameComponent;
         bullet.fireBullet();
-        bullet.removeBullet();
+        bullet.notifyObservers();
     }
 }
