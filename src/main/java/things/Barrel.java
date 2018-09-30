@@ -74,7 +74,17 @@ public class Barrel extends GameComponent {
         this.firing = firing;
     }
 
+    public boolean isLeft() {
+        return left;
+    }
 
+    public boolean isRight() {
+        return right;
+    }
+
+    public boolean isFiring() {
+        return firing;
+    }
 
     // This method decides what to do every time the screen refreshes
     @Override
@@ -96,10 +106,10 @@ public class Barrel extends GameComponent {
         }
 
         // This insures that the entity doesn't travel outside the green line at the bottom of the screen
-        if(topLeftXPos > 1000 - width - 80){
+        if(isTooFarRight()){
             topLeftXPos = 1000 - width - 80;
         }
-        if(topLeftXPos < 80){
+        if(isTooFarLeft()){
             topLeftXPos = 80;
         }
 
@@ -122,6 +132,14 @@ public class Barrel extends GameComponent {
        }
 
 
+    }
+
+    private boolean isTooFarLeft() {
+        return topLeftXPos < 80;
+    }
+
+    private boolean isTooFarRight() {
+        return topLeftXPos > 1000 - width - 80;
     }
 
     @Override
