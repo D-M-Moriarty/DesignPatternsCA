@@ -1,0 +1,24 @@
+
+U
+squid:S106‹"9Replace this use of System.out or System.err by a logger.(ê°Şüÿÿÿÿÿ
+U
+squid:S106Š"9Replace this use of System.out or System.err by a logger.(¼£»íıÿÿÿÿ
+P
+squid:S106ˆ"9Replace this use of System.out or System.err by a logger.(Å°Ïœ
+P
+squid:S106…"9Replace this use of System.out or System.err by a logger.(½˜¾¨
+Nsquid:S2696“"6Make the enclosing method "static" or remove this set.(ÌÚÆß
+;squid:S1148Ÿ"#Use a logger to log this exception.(Â“å´
+isquid:S3776]"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ãÁğ˜
+;squid:S1148ƒ"#Use a logger to log this exception.(Â“å´
+Ssquid:S2696—"6Make the enclosing method "static" or remove this set.(¿µÜĞøÿÿÿÿ
+W
+squid:S106Î"9Replace this use of System.out or System.err by a logger.(Øñ•±8ØÅãĞâ,
+ksquid:S3776"SRefactor this method to reduce its Cognitive Complexity from 145 to the 15 allowed.(Ö×õÄ
+Fsquid:S2140‰")Use "java.util.Random.nextInt()" instead.(¹ŒŸƒúÿÿÿÿ
+qsquid:S14507"URemove the "player" field and declare it as a local variable in the relevant methods.(Ç¹Ù±úÿÿÿÿ
+P
+squid:S106›"9Replace this use of System.out or System.err by a logger.(Øñ•±
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(£÷›—
+Ssquid:S2696µ"6Make the enclosing method "static" or remove this set.(Ş­Çüÿÿÿÿ

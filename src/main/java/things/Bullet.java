@@ -28,8 +28,6 @@ public class Bullet extends GameComponent implements Subject {
         This is the amount of pixels the entity will move per second/update */
     private static final int DELTA_Y = 5;
     private boolean isAlienBullet;
-    private FiredBullets tankBullets = FiredBullets.getTankBullets();
-    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private List<Observer> observers;
 
     /**

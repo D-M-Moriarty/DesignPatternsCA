@@ -1,5 +1,6 @@
 package things;
 
+import things.entity.decorator.DoubleBarrel;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
@@ -46,6 +47,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public static Tank tankLife2;
     public static Tank tankLife3;
     private Barrel barrel;
+    private DoubleBarrel doubleBarrel;
     private  Barrier[] barrier;
     // TODO instantiated on main thread and refernced on game thread
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
@@ -53,6 +55,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     private AlienInvaders2 aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
+    private boolean doubleBarrelIsAttached;
 
 
     // JPanel Constructor
@@ -98,6 +101,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife2 = new Tank(850, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
         tankLife3 = new Tank(780, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
         barrel = new Barrel(WIDTH/2-5, 570, 10, 10, Color.GREEN, 5);
+        doubleBarrel = new DoubleBarrel(WIDTH/2-5, 570, 10, 10, Color.GREEN, barrel);
 
         barrier = new Barrier[3];
 
@@ -172,6 +176,9 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
         aliens.update();
 
+        if (doubleBarrelIsAttached)
+            doubleBarrel.update();
+
 
         // updating the bullets
         for(int i = 0; i < tankBulls.size(); i++){
@@ -207,6 +214,9 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife2.draw(g);
         tankLife3.draw(g);
         barrel.draw(g);
+
+        if (doubleBarrelIsAttached)
+            doubleBarrel.draw(g);
 
         for (int i = 0; i < 3; i++) {
             barrier[i].draw(g);
@@ -270,6 +280,17 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         if(key == KeyEvent.VK_SPACE){
             barrel.setFiring(false);
         }
+
+        if (key == KeyEvent.VK_UP) {
+            if (doubleBarrelIsAttached) {
+                doubleBarrelIsAttached = false;
+                doubleBarrel.resetBarrel();
+            } else {
+                doubleBarrelIsAttached = true;
+                doubleBarrel.setBarrel();
+            }
+
+        }
     }
 
     //@Override
@@ -295,7 +316,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     }
 
     // This method removes a bullet from the ArrayList of bullets
-    // once its hit an enemy or passed the top of the screen
+    // once its left the screen bounds
     public void updateObserver(Bullet bullet) {
         int tplYPos = bullet.getTopLeftYPos();
         int bulletHeight = bullet.getHeight();
