@@ -7,11 +7,12 @@ import things.entity.observer.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FiredBullets implements Subject {
+public class FiredBullets implements Subject, Observer {
     private static FiredBullets alienBullets;
     private static FiredBullets tankBullets;
     private List<Observer> observers;
     private List<Bullet> bullets;
+    private Bullet bulletToObserve;
 
     private FiredBullets() {
         this.observers = new ArrayList<Observer>();
@@ -33,6 +34,7 @@ public class FiredBullets implements Subject {
     }
 
     public void addBullet(Bullet bullet) {
+        bullet.registerObserver(this);
         bullets.add(bullet);
     }
 
@@ -56,12 +58,18 @@ public class FiredBullets implements Subject {
         this.observers.add(observer);
     }
 
-    public void notifyObserver() {
+    public void notifyObservers() {
         for (Observer observer: observers)
-            observer.updateObserver();
+            observer.updateObserver(bulletToObserve);
+        bulletToObserve = null;
     }
 
     public int size() {
         return bullets.size();
+    }
+
+    public void updateObserver(Bullet bullet) {
+        this.bulletToObserve = bullet;
+        notifyObservers();
     }
 }

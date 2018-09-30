@@ -1,10 +1,14 @@
 package things;
 
+import things.entity.observer.Observer;
+import things.entity.observer.Subject;
 import things.entity.strategy.draw.DrawSquareSprite;
 import things.entity.singleton.FiredBullets;
 import things.entity.strategy.update.UpdateBullet;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is an instantiable class called Bullet for creating a bullet entity.
@@ -16,7 +20,7 @@ import java.awt.*;
  *
  * @version 2.0
  */
-public class Bullet extends GameComponent {
+public class Bullet extends GameComponent implements Subject {
 
     // Class Attributes
 
@@ -26,6 +30,7 @@ public class Bullet extends GameComponent {
     private boolean isAlienBullet;
     private FiredBullets tankBullets = FiredBullets.getTankBullets();
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
+    private List<Observer> observers;
 
     /**
      *
@@ -40,6 +45,7 @@ public class Bullet extends GameComponent {
         this.isAlienBullet = isAlienBullet;
         setUpdateSprite(new UpdateBullet(this));
         setDrawSprite(new DrawSquareSprite(this));
+        this.observers = new ArrayList<Observer>();
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update
@@ -50,24 +56,8 @@ public class Bullet extends GameComponent {
             topLeftYPos -= DELTA_Y;
     }
 
-    // This method removes a bullet from the ArrayList of bullets once its hit an enemy or passed the top of the screen
-    public void removeBullet(){
-        if(getTopLeftYPos() + height < 0){
-            tankBullets.removeBullet(this);
-        } else if (getTopLeftYPos()  > SpaceInvadersGUI.HEIGHT) {
-            alienBulls.removeBullet(this);
-        }
-    }
-
-    @Override
-    public void update(){
-        fireBullet();
-        removeBullet();
-    }
-
     @Override
     public void draw(Graphics2D g) {
-
         g.setColor(Color.WHITE);//getColor();
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.drawRect(topLeftXPos, topLeftYPos, width, height);
@@ -75,5 +65,25 @@ public class Bullet extends GameComponent {
 
     }
 
+    public void update() {
+        fireBullet();
+        notifyObservers();
+    }
 
+    public boolean isAlienBullet() {
+        return isAlienBullet;
+    }
+
+    public void registerObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        this.observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (Observer observer: observers)
+            observer.updateObserver(this);
+    }
 }

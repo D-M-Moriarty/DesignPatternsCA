@@ -1,5 +1,6 @@
 package things;
 
+import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  * It Interfaces with Runnable and KeyListener
  */
 
-public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener {
+public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, Observer {
 
     // Class Attributes
 
@@ -77,6 +78,9 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener {
         setFocusable(true);
         //gets the focus
         requestFocus();
+
+        alienBulls.registerObserver(this);
+        tankBulls.registerObserver(this);
     }
 
     //@Override
@@ -287,6 +291,18 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener {
 
         if(key == KeyEvent.VK_SPACE){
             barrel.setFiring(true);
+        }
+    }
+
+    // This method removes a bullet from the ArrayList of bullets
+    // once its hit an enemy or passed the top of the screen
+    public void updateObserver(Bullet bullet) {
+        int tplYPos = bullet.getTopLeftYPos();
+        int bulletHeight = bullet.getHeight();
+        if(tplYPos + bulletHeight < 0){
+            tankBulls.removeBullet(bullet);
+        } else if (tplYPos > HEIGHT) {
+            alienBulls.removeBullet(bullet);
         }
     }
 }
