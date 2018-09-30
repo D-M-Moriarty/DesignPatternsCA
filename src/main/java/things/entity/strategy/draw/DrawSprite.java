@@ -1,6 +1,4 @@
-package things.entity.draw;
-
-import things.GameComponent;
+package things.entity.strategy.draw;
 
 import java.awt.*;
 

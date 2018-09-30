@@ -3,8 +3,8 @@ package things;
 //import sun.audio.AudioPlayer;
 //import sun.audio.AudioStream;
 
-import things.entity.draw.DrawSprite;
-import things.entity.update.UpdateSprite;
+import things.entity.strategy.draw.DrawSprite;
+import things.entity.strategy.update.UpdateSprite;
 
 import java.awt.*;
 import java.io.FileInputStream;

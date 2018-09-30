@@ -1,5 +1,7 @@
 package things;
 
+import things.entity.singleton.FiredBullets;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -30,7 +32,8 @@ public class Tank extends GameComponent{
 
     private GameMain gameMain;
 
-    Player player;
+    private Player player;
+    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
 
     /**
      * 6 argument constructor method
@@ -121,11 +124,11 @@ public class Tank extends GameComponent{
         deltaX = 0;
 
         // checking for collisions with the tank
-        for (int k = 0; k < SpaceInvadersGUI.alienBullets.size(); k++) {
-            Bullet bullet = SpaceInvadersGUI.alienBullets.get(k);
+        for (int k = 0; k < alienBulls.size(); k++) {
+            Bullet alienBullet = alienBulls.getBullet(k);
 
 
-            if (bullet.collidesWith(this)) {
+            if (alienBullet.collidesWith(this)) {
                 System.out.println(getLivesLeft());
 
                 try{
@@ -143,7 +146,7 @@ public class Tank extends GameComponent{
                     SpaceInvadersGUI.tankLife2.setColor(Color.BLACK);
                 }
 
-                SpaceInvadersGUI.alienBullets.remove(bullet);
+                alienBulls.removeBullet(alienBullet);
 
                 // if the lives run out
                 if (getLivesLeft() < 1){

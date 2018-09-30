@@ -1,0 +1,5 @@
+package things.entity.observer;
+
+public interface Observer {
+    void updateObserver();
+}

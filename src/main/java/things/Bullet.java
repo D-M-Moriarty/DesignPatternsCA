@@ -1,7 +1,8 @@
 package things;
 
-import things.entity.draw.DrawSquareSprite;
-import things.entity.update.UpdateBullet;
+import things.entity.strategy.draw.DrawSquareSprite;
+import things.entity.singleton.FiredBullets;
+import things.entity.strategy.update.UpdateBullet;
 
 import java.awt.*;
 
@@ -23,6 +24,8 @@ public class Bullet extends GameComponent {
         This is the amount of pixels the entity will move per second/update */
     private static final int DELTA_Y = 5;
     private boolean isAlienBullet;
+    private FiredBullets tankBullets = FiredBullets.getTankBullets();
+    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
 
     /**
      *
@@ -49,15 +52,15 @@ public class Bullet extends GameComponent {
 
     // This method removes a bullet from the ArrayList of bullets once its hit an enemy or passed the top of the screen
     public void removeBullet(){
-        if(getTopLeftYPos() + height < 0 || getTopLeftYPos()  > SpaceInvadersGUI.HEIGHT){
-                SpaceInvadersGUI.bullets.remove(this);
-
+        if(getTopLeftYPos() + height < 0){
+            tankBullets.removeBullet(this);
+        } else if (getTopLeftYPos()  > SpaceInvadersGUI.HEIGHT) {
+            alienBulls.removeBullet(this);
         }
     }
 
     @Override
     public void update(){
-
         fireBullet();
         removeBullet();
     }
