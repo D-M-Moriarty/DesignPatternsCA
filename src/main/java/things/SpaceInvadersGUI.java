@@ -1,5 +1,7 @@
 package things;
 
+import things.entity.singleton.FiredBullets;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
  * It Interfaces with Runnable and KeyListener
  */
 
-public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
+public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener {
 
     // Class Attributes
 
@@ -44,8 +46,9 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
     public static Tank tankLife3;
     private Barrel barrel;
     private  Barrier[] barrier;
-    public static ArrayList<Bullet> bullets;
-    public static ArrayList<Bullet> alienBullets;
+    // TODO instantiated on main thread and refernced on game thread
+    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
+    private FiredBullets tankBulls = FiredBullets.getTankBullets();
     private AlienInvaders2 aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
@@ -106,11 +109,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
 
         aliens = new AlienInvaders2(50, 50, 50, 50, Color.WHITE, gameMain);
 
-        // Instantiating the ArrayList of Bullets
-        bullets = new ArrayList();
-
-        // Instantiating the ArrayList of AlienBullets
-        alienBullets = new ArrayList();
 
         // Declaring variables to determine loop length time
         long startTime;
@@ -172,12 +170,12 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
 
 
         // updating the bullets
-        for(int i = 0; i < bullets.size(); i++){
-            bullets.get(i).update();
+        for(int i = 0; i < tankBulls.size(); i++){
+            tankBulls.getBullet(i).update();
         }
 
-        for(int i = 0; i < alienBullets.size(); i++){
-            alienBullets.get(i).updateEntity();
+        for(int i = 0; i < alienBulls.size(); i++){
+            alienBulls.getBullet(i).updateEntity();
         }
 
     }
@@ -190,7 +188,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0 , WIDTH, HEIGHT);
         g.setColor(Color.WHITE);
-        //g.drawString("The bullet count is: " + alienBullets.size(), 10, 20);
+        g.drawString("The alien bullet count is: " + alienBulls.size(), 10, 20);
+        g.drawString("The tank bullet count is: " + tankBulls.size(), 10, 40);
         g.drawString("\nSCORE: " + getPlayerScore(), 10, 20);
 
         g.setColor(Color.GREEN);
@@ -212,13 +211,13 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
         aliens.draw(g);
 
         // Drawing ArrayList of bullets
-        for(int i = 0; i < bullets.size(); i++){
-            bullets.get(i).draw(g);
+        for(int i = 0; i < tankBulls.size(); i++){
+            tankBulls.getBullet(i).draw(g);
         }
 
         // Drawing ArrayList of AlienBullets
-        for(int i = 0; i < alienBullets.size(); i++){
-            alienBullets.get(i).drawEntity(g);
+        for(int i = 0; i < alienBulls.size(); i++){
+            alienBulls.getBullet(i).drawEntity(g);
         }
 
 

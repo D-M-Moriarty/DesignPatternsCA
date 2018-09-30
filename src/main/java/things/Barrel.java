@@ -1,5 +1,7 @@
 package things;
 
+import things.entity.singleton.FiredBullets;
+
 import java.awt.*;
 
 /**
@@ -26,6 +28,7 @@ public class Barrel extends GameComponent {
     private int deltaX;
     // The initial speed to travel horizontally
     private int horizontalSpeed;
+    private FiredBullets tankBullets = FiredBullets.getTankBullets();
 
 
     /**
@@ -72,6 +75,7 @@ public class Barrel extends GameComponent {
     }
 
 
+
     // This method decides what to do every time the screen refreshes
     @Override
     public void update(){
@@ -105,9 +109,8 @@ public class Barrel extends GameComponent {
         // checking to see if firing is true
         if (firing){
             // Adding a new instance of a bullet to the arrayList of bullets
-            SpaceInvadersGUI.bullets.add(
-                    new Bullet(this.getTopLeftXPos() + (width / 4), 570, 5, 10, Color.WHITE, false)
-            );
+            Bullet bullet = new Bullet(this.getTopLeftXPos() + (width / 4), 570, 5, 10, Color.WHITE, false);
+            tankBullets.addBullet(bullet);
             try{
                 playSound("sounds/shoot.wav");
             } catch (Exception e) {

@@ -1,5 +1,7 @@
 package things;
 
+import things.entity.singleton.FiredBullets;
+
 import java.awt.*;
 
 /**
@@ -18,6 +20,8 @@ public class Barrier extends GameComponent {
 
     // Two dimensional array of BarrierBlock objects
     private BarrierBlock[][] barrierBlocks;
+    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
+    private FiredBullets tankBulls = FiredBullets.getTankBullets();
 
     /**
      * 5 argument constructor
@@ -52,25 +56,23 @@ public class Barrier extends GameComponent {
     public void update() {
 
         // checking for collisions with the barriers
-        for (int k = 0; k < SpaceInvadersGUI.bullets.size(); k++) {
-            Bullet bullet = SpaceInvadersGUI.bullets.get(k);
+        for (int k = 0; k < tankBulls.size(); k++) {
+            Bullet tankBullet = tankBulls.getBullet(k);
+            for (int i = 0; i < alienBulls.size(); i++) {
+                Bullet alienBullet = alienBulls.getBullet(i);
 
-            for (int i = 0; i < SpaceInvadersGUI.alienBullets.size(); i++) {
-                Bullet alienBullet = SpaceInvadersGUI.alienBullets.get(i);
 
-                if(alienBullet.collidesWith(bullet)){
-                    SpaceInvadersGUI.bullets.remove(k);
-                    SpaceInvadersGUI.alienBullets.remove(i);
+                if(alienBullet.collidesWith(tankBullet)){
+                    tankBulls.removeBullet(k);
+                    alienBulls.removeBullet(i);
                 }
             }
-
-
             for (int i = 0; i < 7; i++) {
                 for (int j = 0; j < 12; j++) {
 
-                    if (bullet.collidesWith(barrierBlocks[i][j])) {
+                    if (tankBullet.collidesWith(barrierBlocks[i][j])) {
                         System.out.println("There was a collision");
-                        SpaceInvadersGUI.bullets.remove(bullet);
+                        tankBulls.removeBullet(tankBullet);
                         barrierBlocks[i][j].setHeight(-1);
                         barrierBlocks[i][j].setWidth(-1);
                         barrierBlocks[i][j].setTopLeftXPos(-1);
@@ -90,16 +92,17 @@ public class Barrier extends GameComponent {
 
         }
 
+
         // checking for collisions with alien bullets
-        for (int k = 0; k < SpaceInvadersGUI.alienBullets.size(); k++) {
-            Bullet bullet = SpaceInvadersGUI.alienBullets.get(k);
+        for (int k = 0; k < alienBulls.size(); k++) {
+            Bullet alienBullet = alienBulls.getBullet(k);
 
 
             for (int i = 0; i < 7; i++) {
                 for (int j = 0; j < 12; j++) {
 
-                    if (bullet.collidesWith(barrierBlocks[i][j])) {
-                        SpaceInvadersGUI.alienBullets.remove(bullet);
+                    if (alienBullet.collidesWith(barrierBlocks[i][j])) {
+                        alienBulls.removeBullet(alienBullet);
                         barrierBlocks[i][j].setHeight(-1);
                         barrierBlocks[i][j].setWidth(-1);
                         barrierBlocks[i][j].setTopLeftXPos(-1);

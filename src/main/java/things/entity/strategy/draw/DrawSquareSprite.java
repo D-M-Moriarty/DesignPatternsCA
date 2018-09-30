@@ -1,4 +1,4 @@
-package things.entity.draw;
+package things.entity.strategy.draw;
 
 import things.GameComponent;
 

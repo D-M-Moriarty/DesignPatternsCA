@@ -1,5 +1,7 @@
 package things;
 
+import things.entity.singleton.FiredBullets;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -55,6 +57,9 @@ public class AlienInvaders2 extends GameComponent {
 
     // checks if the aliens have reached a certain height on the screen
     private boolean heightReached = false;
+
+    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
+    private FiredBullets tankBulls = FiredBullets.getTankBullets();
 
 
     public AlienInvaders2(int topLeftXPos, int topLeftYPos, int width, int height, Color color, GameMain gameMain) {
@@ -168,11 +173,14 @@ public class AlienInvaders2 extends GameComponent {
                 timeWaiting -= 1;
 
                 if(timeWaiting <= 0 && firing && !alienEntities[randomFireRow][randomFire].isDestroyed()){
-                    SpaceInvadersGUI.alienBullets.add(new Bullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
-                            alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10, Color.RED, true));
+                    Bullet bullet = new Bullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
+                            alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10,
+                            Color.RED, true);
+                    alienBulls.addBullet(bullet);
 
-                    SpaceInvadersGUI.alienBullets.add(new Bullet(getGerX() + 20,
-                            10 + 40, 5, 10, Color.YELLOW, true));
+                    Bullet gerBullet = new Bullet(getGerX() + 20,
+                            10 + 40, 5, 10, Color.YELLOW, true);
+                    alienBulls.addBullet(gerBullet);
 
                     // resetting the time waiting
                     timeWaiting = bulletTimingDelay;
@@ -217,17 +225,16 @@ public class AlienInvaders2 extends GameComponent {
 
 
         // Checking for collisions between tank bullets and aliens
-        for (int k = 0; k < SpaceInvadersGUI.bullets.size(); k++) {
-            Bullet bullet = SpaceInvadersGUI.bullets.get(k);
+        for (int k = 0; k < tankBulls.size(); k++) {
+            Bullet tankBullet = tankBulls.getBullet(k);
 
             // Checking for collision between alien and tank bullets
-            for (int i = 0; i < SpaceInvadersGUI.alienBullets.size(); i++) {
-                GameComponent alienBullet = SpaceInvadersGUI.alienBullets.get(i);
+            for (int i = 0; i < alienBulls.size(); i++) {
+                Bullet aBullet = alienBulls.getBullet(i);
 
-                // removing the bullets
-                if (alienBullet.collidesWith(bullet)){
-                    SpaceInvadersGUI.bullets.remove(bullet);
-                    SpaceInvadersGUI.alienBullets.remove(alienBullet);
+                if (tankBullet.collidesWith(aBullet)) {
+                    alienBulls.removeBullet(aBullet);
+                    tankBulls.removeBullet(tankBullet);
                 }
             }
 
@@ -235,7 +242,7 @@ public class AlienInvaders2 extends GameComponent {
             for (int i = 0; i < 5; i++) {
                 for (int j = 0; j < 11; j++) {
 
-                    if (bullet.collidesWith(alienEntities[i][j])) {
+                    if (tankBullet.collidesWith(alienEntities[i][j])) {
 
                         try{
                             playSound("sounds/invaderkilled.wav");
@@ -255,7 +262,7 @@ public class AlienInvaders2 extends GameComponent {
                         }
 
                         // drawing the aliens off the screen and reducing their dimensions
-                        SpaceInvadersGUI.bullets.remove(bullet);
+                        tankBulls.removeBullet(tankBullet);
                         alienEntities[i][j].setHeight(-1000);
                         alienEntities[i][j].setWidth(-1000);
                         alienEntities[i][j].setTopLeftXPos(-1000);
@@ -270,37 +277,56 @@ public class AlienInvaders2 extends GameComponent {
                             delta *= 5;
                             delta2 *= 5;
 
-//                            if(alienEntities[i][j].getTopLeftXPos() > 100){
-//
-//                                try{
-//                                    playSound("sounds/fastinvader1.wav");
-//                                }
-//                                catch (Exception e) { e.printStackTrace(); }
-//
-//                            }
-//                            if(alienEntities[i][j].getTopLeftXPos() > 200){
-//
-//                                try{
-//                                    playSound("sounds/fastinvader2.wav");
-//                                }
-//                                catch (Exception e) { e.printStackTrace(); }
-//
-//                            }
-//                            if(alienEntities[i][j].getTopLeftXPos() > 300){
-//
-//                                try{
-//                                    playSound("sounds/fastinvader3.wav");
-//                                }
-//                                catch (Exception e) { e.printStackTrace(); }
-//
-//                            }
-//                            if(alienEntities[i][j].getTopLeftXPos() > 400){
-//
-//                                try{
-//                                    playSound("sounds/fastinvader4.wav");
-//                                }
-//                                catch (Exception e) { e.printStackTrace(); }
-//                            }
+                        }
+
+                        // all the aliens are dead
+                        if (deathCount == 55){
+
+                            delta /= 5;
+                            delta2 /= 5;
+
+                            for (int l = 0; l < 5; l++) {
+                                for (int m = 0; m < 11; m++) {
+
+                                    // redraw them at their original positions
+                                    alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
+                                    alienEntities[l][m].setTopLeftYPos(originalTopLeftYPos + l * originalHeight);
+                                    alienEntities[l][m].setWidth(originalWidth);
+                                    alienEntities[l][m].setHeight(originalHeight);
+                                    alienEntities[l][m].setColor(originalColor);
+                                    alienEntities[l][m].setDestroyed(false);
+
+                                }
+                            }
+
+                            // doubling the traversal speed
+                            delta *= 2;
+                            delta2 *= 2;
+                            // resetting the death count
+                            deathCount = 0;
+
+                        }
+
+                    }
+
+                    if (tankBullet.collidesWith(alienEntities[i][j])) {
+
+
+                        // drawing the aliens off the screen and reducing their dimensions
+                        tankBulls.removeBullet(tankBullet);
+                        alienEntities[i][j].setHeight(-1000);
+                        alienEntities[i][j].setWidth(-1000);
+                        alienEntities[i][j].setTopLeftXPos(-1000);
+                        alienEntities[i][j].setTopLeftYPos(-1000);
+                        alienEntities[i][j].setDestroyed(true);
+
+                        // keeping track of deaths
+                        deathCount++;
+                        System.out.println(deathCount);
+
+                        if(deathCount == 54){
+                            delta *= 5;
+                            delta2 *= 5;
 
                         }
 
@@ -343,16 +369,16 @@ public class AlienInvaders2 extends GameComponent {
         }
 
         // checking for collisions with geraldine
-        for (int i = 0; i < SpaceInvadersGUI.bullets.size(); i++) {
-            Rectangle r2 = new Rectangle(SpaceInvadersGUI.bullets.get(i).getTopLeftXPos(),
-                    SpaceInvadersGUI.bullets.get(i).getTopLeftYPos(),
-                    SpaceInvadersGUI.bullets.get(i).getWidth(),
-                    SpaceInvadersGUI.bullets.get(i).getHeight());
+        for (int i = 0; i < tankBulls.size(); i++) {
+            Rectangle r2 = new Rectangle(tankBulls.getBullet(i).getTopLeftXPos(),
+                    tankBulls.getBullet(i).getTopLeftYPos(),
+                    tankBulls.getBullet(i).getWidth(),
+                    tankBulls.getBullet(i).getHeight());
 
             // Calculating the random value for hitting geraldine
             if(r2.intersects(getGerX(), 10, 50 ,50)){
                 System.out.println("It hit ger");
-                SpaceInvadersGUI.bullets.remove(i);
+                tankBulls.removeBullet(i);
                 setGerX(-2000);
                 SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() +
                         ((int)(Math.random() * 150) + 51));
