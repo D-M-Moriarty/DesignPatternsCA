@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c525b553-8df6-4e82-8f87-d4dd3a92a608" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/MoltenBullet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29d076dc32355a2ef421953a2d56b500db6586d4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29d076dc32355a2ef421953a2d56b500db6586d4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/46043e2f3ead26e0172d0d8958930b8035333301" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/770e45cadbe38c0152e0f6d879e1513a9ccc1da3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/830c6a297ade0eb26e4e39d2612048e730fa0844" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/830c6a297ade0eb26e4e39d2612048e730fa0844" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/c/ac7feadbbacc5ddfdf026b364016e444e87593c9" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b1a0f2534af8704145bbbd69d7f21c08983a7133" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b1a0f2534af8704145bbbd69d7f21c08983a7133" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c053df36755aad0896bc18c2323ea9708dc6dc38" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d358dced7831c30f77afe8867d8281e5baf9cf07" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/db7e46541e1602e7c54c89c68d060f981acc1a17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e39b2443cf8e696ee66d91633d067e27345b05a1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/Barrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TestDecorator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/WideBarrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/WideBarrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/things/SpaceInvadersGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/SpaceInvadersGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/decorator/DoubleBarrel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/decorator/DoubleBarrel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/decorator/TankBarrelDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/decorator/TankBarrelDecorator.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,7 +60,7 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="11" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.13" value="1" />
@@ -84,7 +69,7 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -132,6 +117,7 @@
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
+          <entry key="git.branch.checkout.revision" value="1" />
           <entry key="git.branch.create.new" value="2" />
         </counts>
       </usages-collector>
@@ -160,7 +146,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/MoltenBullet.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="756">
-                  <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+                  <caret line="27" selection-start-line="27" selection-end-line="27" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -171,8 +157,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="952">
-                  <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+                <state relative-caret-position="868">
+                  <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -183,7 +169,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Bullet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1372">
+                <state relative-caret-position="1568">
                   <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -213,8 +199,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
+                <state relative-caret-position="1155">
+                  <caret line="296" column="9" lean-forward="true" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -328,11 +314,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1998" />
-    <option name="y" value="125" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1680" />
+    <option name="y" value="23" />
+    <option name="width" value="3008" />
+    <option name="height" value="1669" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -340,7 +326,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -404,6 +389,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -582,6 +568,7 @@
       <workItem from="1538734468584" duration="5435000" />
       <workItem from="1538740697901" duration="9011000" />
       <workItem from="1538750002359" duration="3620000" />
+      <workItem from="1538767228620" duration="524000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1537223984570</created>
@@ -689,13 +676,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103867000" />
+    <option name="totallyTimeSpent" value="104391000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="23" width="3008" height="1669" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902725" visible="true" weight="0.11808367" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902725" visible="true" weight="0.11875843" />
       <window_info id="Structure" order="1" sideWeight="0.50097275" side_tool="true" weight="0.1993927" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -704,7 +691,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2043081" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2043081" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.25391644" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1341,9 +1328,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="868">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1372">
+        <state relative-caret-position="1568">
           <caret line="56" column="36" selection-start-line="56" selection-start-column="36" selection-end-line="56" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1363,6 +1360,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/MoltenBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1155">
+          <caret line="296" column="9" lean-forward="true" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1764">
@@ -1379,33 +1393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/MoltenBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
         </state>
       </provider>
     </entry>
