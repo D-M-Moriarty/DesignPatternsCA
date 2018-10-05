@@ -1,6 +1,6 @@
 package things.entity.singleton;
 
-import things.Bullet;
+import things.entity.Bullet;
 import things.entity.observer.Observer;
 import things.entity.observer.Subject;
 
@@ -34,6 +34,9 @@ public class FiredBullets implements Subject, Observer {
     }
 
     public void addBullet(Bullet bullet) {
+        // TODO remove the observation of bullet
+        // TODO notifyObserver when the bullet is added to the list
+        // TODO change the list to a stack
         bullet.registerObserver(this);
         bullets.add(bullet);
     }
