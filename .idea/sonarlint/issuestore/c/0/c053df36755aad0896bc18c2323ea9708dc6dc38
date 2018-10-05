@@ -1,9 +1,0 @@
-
-W
-squid:S106„"9Replace this use of System.out or System.err by a logger.(Ûœ¯“8‰¿·÷â,
-psquid:S3776b"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Ö×õÄ8‰¿·÷â,
-xsquid:S1450#"URemove the "player" field and declare it as a local variable in the relevant methods.(Ç¹Ù±úÿÿÿÿ8‰¿·÷â,
-ssquid:S1450"URemove the "deltaX" field and declare it as a local variable in the relevant methods.(ô®Ä¸8‰¿·÷â,
-Bsquid:S1148‰"#Use a logger to log this exception.(Â“å´8‰¿·÷â,
-`squid:S001071"AConstructor has 8 parameters, which is greater than 7 authorized.(–«¿´8‰¿·÷â,
-Ysquid:S1161½":Add the "@Override" annotation above this method signature(Á»›ê8‰¿·÷â,

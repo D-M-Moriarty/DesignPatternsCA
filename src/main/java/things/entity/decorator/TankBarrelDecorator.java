@@ -1,23 +1,46 @@
 package things.entity.decorator;
 
+import things.entity.Barrel;
 import things.entity.GameComponent;
 
 import java.awt.*;
 
 public abstract class TankBarrelDecorator extends AbstractBarrel {
 
-    /**
-     * 5 argument constructor method
-     *
-     * @param topLeftXPos value passed into the method
-     * @param topLeftYPos value passed into the method
-     * @param width       value passed into the method
-     * @param height      value passed into the method
-     * @param color       value passed into the method
-     */
-    public TankBarrelDecorator(int topLeftXPos, int topLeftYPos, int width, int height, Color color, int horizontalSpeed) {
+    protected AbstractBarrel barrel;
+    private final String packageName =  "things.entity.decorator.";
+
+    public TankBarrelDecorator(int topLeftXPos, int topLeftYPos, int width,
+                               int height, Color color, int horizontalSpeed, AbstractBarrel barrel) {
         super(topLeftXPos, topLeftYPos, width, height, color, horizontalSpeed);
+        this.barrel = barrel;
+
     }
 
-    public abstract void draw(Graphics2D g);
+    public boolean hasDecorator(String className) {
+        if (barrel.getClass().getName()
+                .equals(packageName + className))
+            return true;
+        else
+            return barrel.hasDecorator(className);
+    }
+
+    public AbstractBarrel withoutDecorator(String className) {
+        String name = barrel.getClass().getName();
+        if (barrel.getClass().getName()
+                .equals(packageName + className)) {
+            name = barrel.getClass().getName();
+            barrel = barrel.getBarrel();
+            name = barrel.getClass().getName();
+            return barrel;
+        }
+        else
+            return barrel.withoutDecorator(className);
+    }
+
+    @Override
+    public AbstractBarrel getBarrel() {
+        return barrel.getBarrel();
+    }
+
 }

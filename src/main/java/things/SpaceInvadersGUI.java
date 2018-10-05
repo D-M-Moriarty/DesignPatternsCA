@@ -1,9 +1,7 @@
 package things;
 
 import things.entity.*;
-import things.entity.decorator.AbstractBarrel;
-import things.entity.decorator.DoubleBarrel;
-import things.entity.decorator.WideBarrel;
+import things.entity.decorator.*;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
@@ -278,13 +276,31 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
 
         if (key == KeyEvent.VK_UP) {
-            if (doubleBisActive)
+            if (barrel instanceof DoubleBarrel)
                 barrel = barrel.getBarrel();
-            else {
+            else
                 barrel = new DoubleBarrel(barrel);
-            }
-            doubleBisActive = !doubleBisActive;
+        }
 
+        if (key == KeyEvent.VK_W) {
+            if (barrel.hasDecorator("WideBarrel")) {
+                barrel.withoutDecorator("WideBarrel");
+                barrel = barrel.getBarrel();
+                System.out.println();
+            } else
+                barrel = new WideBarrel(barrel);
+            // TODO fix this horrible issue
+//            if (barrel instanceof WideBarrel)
+//                barrel = barrel.getBarrel();
+//            else
+//                barrel = new WideBarrel(barrel);
+        }
+
+        if (key == KeyEvent.VK_M) {
+            if (barrel instanceof MoltenBullet)
+                barrel = barrel.getBarrel();
+            else
+                barrel = new MoltenBullet(barrel);
         }
     }
 

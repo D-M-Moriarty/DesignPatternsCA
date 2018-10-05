@@ -1,7 +1,0 @@
-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(Ö×õÄ8²íêÑâ,
-?squid:S1148"#Use a logger to log this exception.(Â“å´8²íêÑâ,
-?squid:S1148"#Use a logger to log this exception.(Â“å´8µôôÔâ,
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(éÇ±8²íêÑâ,
-Vsquid:S1161":Add the "@Override" annotation above this method signature(Á»›ê8²íêÑâ,

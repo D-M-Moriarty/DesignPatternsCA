@@ -55,7 +55,7 @@ public class Bullet extends GameComponent implements Subject {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.WHITE);//getColor();
+        g.setColor(getColor());
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.drawRect(topLeftXPos, topLeftYPos, width, height);
         g.fillRect(topLeftXPos, topLeftYPos, width, height);
