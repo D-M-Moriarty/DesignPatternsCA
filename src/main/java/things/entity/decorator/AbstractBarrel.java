@@ -1,5 +1,6 @@
 package things.entity.decorator;
 
+import things.entity.Barrel;
 import things.entity.Bullet;
 import things.entity.GameComponent;
 import things.entity.singleton.FiredBullets;
@@ -19,6 +20,7 @@ public abstract class AbstractBarrel extends GameComponent {
     // The initial speed to travel horizontally
     protected int horizontalSpeed;
     protected FiredBullets tankBullets = FiredBullets.getTankBullets();
+    private Barrel barrel;
 
     /**
      * 5 argument constructor method
@@ -71,10 +73,21 @@ public abstract class AbstractBarrel extends GameComponent {
         return firing;
     }
 
+
     // This method decides what to do every time the screen refreshes
     @Override
     public void update(){
+        handleMovement();
 
+        // checking to see if firing is true
+        if (firing){
+            fireBulletFromBarrel();
+        }
+
+
+    }
+
+    protected void handleMovement() {
         // If the left attribute has the value of true
         if(left){
             // The next position of deltaX is the value of the horizontal speed ie. 5 pixels to the left
@@ -100,13 +113,6 @@ public abstract class AbstractBarrel extends GameComponent {
 
         // Resetting deltaX to 0
         deltaX = 0;
-
-        // checking to see if firing is true
-        if (firing){
-            fireBulletFromBarrel();
-        }
-
-
     }
 
     protected void fireBulletFromBarrel() {
@@ -145,5 +151,11 @@ public abstract class AbstractBarrel extends GameComponent {
 
     public abstract AbstractBarrel getBarrel();
 
+    public boolean hasDecorator(String className) {
+        return false;
+    }
 
+    public AbstractBarrel withoutDecorator(String className) {
+        return null;
+    }
 }

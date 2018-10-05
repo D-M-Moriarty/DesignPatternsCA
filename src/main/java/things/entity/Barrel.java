@@ -1,6 +1,7 @@
 package things.entity;
 
 import things.entity.decorator.AbstractBarrel;
+import things.entity.decorator.TankBarrelDecorator;
 
 import java.awt.*;
 
@@ -36,8 +37,9 @@ public class Barrel extends AbstractBarrel {
 
     @Override
     public AbstractBarrel getBarrel() {
-        return null;
+        return this;
     }
+
 
 
     public String toString(){
