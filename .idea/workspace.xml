@@ -2,45 +2,73 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c525b553-8df6-4e82-8f87-d4dd3a92a608" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29d076dc32355a2ef421953a2d56b500db6586d4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/46043e2f3ead26e0172d0d8958930b8035333301" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/770e45cadbe38c0152e0f6d879e1513a9ccc1da3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/830c6a297ade0eb26e4e39d2612048e730fa0844" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b01ec3ee64a005244be2fd024a8d58721560c04c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b1a0f2534af8704145bbbd69d7f21c08983a7133" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c053df36755aad0896bc18c2323ea9708dc6dc38" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/d/cd5e43bafc6526fd564745ab4ad9e73b016a1ba5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d358dced7831c30f77afe8867d8281e5baf9cf07" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/db7e46541e1602e7c54c89c68d060f981acc1a17" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e39b2443cf8e696ee66d91633d067e27345b05a1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/things/observer-pattern.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/HighScores.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/decorator/DoubleBarrel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/decorator/TankBarrelDecorator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/observer/Observer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/observer/Subject.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/singleton/FiredBullets.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/draw/DrawSprite.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/draw/DrawSquareSprite.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateAlienInvaders2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBarrel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBarrier.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBullet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateSprite.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateTank.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/things/BulletTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TestDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/WideBarrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29d076dc32355a2ef421953a2d56b500db6586d4" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/9/29d076dc32355a2ef421953a2d56b500db6586d4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/46043e2f3ead26e0172d0d8958930b8035333301" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/46043e2f3ead26e0172d0d8958930b8035333301" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/770e45cadbe38c0152e0f6d879e1513a9ccc1da3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/7/770e45cadbe38c0152e0f6d879e1513a9ccc1da3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/830c6a297ade0eb26e4e39d2612048e730fa0844" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/3/830c6a297ade0eb26e4e39d2612048e730fa0844" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b01ec3ee64a005244be2fd024a8d58721560c04c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b1a0f2534af8704145bbbd69d7f21c08983a7133" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b1a0f2534af8704145bbbd69d7f21c08983a7133" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c053df36755aad0896bc18c2323ea9708dc6dc38" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/0/c053df36755aad0896bc18c2323ea9708dc6dc38" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d358dced7831c30f77afe8867d8281e5baf9cf07" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/3/d358dced7831c30f77afe8867d8281e5baf9cf07" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/db7e46541e1602e7c54c89c68d060f981acc1a17" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/b/db7e46541e1602e7c54c89c68d060f981acc1a17" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e39b2443cf8e696ee66d91633d067e27345b05a1" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e39b2443cf8e696ee66d91633d067e27345b05a1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/Barrel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/things/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HighScores.dat" beforeDir="false" afterPath="$PROJECT_DIR$/HighScores.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/AlienEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/AlienEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/AlienInvaders2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/AlienInvaders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/Barrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/Barrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/Barrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/BarrierBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/BarrierBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/GameComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/GameComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/GameMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/observer/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/observer/Observer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/things/AlienInvaders2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/AlienInvaders2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/things/Barrel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/Barrel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/things/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/Bullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/singleton/FiredBullets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/singleton/FiredBullets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/strategy/draw/DrawSquareSprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/strategy/draw/DrawSquareSprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/things/entity/strategy/update/UpdateBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/things/entity/strategy/update/UpdateBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/things/BulletTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/things/BulletTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/AlienEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/AlienInvaders2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/Barrel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/Barrier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/BarrierBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/GameMain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameMain$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/GameMain$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameMain$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/GameMain$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameMain$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/GameMain$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameMain$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/GameMain$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/GameMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/GameMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/HighScores.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/HighScores.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/things/SpaceInvadersGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/SpaceInvadersGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/WelcomeGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/WelcomeGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/decorator/DoubleBarrel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/decorator/DoubleBarrel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/decorator/TankBarrelDecorator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/decorator/TankBarrelDecorator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/observer/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/observer/Observer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/observer/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/observer/Subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/singleton/FiredBullets.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/singleton/FiredBullets.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/draw/DrawSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/draw/DrawSprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/draw/DrawSquareSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/draw/DrawSquareSprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateAlienInvaders2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateAlienInvaders2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBarrel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBarrel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBarrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBarrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateBullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateSprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/things/entity/strategy/update/UpdateTank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/things/BulletTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/things/BulletTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,6 +77,63 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="uml://JAVA/things.entity.decorator.TankBarrelDecorator">
+                <provider selected="true" editor-type-id="UmlEditorProvider">
+                  <state>
+                    <ID>JAVA</ID>
+                    <OriginalElement>things.entity.decorator.TankBarrelDecorator</OriginalElement>
+                    <nodes>
+                      <node x="106.25" y="585.0">things.entity.decorator.AbstractBarrel</node>
+                      <node x="228.0" y="1002.0">things.entity.Barrel</node>
+                      <node x="9.0" y="1014.0">things.entity.decorator.TankBarrelDecorator</node>
+                      <node x="0.0" y="1131.0">things.entity.decorator.DoubleBarrel</node>
+                      <node x="74.75" y="0.0">things.entity.GameComponent</node>
+                    </nodes>
+                    <notes />
+                    <edges>
+                      <edge source="things.entity.decorator.AbstractBarrel" target="things.entity.GameComponent">
+                        <point x="0.0" y="-183.5" />
+                        <point x="0.0" y="267.5" />
+                      </edge>
+                      <edge source="things.entity.Barrel" target="things.entity.decorator.AbstractBarrel">
+                        <point x="0.0" y="-39.5" />
+                        <point x="334.0" y="977.0" />
+                        <point x="278.75" y="977.0" />
+                        <point x="57.5" y="183.5" />
+                      </edge>
+                      <edge source="things.entity.decorator.DoubleBarrel" target="things.entity.decorator.TankBarrelDecorator">
+                        <point x="0.0" y="-51.5" />
+                        <point x="0.0" y="27.5" />
+                      </edge>
+                      <edge source="things.entity.decorator.TankBarrelDecorator" target="things.entity.decorator.AbstractBarrel">
+                        <point x="0.0" y="-27.5" />
+                        <point x="108.5" y="977.0" />
+                        <point x="163.75" y="977.0" />
+                        <point x="-57.5" y="183.5" />
+                      </edge>
+                    </edges>
+                    <settings layout="Hierarchic Group" zoom="1.0" x="497.5" y="819.5" />
+                    <SelectedNodes />
+                    <Categories>
+                      <Category>Methods</Category>
+                    </Categories>
+                    <SCOPE>All</SCOPE>
+                    <VISIBILITY>private</VISIBILITY>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1695389247">
@@ -86,38 +171,43 @@
     <session id="-1018276585">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4301" />
+          <entry key="dummy" value="6" />
+          <entry key="java" value="5431" />
           <entry key="puml" value="1328" />
-          <entry key="txt" value="888" />
+          <entry key="txt" value="971" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4301" />
-          <entry key="PLAIN_TEXT" value="888" />
+          <entry key="JAVA" value="5431" />
+          <entry key="PLAIN_TEXT" value="977" />
           <entry key="PlantUML file" value="1328" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="AlienBullet" value="1" />
+          <entry key="Barrel" value="2" />
           <entry key="Bullet" value="1" />
           <entry key="FiredBullets" value="3" />
           <entry key="SpaceInvadersGUI" value="1" />
+          <entry key="TankBarrelDecorator" value="2" />
           <entry key="WelcomeGUI" value="1" />
           <entry key="class" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="175" />
+          <entry key="java" value="201" />
           <entry key="jpg" value="2" />
           <entry key="puml" value="8" />
           <entry key="xml" value="1" />
@@ -128,9 +218,9 @@
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="1" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="175" />
+          <entry key="JAVA" value="201" />
           <entry key="PlantUML file" value="8" />
-          <entry key="UML" value="7" />
+          <entry key="UML" value="11" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -149,95 +239,21 @@
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/Bullet.java">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/GameComponent.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="823">
-                  <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
+                <state relative-caret-position="955">
+                  <caret line="223" selection-start-line="223" selection-end-line="223" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="630">
+                  <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="method#draw#0;class#Bullet#0" />
-                    <element signature="e#2278#2279#0" expanded="true" />
-                    <element signature="e#2314#2315#0" expanded="true" />
-                    <element signature="e#2369#2370#0" expanded="true" />
-                    <element signature="e#2413#2414#0" expanded="true" />
-                    <element signature="e#2466#2467#0" expanded="true" />
-                    <element signature="e#2513#2514#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/Barrel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2574#2575#0" expanded="true" />
-                    <element signature="e#2601#2602#0" expanded="true" />
-                    <element signature="e#2633#2634#0" expanded="true" />
-                    <element signature="e#2661#2662#0" expanded="true" />
-                    <element signature="e#2694#2695#0" expanded="true" />
-                    <element signature="e#2723#2724#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/observer/Observer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="140">
-                  <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/observer/Subject.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="196">
-                  <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/AlienEntity.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="196">
-                  <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/AlienInvaders2.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1400">
-                  <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="704">
-                  <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/singleton/FiredBullets.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="496">
-                  <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#getTankBullets#0;class#FiredBullets#0" />
                   </folding>
                 </state>
               </provider>
@@ -246,28 +262,10 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="644">
-                  <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+                <state relative-caret-position="588">
+                  <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="877">
-                  <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#1560#1561#0" expanded="true" />
-                    <element signature="e#1627#1628#0" expanded="true" />
-                    <element signature="e#1672#1673#0" expanded="true" />
-                    <element signature="e#1751#1752#0" expanded="true" />
-                    <element signature="e#1795#1796#0" expanded="true" />
-                    <element signature="e#1847#1848#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -277,23 +275,63 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/things/Barrel.java">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Tank.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1476">
-                  <caret line="141" column="46" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="46" />
+                <state relative-caret-position="89">
+                  <caret line="20" column="39" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="39" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="889">
+                  <caret line="283" column="50" selection-start-line="283" selection-start-column="50" selection-end-line="283" selection-end-column="50" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Barrel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="504">
+                  <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#2574#2575#0" expanded="true" />
-                    <element signature="e#2601#2602#0" expanded="true" />
-                    <element signature="e#2633#2634#0" expanded="true" />
-                    <element signature="e#2661#2662#0" expanded="true" />
-                    <element signature="e#2694#2695#0" expanded="true" />
-                    <element signature="e#2723#2724#0" expanded="true" />
-                    <element signature="e#4447#4448#0" expanded="true" />
-                    <element signature="e#4486#4487#0" expanded="true" />
-                    <element signature="e#4450#4451#0" expanded="true" />
-                    <element signature="e#4504#4505#0" expanded="true" />
+                    <element signature="docComment;class#Barrel#0" />
+                    <element signature="docComment;method#Barrel#0;class#Barrel#0" />
+                    <element signature="e#1280#1281#0" expanded="true" />
+                    <element signature="e#1307#1308#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="667">
+                  <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="docComment;method#setLeft#0;class#AbstractBarrel#0" />
+                    <element signature="docComment;method#setHorizontalSpeed#0;class#AbstractBarrel#0" />
+                    <element signature="e#3887#3888#0" expanded="true" />
+                    <element signature="e#3925#3926#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/WideBarrel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="588">
+                  <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -331,7 +369,6 @@
         <option value="$PROJECT_DIR$/src/main/java/things/Player.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/HighScores.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/BarrierBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/things/GameMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/strategy-pattern-iml.puml" />
         <option value="$PROJECT_DIR$/src/main/java/things/pre-strategy-pattern-iml.puml" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -342,7 +379,6 @@
         <option value="$PROJECT_DIR$/src/main/java/things/entity/update/UpdateTank.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/draw/DrawSprite.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/draw/DrawSquareSprite.java" />
-        <option value="$PROJECT_DIR$/src/main/java/things/GameComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/update/UpdateAlienBullet.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/strategy-pattern.puml" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/update/UpdateBullet.java" />
@@ -352,14 +388,23 @@
         <option value="$PROJECT_DIR$/src/main/java/things/Barrier.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/observer/Subject.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/strategy/update/UpdateBullet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/things/entity/singleton/FiredBullets.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/AlienInvaders2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/things/Bullet.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/observer/Observer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/Barrel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/GameMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/singleton/FiredBullets.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/TestDecorator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/GameComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractTank.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/Tank.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/GameComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/Barrel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java" />
         <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/entity/decorator/WideBarrel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java" />
       </list>
     </option>
   </component>
@@ -389,6 +434,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -446,41 +492,19 @@
               <item name="DesignPatternsCA" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="things" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="observer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DesignPatternsCA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DesignPatternsCA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="things" type="462c0819:PsiDirectoryNode" />
-              <item name="entity" type="462c0819:PsiDirectoryNode" />
-              <item name="singleton" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DesignPatternsCA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DesignPatternsCA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538341872260" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538698975104" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -493,9 +517,10 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="things" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="things.entity.draw" />
-      <recent name="things.entity.update" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/things" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/things" />
@@ -503,10 +528,9 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java/things" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="things.entity.draw" />
+      <recent name="things.entity.update" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -644,6 +668,10 @@
       <workItem from="1537395146649" duration="14273000" />
       <workItem from="1537520631625" duration="5168000" />
       <workItem from="1538305788269" duration="10968000" />
+      <workItem from="1538562410423" duration="16000" />
+      <workItem from="1538573826732" duration="2411000" />
+      <workItem from="1538651509520" duration="2276000" />
+      <workItem from="1538685050606" duration="9405000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <created>1537223984570</created>
@@ -701,7 +729,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538316126550</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Made a double barrel class as a decorator class for the barrel class">
+      <created>1538342165211</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1538342165211</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -737,13 +772,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62737000" />
+    <option name="totallyTimeSpent" value="79453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="23" width="3008" height="1669" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902725" visible="true" weight="0.11032388" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902725" visible="true" weight="0.11605938" />
       <window_info id="Structure" order="1" sideWeight="0.50097275" side_tool="true" weight="0.1993927" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -752,8 +787,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.26762402" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40535247" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2043081" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.25391644" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -763,7 +798,7 @@
       <window_info anchor="bottom" id="SonarLint" order="10" weight="0.32941943" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.32996634" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32767624" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32571802" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -777,41 +812,6 @@
       <window_info anchor="right" id="Palette&#9;" order="10" />
       <window_info anchor="right" id="Theme Preview" order="11" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49902725" visible="true" weight="0.1605938" />
-      <window_info id="Structure" order="1" sideWeight="0.50097275" side_tool="true" weight="0.1993927" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21330725" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40574038" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32941943" />
-      <window_info anchor="bottom" id="Docker" order="8" weight="0.32941943" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="SonarLint" order="10" weight="0.32941943" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32941943" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="PlantUML" order="3" weight="0.3508772" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Flutter Inspector" order="6" />
-      <window_info anchor="right" id="Flutter Outline" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info anchor="right" id="Database" order="9" />
-      <window_info anchor="right" id="Palette&#9;" order="10" />
-      <window_info anchor="right" id="Theme Preview" order="11" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -836,15 +836,22 @@
     <MESSAGE value="Created all the classes and interfaces needed for the strategy pattern&#10;Updated the implementation of the AlienBullet class and all its usages&#10;The usages are now generified to the GameComponent class" />
     <MESSAGE value="Decoupled some of the code from last commit&#10;The interfaces were bound to the GameComponent object which could lead to future problems, Factory Pattern be a solution" />
     <MESSAGE value="Created a singleton class to hold the Alien and Tank bullets as they were in a static variable that needed to referenced globally throughout the application. The game seems laggy since the introduction of the singleton" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a singleton class to hold the Alien and Tank bullets as they were in a static variable that needed to referenced globally throughout the application. The game seems laggy since the introduction of the singleton" />
+    <MESSAGE value="Made a double barrel class as a decorator class for the barrel class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a double barrel class as a decorator class for the barrel class" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java</url>
+          <line>87</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/images/1280x960-space-invaders-press-start-wallpaper.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/target/classes/images/1280x960-space-invaders-press-start-wallpaper.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="uml://JAVA/things.WelcomeGUI">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -1019,13 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/GameMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -1079,9 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1095,69 +1092,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/update/UpdateAlienBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/things/AlienBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/things/AlienBulletTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/strategy/update/UpdateSprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/Tank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/GameComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/BarrierBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="691">
-          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/Barrier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Barrier#0;class#Barrier#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/AlienEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/strategy/update/UpdateBullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/AlienInvaders2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1400">
-          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1209,7 +1147,7 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="529.5" y="218.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="530.0" y="218.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
@@ -1229,11 +1167,18 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="105.5" y="56.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="106.0" y="56.0" />
           <SelectedNodes />
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/io/ByteArrayInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="102" column="11" selection-start-line="102" selection-start-column="11" selection-end-line="102" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1247,42 +1192,266 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/observer/Subject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/Bullet.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/GameMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="45" column="51" lean-forward="true" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#draw#0;class#Bullet#0" />
-            <element signature="e#2278#2279#0" expanded="true" />
-            <element signature="e#2314#2315#0" expanded="true" />
-            <element signature="e#2369#2370#0" expanded="true" />
-            <element signature="e#2413#2414#0" expanded="true" />
-            <element signature="e#2466#2467#0" expanded="true" />
-            <element signature="e#2513#2514#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="6608">
+          <caret line="263" column="78" selection-start-line="263" selection-start-column="78" selection-end-line="264" selection-end-column="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/singleton/FiredBullets.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="1092">
+          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getTankBullets#0;class#FiredBullets#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/strategy/update/UpdateSprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/AlienEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/AlienInvaders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Barrier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Barrier#0;class#Barrier#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/BarrierBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#draw#0;class#Bullet#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/TestDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/things.entity.Barrel">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>things.entity.Barrel</OriginalElement>
+          <nodes>
+            <node x="0.0" y="1203.0">things.entity.decorator.WideBarrel</node>
+            <node x="226.62499999999994" y="585.0">things.entity.decorator.AbstractBarrel</node>
+            <node x="348.25" y="1026.0">things.entity.Barrel</node>
+            <node x="129.25" y="1026.0">things.entity.decorator.TankBarrelDecorator</node>
+            <node x="232.0" y="1155.0">things.entity.decorator.DoubleBarrel</node>
+            <node x="429.5" y="0.0">things.entity.GameComponent</node>
+            <node x="476.62499999999994" y="729.0">things.entity.Barrier</node>
+            <node x="695.625" y="705.0">things.entity.BarrierBlock</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="things.entity.Barrier" target="things.entity.GameComponent">
+              <point x="0.0" y="-51.5" />
+              <point x="0.0" y="267.5" />
+            </edge>
+            <edge source="things.entity.decorator.AbstractBarrel" target="things.entity.GameComponent">
+              <point x="0.0" y="-195.5" />
+              <point x="341.62499999999994" y="560.0" />
+              <point x="478.3333333333333" y="560.0" />
+              <point x="-97.66666666666669" y="267.5" />
+            </edge>
+            <edge source="things.entity.Barrel" target="things.entity.decorator.AbstractBarrel">
+              <point x="0.0" y="-39.5" />
+              <point x="454.25" y="1001.0" />
+              <point x="399.12499999999994" y="1001.0" />
+              <point x="57.5" y="195.5" />
+            </edge>
+            <edge source="things.entity.decorator.WideBarrel" target="things.entity.decorator.TankBarrelDecorator">
+              <point x="0.0" y="-51.5" />
+              <point x="106.0" y="1130.0" />
+              <point x="179.0" y="1130.0" />
+              <point x="-49.75" y="39.5" />
+            </edge>
+            <edge source="things.entity.decorator.DoubleBarrel" target="things.entity.decorator.TankBarrelDecorator">
+              <point x="0.0" y="-99.5" />
+              <point x="351.5" y="1130.0" />
+              <point x="278.5" y="1130.0" />
+              <point x="49.75" y="39.5" />
+            </edge>
+            <edge source="things.entity.BarrierBlock" target="things.entity.GameComponent">
+              <point x="0.0" y="-75.5" />
+              <point x="808.625" y="560.0" />
+              <point x="673.6666666666667" y="560.0" />
+              <point x="97.66666666666674" y="267.5" />
+            </edge>
+            <edge source="things.entity.decorator.TankBarrelDecorator" target="things.entity.decorator.AbstractBarrel">
+              <point x="0.0" y="-39.5" />
+              <point x="228.75" y="1001.0" />
+              <point x="284.12499999999994" y="1001.0" />
+              <point x="-57.5" y="195.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="253.5" y="842.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/Barrel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#Barrel#0" />
+            <element signature="docComment;method#Barrel#0;class#Barrel#0" />
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/TankBarrelDecorator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state relative-caret-position="588">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/GameComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="955">
+          <caret line="223" selection-start-line="223" selection-end-line="223" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/things.entity.decorator.TankBarrelDecorator">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>things.entity.decorator.TankBarrelDecorator</OriginalElement>
+          <nodes>
+            <node x="106.25" y="585.0">things.entity.decorator.AbstractBarrel</node>
+            <node x="228.0" y="1002.0">things.entity.Barrel</node>
+            <node x="9.0" y="1014.0">things.entity.decorator.TankBarrelDecorator</node>
+            <node x="0.0" y="1131.0">things.entity.decorator.DoubleBarrel</node>
+            <node x="74.75" y="0.0">things.entity.GameComponent</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="things.entity.decorator.AbstractBarrel" target="things.entity.GameComponent">
+              <point x="0.0" y="-183.5" />
+              <point x="0.0" y="267.5" />
+            </edge>
+            <edge source="things.entity.Barrel" target="things.entity.decorator.AbstractBarrel">
+              <point x="0.0" y="-39.5" />
+              <point x="334.0" y="977.0" />
+              <point x="278.75" y="977.0" />
+              <point x="57.5" y="183.5" />
+            </edge>
+            <edge source="things.entity.decorator.DoubleBarrel" target="things.entity.decorator.TankBarrelDecorator">
+              <point x="0.0" y="-51.5" />
+              <point x="0.0" y="27.5" />
+            </edge>
+            <edge source="things.entity.decorator.TankBarrelDecorator" target="things.entity.decorator.AbstractBarrel">
+              <point x="0.0" y="-27.5" />
+              <point x="108.5" y="977.0" />
+              <point x="163.75" y="977.0" />
+              <point x="-57.5" y="183.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="497.5" y="819.5" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/AbstractBarrel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="118" column="27" selection-start-line="118" selection-start-column="27" selection-end-line="118" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#setLeft#0;class#AbstractBarrel#0" />
+            <element signature="docComment;method#setHorizontalSpeed#0;class#AbstractBarrel#0" />
+            <element signature="e#3887#3888#0" expanded="true" />
+            <element signature="e#3925#3926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/WideBarrel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1291,40 +1460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/things/SpaceInvadersGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="102" column="37" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/Barrel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2574#2575#0" expanded="true" />
-            <element signature="e#2601#2602#0" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
-            <element signature="e#2661#2662#0" expanded="true" />
-            <element signature="e#2694#2695#0" expanded="true" />
-            <element signature="e#2723#2724#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/things/entity/decorator/DoubleBarrel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1560#1561#0" expanded="true" />
-            <element signature="e#1627#1628#0" expanded="true" />
-            <element signature="e#1672#1673#0" expanded="true" />
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1795#1796#0" expanded="true" />
-            <element signature="e#1847#1848#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="889">
+          <caret line="283" column="50" selection-start-line="283" selection-start-column="50" selection-end-line="283" selection-end-column="50" />
         </state>
       </provider>
     </entry>

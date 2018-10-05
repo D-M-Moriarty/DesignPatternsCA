@@ -1,4 +1,4 @@
-package things;
+package things.entity;
 
 //import sun.audio.AudioPlayer;
 //import sun.audio.AudioStream;
@@ -54,8 +54,59 @@ public abstract class GameComponent {
         setHeight(height);
         setColor(color);
     }
+    /**
+     * This method draws graphics to the screen
+     * @param g is a reference to the graphics object
+     */
+    public abstract void draw(Graphics2D g);
 
-    // List of abstract methods
+    /**
+     *
+     */
+    public abstract void update();
+
+    public void updateEntity() {
+        updateSprite.update();
+    }
+
+    public void drawEntity(Graphics2D graphics2D) {
+        drawSprite.draw(graphics2D);
+    }
+
+    public UpdateSprite getUpdateSprite() {
+        return updateSprite;
+    }
+
+    public void setUpdateSprite(UpdateSprite updateSprite) {
+        this.updateSprite = updateSprite;
+    }
+
+    public DrawSprite getDrawSprite() {
+        return drawSprite;
+    }
+
+    public void setDrawSprite(DrawSprite drawSprite) {
+        this.drawSprite = drawSprite;
+    }
+
+    /**
+     *
+     * @param g a reference to another GameComponent object
+     * @return the boolean value of true or false, to tell if their has been an intersection
+     */
+    public boolean collidesWith(GameComponent g) {
+
+        Rectangle r1 = new Rectangle(g.getTopLeftXPos(), g.getTopLeftYPos(),
+                g.getWidth(), g.getHeight());
+        Rectangle r2 = new Rectangle(this.getTopLeftXPos(), this.getTopLeftYPos(),
+                this.getWidth(), this.getHeight());
+
+        if (r1.intersects(r2)){
+            return true;
+        }
+
+        return false;
+    }
 
     /** mutator method to set the top left X position
      * of the entity being created
@@ -138,60 +189,6 @@ public abstract class GameComponent {
      */
     public Color getColor() {
         return this.color;
-    }
-
-    /**
-     * This method draws graphics to the screen
-     * @param g is a reference to the graphics object
-     */
-    public abstract void draw(Graphics2D g);
-
-    /**
-     *
-     */
-    public abstract void update();
-
-    public void updateEntity() {
-        updateSprite.update();
-    }
-
-    public void drawEntity(Graphics2D graphics2D) {
-        drawSprite.draw(graphics2D);
-    }
-
-    public UpdateSprite getUpdateSprite() {
-        return updateSprite;
-    }
-
-    public void setUpdateSprite(UpdateSprite updateSprite) {
-        this.updateSprite = updateSprite;
-    }
-
-    public DrawSprite getDrawSprite() {
-        return drawSprite;
-    }
-
-    public void setDrawSprite(DrawSprite drawSprite) {
-        this.drawSprite = drawSprite;
-    }
-
-    /**
-     *
-     * @param g a reference to another GameComponent object
-     * @return the boolean value of true or false, to tell if their has been an intersection
-     */
-    public boolean collidesWith(GameComponent g) {
-
-        Rectangle r1 = new Rectangle(g.getTopLeftXPos(), g.getTopLeftYPos(),
-                g.getWidth(), g.getHeight());
-        Rectangle r2 = new Rectangle(this.getTopLeftXPos(), this.getTopLeftYPos(),
-                this.getWidth(), this.getHeight());
-
-        if (r1.intersects(r2)){
-            return true;
-        }
-
-        return false;
     }
 
 

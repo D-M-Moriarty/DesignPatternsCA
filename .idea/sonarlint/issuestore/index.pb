@@ -1,6 +1,4 @@
 
-d
-4src/main/java/things/entity/update/UpdateSprite.java,b/0/b01ec3ee64a005244be2fd024a8d58721560c04c
 a
 1src/main/java/things/entity/observer/Subject.java,c/d/cd5e43bafc6526fd564745ab4ad9e73b016a1ba5
 b
@@ -21,3 +19,25 @@ g
 7src/main/java/things/entity/singleton/FiredBullets.java,2/9/29d076dc32355a2ef421953a2d56b500db6586d4
 Z
 *src/main/java/things/SpaceInvadersGUI.java,b/1/b1a0f2534af8704145bbbd69d7f21c08983a7133
+V
+&src/main/java/things/BarrierBlock.java,7/d/7d18c006a5665ab924eebd8922d33db1e6a259f0
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+U
+%src/main/java/things/AlienEntity.java,a/c/ac7feadbbacc5ddfdf026b364016e444e87593c9
+R
+"src/main/java/things/GameMain.java,1/c/1c286168741edb284dbad5938d1d4aa658958150
+T
+$src/main/java/things/WelcomeGUI.java,b/0/b0f14b240fa9fa7a1fa0938dad709259234c3ca6
+S
+#.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
+Z
+*src/main/java/things/observer-pattern.puml,3/d/3dff096a11bb6b2346e5036db2fafbbede92a085
+g
+7src/main/java/things/entity/decorator/DoubleBarrel.java,9/1/91825a5e0345b64a845dc6cdaeec6b8f808e3a6b
+n
+>src/main/java/things/entity/decorator/TankBarrelDecorator.java,1/b/1b7930e8b1125223dd1dffc5e528ae0756cd24a9
+e
+5src/main/java/things/entity/decorator/WideBarrel.java,e/c/ec2846fdd7330288bea9b5e4ca03d7ad776c87ef
+h
+8src/main/java/things/entity/decorator/TestDecorator.java,d/b/db8a8966466879f6b0a130ff701ef4ce50a3e302
