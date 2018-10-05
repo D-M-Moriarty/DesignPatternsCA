@@ -1,9 +1,8 @@
-package things;
+package things.entity;
 
 import things.entity.observer.Observer;
 import things.entity.observer.Subject;
 import things.entity.strategy.draw.DrawSquareSprite;
-import things.entity.singleton.FiredBullets;
 import things.entity.strategy.update.UpdateBullet;
 
 import java.awt.*;
@@ -28,8 +27,6 @@ public class Bullet extends GameComponent implements Subject {
         This is the amount of pixels the entity will move per second/update */
     private static final int DELTA_Y = 5;
     private boolean isAlienBullet;
-    private FiredBullets tankBullets = FiredBullets.getTankBullets();
-    private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private List<Observer> observers;
 
     /**
@@ -45,7 +42,7 @@ public class Bullet extends GameComponent implements Subject {
         this.isAlienBullet = isAlienBullet;
         setUpdateSprite(new UpdateBullet(this));
         setDrawSprite(new DrawSquareSprite(this));
-        this.observers = new ArrayList<Observer>();
+        this.observers = new ArrayList<>();
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update
@@ -58,7 +55,7 @@ public class Bullet extends GameComponent implements Subject {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.WHITE);//getColor();
+        g.setColor(getColor());
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.drawRect(topLeftXPos, topLeftYPos, width, height);
         g.fillRect(topLeftXPos, topLeftYPos, width, height);

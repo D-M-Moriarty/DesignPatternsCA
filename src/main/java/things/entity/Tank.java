@@ -1,5 +1,8 @@
-package things;
+package things.entity;
 
+import things.GameMain;
+import things.Player;
+import things.SpaceInvadersGUI;
 import things.entity.singleton.FiredBullets;
 
 import javax.swing.*;

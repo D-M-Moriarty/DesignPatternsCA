@@ -1,50 +1,37 @@
-package things;
+package things.entity.decorator;
 
+import things.entity.Barrel;
+import things.entity.Bullet;
+import things.entity.GameComponent;
 import things.entity.singleton.FiredBullets;
 
 import java.awt.*;
 
-/**
- * This is an instantiable class called Barrel for creating a barrel entity.
- * It is a sub-class of GameComponent therefore it inherits all of its
- * attributes and abstract methods
- *
- * @author Darren Moriarty
- * created on 11/11/2016.
- *
- * @version 2.0
- */
-public class Barrel extends GameComponent {
-
-    // class attributes are made private so that they can not be directly accessed outside this class
+public abstract class AbstractBarrel extends GameComponent {
 
     // Boolean to see which direction to move the entity
-    private boolean left;
-    private boolean right;
+    protected boolean left;
+    protected boolean right;
     // Boolean to show that space bar has been pressed
-    private boolean firing;
+    protected boolean firing;
     /* The difference between the initial x position and the new x position
         This is the amount of pixels the entity will move per second/update */
-    private int deltaX;
+    protected int deltaX;
     // The initial speed to travel horizontally
-    private int horizontalSpeed;
-    private FiredBullets tankBullets = FiredBullets.getTankBullets();
-
+    protected int horizontalSpeed;
+    protected FiredBullets tankBullets = FiredBullets.getTankBullets();
+    private Barrel barrel;
 
     /**
-     * 6 argument constructor method
+     * 5 argument constructor method
      *
-     * @param topLeftXPos The initial x coordinate of the instantiated entity object
-     * @param topLeftYPos The initial y coordinate of the instantiated entity object
-     * @param width The initial width of the entity
-     * @param height The initial height of the entity
-     * @param color The initial colour of the entity
-     * @param horizontalSpeed The initial horizontal speed of the object of the entity
-     *
-     * Call to super passes argument back to the super class GameComponent
-     * One extra class individual attribute called horizontalSpeed
+     * @param topLeftXPos value passed into the method
+     * @param topLeftYPos value passed into the method
+     * @param width       value passed into the method
+     * @param height      value passed into the method
+     * @param color       value passed into the method
      */
-    public Barrel(int topLeftXPos, int topLeftYPos, int width, int height, Color color, int horizontalSpeed) {
+    public AbstractBarrel(int topLeftXPos, int topLeftYPos, int width, int height, Color color, int horizontalSpeed) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         setHorizontalSpeed(horizontalSpeed);
     }
@@ -74,12 +61,33 @@ public class Barrel extends GameComponent {
         this.firing = firing;
     }
 
+    public boolean isLeft() {
+        return left;
+    }
+
+    public boolean isRight() {
+        return right;
+    }
+
+    public boolean isFiring() {
+        return firing;
+    }
 
 
     // This method decides what to do every time the screen refreshes
     @Override
     public void update(){
+        handleMovement();
 
+        // checking to see if firing is true
+        if (firing){
+            fireBulletFromBarrel();
+        }
+
+
+    }
+
+    protected void handleMovement() {
         // If the left attribute has the value of true
         if(left){
             // The next position of deltaX is the value of the horizontal speed ie. 5 pixels to the left
@@ -96,32 +104,41 @@ public class Barrel extends GameComponent {
         }
 
         // This insures that the entity doesn't travel outside the green line at the bottom of the screen
-        if(topLeftXPos > 1000 - width - 80){
+        if(isTooFarRight()){
             topLeftXPos = 1000 - width - 80;
         }
-        if(topLeftXPos < 80){
+        if(isTooFarLeft()){
             topLeftXPos = 80;
         }
 
         // Resetting deltaX to 0
         deltaX = 0;
+    }
 
-        // checking to see if firing is true
-        if (firing){
-            // Adding a new instance of a bullet to the arrayList of bullets
-            Bullet bullet = new Bullet(this.getTopLeftXPos() + (width / 4), 570, 5, 10, Color.WHITE, false);
-            tankBullets.addBullet(bullet);
-            try{
-                playSound("sounds/shoot.wav");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+    protected void fireBulletFromBarrel() {
+        // Adding a new instance of a bullet to the arrayList of bullets
+        Bullet bullet = new Bullet(this.getTopLeftXPos() + (width / 4), 570, 5, 10, Color.WHITE, false);
+        tankBullets.addBullet(bullet);
+        try{
+            playSound("sounds/shoot.wav");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-            // setting firing to false
-            firing = false;
-       }
+        // setting firing to false
+        firing = false;
+    }
 
+    public int getHorizontalSpeed() {
+        return horizontalSpeed;
+    }
 
+    private boolean isTooFarLeft() {
+        return topLeftXPos < 80;
+    }
+
+    private boolean isTooFarRight() {
+        return topLeftXPos > 1000 - width - 80;
     }
 
     @Override
@@ -132,9 +149,13 @@ public class Barrel extends GameComponent {
         g.fillRect(topLeftXPos, topLeftYPos, width, height);
     }
 
-    public String toString(){
-        return "Barrel class is working";
+    public abstract AbstractBarrel getBarrel();
+
+    public boolean hasDecorator(String className) {
+        return false;
     }
 
-
+    public AbstractBarrel withoutDecorator(String className) {
+        return null;
+    }
 }

@@ -1,4 +1,4 @@
-package things;
+package things.entity;
 
 import things.entity.singleton.FiredBullets;
 
