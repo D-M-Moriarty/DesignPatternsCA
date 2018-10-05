@@ -1,0 +1,27 @@
+
+Osquid:S1135Ã"2Complete the task associated to this TODO comment.(¦•‚ëøÿÿÿÿ
+;squid:S1148ÿ"#Use a logger to log this exception.(Â“å´
+Bsquid:S00108Ä")Either remove or fill this block of code.(å¥‡
+U
+squid:S106‡"9Replace this use of System.out or System.err by a logger.(ê°Şüÿÿÿÿÿ
+Nsquid:S2696—"6Make the enclosing method "static" or remove this set.(ÌÚÆß
+U
+squid:S106†"9Replace this use of System.out or System.err by a logger.(¼£»íıÿÿÿÿ
+P
+squid:S106Š"9Replace this use of System.out or System.err by a logger.(£÷›—
+Fsquid:S2140…")Use "java.util.Random.nextInt()" instead.(¹ŒŸƒúÿÿÿÿ
+qsquid:S1450;"URemove the "player" field and declare it as a local variable in the relevant methods.(Ç¹Ù±úÿÿÿÿ
+isquid:S3776a"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ãÁğ˜
+ksquid:S3776”"SRefactor this method to reduce its Cognitive Complexity from 142 to the 15 allowed.(Ö×õÄ
+;squid:S1148£"#Use a logger to log this exception.(Â“å´
+Ssquid:S2696›"6Make the enclosing method "static" or remove this set.(¿µÜĞøÿÿÿÿ
+ssquid:S3923Â"[Remove this conditional structure or edit its code blocks so that they're not all the same.(ù¸ıƒ
+P
+squid:S106—"9Replace this use of System.out or System.err by a logger.(Øñ•±
+P
+squid:S106Ê"9Replace this use of System.out or System.err by a logger.(Øñ•±
+P
+squid:S106„"9Replace this use of System.out or System.err by a logger.(Å°Ïœ
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(½˜¾¨
+Ssquid:S2696±"6Make the enclosing method "static" or remove this set.(Ş­Çüÿÿÿÿ

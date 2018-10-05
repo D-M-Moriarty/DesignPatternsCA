@@ -1,0 +1,10 @@
+
+[squid:S1854""8Remove this useless assignment to local variable "name".(µ»±üÿÿÿÿ8Ñì±£ä,
+[squid:S1854 "8Remove this useless assignment to local variable "name".(µ»±üÿÿÿÿ8ÊÙ±£ä,
+Dsquid:S1170"!Make this final field static too.(À™È‹ùÿÿÿÿ8³³£ä,
+Lsquid:S1481")Remove this unused "name" local variable.(ó¤öùÿÿÿÿ8¶•±£ä,
+Xsquid:S1161":Add the "@Override" annotation above this method signature(Úñ§ù8Â’”£ä,
+csquid:UselessImportCheck"8Remove this unused import 'things.entity.GameComponent'.(öÏ’±8îê‹‡ä,
+[squid:S1854"8Remove this useless assignment to local variable "name".(ó¤öùÿÿÿÿ8¶•±£ä,
+\squid:UselessImportCheck"1Remove this unused import 'things.entity.Barrel'.(Ù®¤ù8À˜ì¢ä,
+]squid:S1161":Add the "@Override" annotation above this method signature(ÖŠ·¿úÿÿÿÿ8„çñ¢ä,

@@ -1,0 +1,8 @@
+
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³«­Ã
+hsquid:CommentedOutCodeLineÝ"<This block of commented-out lines of code should be removed.(®”Œâÿÿÿÿÿ
+hsquid:CommentedOutCodeLineà"<This block of commented-out lines of code should be removed.(¸—ñáúÿÿÿÿ
+^squid:S1126¾"AReplace this if-then-else statement by a single return statement.(Èæï³ùÿÿÿÿ
+?squid:S1481Ú"'Remove this unused "in" local variable.(àÝžÇ
+dsquid:S00112×"FDefine and throw a dedicated exception instead of using a generic one.(Ï•Ü³ÿÿÿÿÿ
+Nsquid:S1854Ú"6Remove this useless assignment to local variable "in".(àÝžÇ

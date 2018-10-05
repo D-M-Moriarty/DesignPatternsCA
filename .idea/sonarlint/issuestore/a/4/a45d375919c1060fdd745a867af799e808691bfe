@@ -1,0 +1,8 @@
+
+Nsquid:S1854×"6Remove this useless assignment to local variable "in".(àİÇ
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³«­Ã
+hsquid:CommentedOutCodeLineÚ"<This block of commented-out lines of code should be removed.(®”Œâÿÿÿÿÿ
+dsquid:S00112Ô"FDefine and throw a dedicated exception instead of using a generic one.(Ï•Ü³ÿÿÿÿÿ
+?squid:S1481×"'Remove this unused "in" local variable.(àİÇ
+hsquid:CommentedOutCodeLineİ"<This block of commented-out lines of code should be removed.(¸—ñáúÿÿÿÿ
+]squid:S1126h"AReplace this if-then-else statement by a single return statement.(Èæï³ùÿÿÿÿ
