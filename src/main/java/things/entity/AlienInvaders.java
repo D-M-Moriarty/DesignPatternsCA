@@ -1,5 +1,8 @@
-package things;
+package things.entity;
 
+import things.GameMain;
+import things.Player;
+import things.SpaceInvadersGUI;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
@@ -10,7 +13,7 @@ import java.util.Random;
 /**
  * Created by Darren Moriarty on 17/11/2016.
  */
-public class AlienInvaders2 extends GameComponent implements Observer {
+public class AlienInvaders extends GameComponent implements Observer {
 
 
     // 2d array of alien entities
@@ -63,7 +66,7 @@ public class AlienInvaders2 extends GameComponent implements Observer {
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
 
 
-    public AlienInvaders2(int topLeftXPos, int topLeftYPos, int width, int height, Color color, GameMain gameMain) {
+    public AlienInvaders(int topLeftXPos, int topLeftYPos, int width, int height, Color color, GameMain gameMain) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         this.gameMain = gameMain;
 

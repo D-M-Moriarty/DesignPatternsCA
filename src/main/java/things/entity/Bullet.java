@@ -1,9 +1,8 @@
-package things;
+package things.entity;
 
 import things.entity.observer.Observer;
 import things.entity.observer.Subject;
 import things.entity.strategy.draw.DrawSquareSprite;
-import things.entity.singleton.FiredBullets;
 import things.entity.strategy.update.UpdateBullet;
 
 import java.awt.*;
@@ -43,7 +42,7 @@ public class Bullet extends GameComponent implements Subject {
         this.isAlienBullet = isAlienBullet;
         setUpdateSprite(new UpdateBullet(this));
         setDrawSprite(new DrawSquareSprite(this));
-        this.observers = new ArrayList<Observer>();
+        this.observers = new ArrayList<>();
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update

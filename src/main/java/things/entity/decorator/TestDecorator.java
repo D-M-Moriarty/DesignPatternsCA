@@ -4,7 +4,9 @@ import things.entity.GameComponent;
 
 import java.awt.*;
 
-public abstract class TankBarrelDecorator extends AbstractBarrel {
+public class TestDecorator extends GameComponent {
+
+    private GameComponent gameComponent;
 
     /**
      * 5 argument constructor method
@@ -15,9 +17,17 @@ public abstract class TankBarrelDecorator extends AbstractBarrel {
      * @param height      value passed into the method
      * @param color       value passed into the method
      */
-    public TankBarrelDecorator(int topLeftXPos, int topLeftYPos, int width, int height, Color color, int horizontalSpeed) {
-        super(topLeftXPos, topLeftYPos, width, height, color, horizontalSpeed);
+    public TestDecorator(int topLeftXPos, int topLeftYPos, int width, int height, Color color) {
+        super(topLeftXPos, topLeftYPos, width, height, color);
     }
 
-    public abstract void draw(Graphics2D g);
+    @Override
+    public void draw(Graphics2D g) {
+
+    }
+
+    @Override
+    public void update() {
+
+    }
 }

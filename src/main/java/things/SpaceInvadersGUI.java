@@ -1,6 +1,9 @@
 package things;
 
+import things.entity.*;
+import things.entity.decorator.AbstractBarrel;
 import things.entity.decorator.DoubleBarrel;
+import things.entity.decorator.WideBarrel;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
@@ -10,7 +13,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 
 /**
  * This is the JPanel class which is just a flat container for holding components
@@ -46,16 +48,15 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public static Tank tankLife1;
     public static Tank tankLife2;
     public static Tank tankLife3;
-    private Barrel barrel;
-    private DoubleBarrel doubleBarrel;
+    private AbstractBarrel barrel;
     private  Barrier[] barrier;
     // TODO instantiated on main thread and refernced on game thread
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
-    private AlienInvaders2 aliens;
+    private AlienInvaders aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
-    private boolean doubleBarrelIsAttached;
+    private boolean doubleBisActive;
 
 
     // JPanel Constructor
@@ -100,8 +101,9 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife1 = new Tank(920, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
         tankLife2 = new Tank(850, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
         tankLife3 = new Tank(780, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
+
         barrel = new Barrel(WIDTH/2-5, 570, 10, 10, Color.GREEN, 5);
-        doubleBarrel = new DoubleBarrel(WIDTH/2-5, 570, 10, 10, Color.GREEN, barrel);
+
 
         barrier = new Barrier[3];
 
@@ -115,7 +117,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
             }
         }
 
-        aliens = new AlienInvaders2(50, 50, 50, 50, Color.WHITE, gameMain);
+        aliens = new AlienInvaders(50, 50, 50, 50, Color.WHITE, gameMain);
 
 
         // Declaring variables to determine loop length time
@@ -176,9 +178,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
         aliens.update();
 
-        if (doubleBarrelIsAttached)
-            doubleBarrel.update();
-
 
         // updating the bullets
         for(int i = 0; i < tankBulls.size(); i++){
@@ -214,9 +213,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife2.draw(g);
         tankLife3.draw(g);
         barrel.draw(g);
-
-        if (doubleBarrelIsAttached)
-            doubleBarrel.draw(g);
 
         for (int i = 0; i < 3; i++) {
             barrier[i].draw(g);
@@ -282,13 +278,12 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
 
         if (key == KeyEvent.VK_UP) {
-            if (doubleBarrelIsAttached) {
-                doubleBarrelIsAttached = false;
-                doubleBarrel.resetBarrel();
-            } else {
-                doubleBarrelIsAttached = true;
-                doubleBarrel.setBarrel();
+            if (doubleBisActive)
+                barrel = barrel.getBarrel();
+            else {
+                barrel = new DoubleBarrel(barrel);
             }
+            doubleBisActive = !doubleBisActive;
 
         }
     }
@@ -313,6 +308,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         if(key == KeyEvent.VK_SPACE){
             barrel.setFiring(true);
         }
+
     }
 
     // This method removes a bullet from the ArrayList of bullets
