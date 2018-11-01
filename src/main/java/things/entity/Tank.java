@@ -49,7 +49,8 @@ public class Tank extends GameComponent{
      * @param livesLeft The initial amount of lives the Tank entity has
      * @param horizontalSpeed The initial horizontal speed of the Tank entity
      */
-    public Tank(int topLeftXPos, int topLeftYPos, int width, int height, Color color, int livesLeft, int horizontalSpeed, GameMain gameMain) {
+    public Tank(int topLeftXPos, int topLeftYPos, int width, int height,
+                Color color, int livesLeft, int horizontalSpeed, GameMain gameMain) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         setLivesLeft(livesLeft);
         setHorizontalSpeed(horizontalSpeed);
@@ -68,6 +69,7 @@ public class Tank extends GameComponent{
      * This returns the amount of lives the entity has remaining
      * @return the amount of lives left
      */
+    @Override
     public int getLivesLeft(){
         return livesLeft;
     }

@@ -221,4 +221,7 @@ public abstract class GameComponent {
 //        AudioPlayer.player.start(audioStream);
     }
 
+    public int getLivesLeft(){ return 0;};
+
+    public boolean isHeightReached(){return false;};
 } // End of class

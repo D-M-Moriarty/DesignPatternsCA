@@ -1,13 +1,14 @@
 package things.entity.command;
 
+import things.entity.GameComponent;
 import things.entity.decorator.AbstractBarrel;
 import things.entity.decorator.MoltenBullet;
 
 public class MakeBulletMoltenCommand implements Command {
     private AbstractBarrel barrel;
 
-    public MakeBulletMoltenCommand(AbstractBarrel barrel) {
-        this.barrel = barrel;
+    public MakeBulletMoltenCommand(GameComponent barrel) {
+        this.barrel = (AbstractBarrel) barrel;
     }
 
     @Override

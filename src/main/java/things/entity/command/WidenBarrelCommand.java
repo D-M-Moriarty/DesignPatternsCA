@@ -1,13 +1,14 @@
 package things.entity.command;
 
+import things.entity.GameComponent;
 import things.entity.decorator.AbstractBarrel;
 import things.entity.decorator.WideBarrel;
 
 public class WidenBarrelCommand implements Command {
     private AbstractBarrel barrel;
 
-    public WidenBarrelCommand(AbstractBarrel barrel) {
-        this.barrel = barrel;
+    public WidenBarrelCommand(GameComponent barrel) {
+        this.barrel = (AbstractBarrel) barrel;
     }
 
     @Override
