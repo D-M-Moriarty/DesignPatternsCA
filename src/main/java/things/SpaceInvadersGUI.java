@@ -1,6 +1,7 @@
 package things;
 
 import things.entity.*;
+import things.entity.command.*;
 import things.entity.decorator.*;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
@@ -54,7 +55,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     private AlienInvaders aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
-    private boolean doubleBisActive;
+    private KeyCommand keyCommand;
+    private AbstractBarrel wideBarrel;
 
 
     // JPanel Constructor
@@ -116,6 +118,17 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
 
         aliens = new AlienInvaders(50, 50, 50, 50, Color.WHITE, gameMain);
+
+        keyCommand = new KeyCommand(
+                new FireBarrelCommand(barrel),
+                new DownCommand(),
+                new TankMoveLeftCommand(tank, barrel),
+                new TankMoveRightCommand(tank, barrel),
+                new FireBarrelCommand(barrel),
+                new WidenBarrelCommand(barrel),
+                new MakeBulletMoltenCommand(barrel),
+                new EquipDoubleBarrelCommand(barrel)
+        );
 
 
         // Declaring variables to determine loop length time
@@ -248,83 +261,19 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     }
 
     // KeyListener interface methods
-    //@Override
+    @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
-    //@Override
+    @Override
     public void keyPressed(KeyEvent e) {
-
-        int key = e.getKeyCode();
-
-        // If the left key is pressed
-        if(key == KeyEvent.VK_LEFT){
-            // sets the setLeft methods to true which will tell the update method which direction to travel
-            tank.setLeft(true);
-            barrel.setLeft(true);
-            System.out.println("left was pressed");
-        }
-
-        if(key == KeyEvent.VK_RIGHT){
-            tank.setRight(true);
-            barrel.setRight(true);
-        }
-
-        if(key == KeyEvent.VK_SPACE){
-            barrel.setFiring(false);
-        }
-
-        if (key == KeyEvent.VK_UP) {
-            if (barrel instanceof DoubleBarrel)
-                barrel = barrel.getBarrel();
-            else
-                barrel = new DoubleBarrel(barrel);
-        }
-
-        if (key == KeyEvent.VK_W) {
-            if (barrel.hasDecorator("WideBarrel")) {
-                barrel.withoutDecorator("WideBarrel");
-                barrel = barrel.getBarrel();
-                System.out.println();
-            } else
-                barrel = new WideBarrel(barrel);
-            // TODO fix this horrible issue
-//            if (barrel instanceof WideBarrel)
-//                barrel = barrel.getBarrel();
-//            else
-//                barrel = new WideBarrel(barrel);
-        }
-
-        if (key == KeyEvent.VK_M) {
-            if (barrel instanceof MoltenBullet)
-                barrel = barrel.getBarrel();
-            else
-                barrel = new MoltenBullet(barrel);
-        }
+        keyCommand.keyPressed(e);
     }
 
-    //@Override
+    @Override
     public void keyReleased(KeyEvent e) {
-
-        int key = e.getKeyCode();
-
-        // If the left key is released it will set the value of setLeft to false to stop the entity moving
-        if(key == KeyEvent.VK_LEFT){
-            tank.setLeft(false);
-            barrel.setLeft(false);
-        }
-
-        if(key == KeyEvent.VK_RIGHT){
-            tank.setRight(false);
-            barrel.setRight(false);
-        }
-
-
-        if(key == KeyEvent.VK_SPACE){
-            barrel.setFiring(true);
-        }
-
+        keyCommand.keyReleased(e);
     }
 
     // This method removes a bullet from the ArrayList of bullets

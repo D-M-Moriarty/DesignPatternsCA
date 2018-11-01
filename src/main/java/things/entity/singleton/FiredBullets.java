@@ -15,22 +15,16 @@ public class FiredBullets implements Subject, Observer {
     private Bullet bulletToObserve;
 
     private FiredBullets() {
-        this.observers = new ArrayList<Observer>();
-        bullets = new ArrayList<Bullet>();
+        this.observers = new ArrayList<>();
+        bullets = new ArrayList<>();
     }
 
-    public static synchronized FiredBullets getAlienBullets() {
-        if (alienBullets == null) {
-            alienBullets = new FiredBullets();
-        }
-        return alienBullets;
+    public static FiredBullets getAlienBullets() {
+        return alienBullets == null ? alienBullets = new FiredBullets() : alienBullets;
     }
 
-    public static synchronized FiredBullets getTankBullets() {
-        if (tankBullets == null) {
-            tankBullets = new FiredBullets();
-        }
-        return tankBullets;
+    public static FiredBullets getTankBullets() {
+        return tankBullets == null ? tankBullets = new FiredBullets() : tankBullets;
     }
 
     public void addBullet(Bullet bullet) {
