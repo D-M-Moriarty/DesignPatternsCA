@@ -3,6 +3,9 @@ package things;
 import things.entity.*;
 import things.entity.command.*;
 import things.entity.decorator.*;
+import things.entity.factory_method.GameComponentFactory;
+import things.entity.factory_method.StandardGameComponentFactory;
+import things.entity.factory_method.Type;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
 
@@ -12,6 +15,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+
+import static things.entity.factory_method.Type.*;
 
 /**
  * This is the JPanel class which is just a flat container for holding components
@@ -43,20 +48,21 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     private int fps = 60;
 
     // Declaring entity objects
-    private Tank tank;
-    public static Tank tankLife1;
-    public static Tank tankLife2;
-    public static Tank tankLife3;
-    private AbstractBarrel barrel;
-    private  Barrier[] barrier;
+    private GameComponent tank;
+    public static GameComponent tankLife1;
+    public static GameComponent tankLife2;
+    public static GameComponent tankLife3;
+    private GameComponent barrel;
+    private  GameComponent[] barrier;
     // TODO instantiated on main thread and refernced on game thread
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
-    private AlienInvaders aliens;
+    private GameComponent aliens;
     private static int playerScore = 0;
     private GameMain gameMain;
     private KeyCommand keyCommand;
     private AbstractBarrel wideBarrel;
+    private GameComponentFactory factory;
 
 
     // JPanel Constructor
@@ -85,6 +91,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
         alienBulls.registerObserver(this);
         tankBulls.registerObserver(this);
+        factory = new StandardGameComponentFactory(gameMain);
     }
 
     //@Override
@@ -97,27 +104,27 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         g = (Graphics2D) image.getGraphics();
 
         // Initialises the GameComponents entities
-        tank = new Tank(WIDTH/2-60, 580, 120, 50, Color.GREEN, 3, 5, gameMain);
-        tankLife1 = new Tank(920, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
-        tankLife2 = new Tank(850, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
-        tankLife3 = new Tank(780, 10, 60, 25, Color.GREEN, 3, 5, gameMain);
+        tank = factory.getComponent(TANK);
+        tankLife1 = factory.getComponent(LIFE1);
+        tankLife2 = factory.getComponent(LIFE2);
+        tankLife3 = factory.getComponent(LIFE3);
 
-        barrel = new Barrel(WIDTH/2-5, 570, 10, 10, Color.GREEN, 5);
+        barrel = factory.getComponent(BARREL);
 
 
         barrier = new Barrier[3];
 
         // creating an array of barriers to signify lives up the top right corner
         for (int i = 0; i < 3; i++) {
-            barrier[i] = new Barrier(90, 470, 120, 70, Color.GREEN);
+            barrier[i] = factory.getComponent(BARRIER1);
             if(i == 1){
-                barrier[i] = new Barrier(WIDTH/2-60, 470, 120, 70, Color.GREEN);
+                barrier[i] = factory.getComponent(BARRIER2);
             }else if (i == 2){
-                barrier[i] = new Barrier(790, 470, 120, 70, Color.GREEN);
+                barrier[i] = factory.getComponent(BARRIER3);
             }
         }
 
-        aliens = new AlienInvaders(50, 50, 50, 50, Color.WHITE, gameMain);
+        aliens = factory.getComponent(ALIENS);
 
         keyCommand = new KeyCommand(
                 new FireBarrelCommand(barrel),

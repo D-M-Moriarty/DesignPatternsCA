@@ -437,6 +437,7 @@ public class AlienInvaders extends GameComponent implements Observer {
         return gerX;
     }
 
+    @Override
     public boolean isHeightReached(){
         return heightReached;
     }
