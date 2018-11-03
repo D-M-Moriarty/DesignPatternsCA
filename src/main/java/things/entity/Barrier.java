@@ -1,6 +1,7 @@
 package things.entity;
 
 import things.entity.singleton.FiredBullets;
+import things.entity.template_method.DestroyableObject;
 
 import java.awt.*;
 
@@ -14,12 +15,12 @@ import java.awt.*;
  *
  * @version 2.0
  */
-public class Barrier extends GameComponent {
+public class Barrier extends DestroyableObject {
 
     //Class Attributes
 
     // Two dimensional array of BarrierBlock objects
-    private BarrierBlock[][] barrierBlocks;
+    private DestroyableObject[][] barrierBlocks;
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
 
@@ -56,41 +57,7 @@ public class Barrier extends GameComponent {
     public void update() {
 
         // checking for collisions with the barriers
-        for (int k = 0; k < tankBulls.size(); k++) {
-            Bullet tankBullet = tankBulls.getBullet(k);
-            for (int i = 0; i < alienBulls.size(); i++) {
-                Bullet alienBullet = alienBulls.getBullet(i);
-
-
-                if(alienBullet.collidesWith(tankBullet)){
-                    tankBulls.removeBullet(k);
-                    alienBulls.removeBullet(i);
-                }
-            }
-            for (int i = 0; i < 7; i++) {
-                for (int j = 0; j < 12; j++) {
-
-                    if (tankBullet.collidesWith(barrierBlocks[i][j])) {
-                        System.out.println("There was a collision");
-                        tankBulls.removeBullet(tankBullet);
-                        barrierBlocks[i][j].setHeight(-1);
-                        barrierBlocks[i][j].setWidth(-1);
-                        barrierBlocks[i][j].setTopLeftXPos(-1);
-                        barrierBlocks[i][j].setTopLeftYPos(-1);
-                        barrierBlocks[i][j].setDestroyed(true);
-
-                        try{
-                            playSound("sounds/fastinvader1.wav");
-                        }
-                        catch (Exception e) { e.printStackTrace(); }
-
-                    }
-
-
-                }
-            }
-
-        }
+        collisionDecisions(barrierBlocks);
 
 
         // checking for collisions with alien bullets
@@ -123,6 +90,22 @@ public class Barrier extends GameComponent {
 
 
 
+    }
+
+    @Override
+    protected void performDestroyableObjectCollisionAction(DestroyableObject destroyableObject, Bullet tankBullet) {
+        System.out.println("There was a collision");
+        tankBullets.removeBullet(tankBullet);
+        destroyableObject.setHeight(-1);
+        destroyableObject.setWidth(-1);
+        destroyableObject.setTopLeftXPos(-1);
+        destroyableObject.setTopLeftYPos(-1);
+        destroyableObject.setDestroyed(true);
+
+        try{
+            playSound("sounds/fastinvader1.wav");
+        }
+        catch (Exception e) { e.printStackTrace(); }
     }
 
 

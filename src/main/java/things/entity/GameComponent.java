@@ -3,6 +3,7 @@ package things.entity;
 //import sun.audio.AudioPlayer;
 //import sun.audio.AudioStream;
 
+import things.entity.singleton.FiredBullets;
 import things.entity.strategy.draw.DrawSprite;
 import things.entity.strategy.update.UpdateSprite;
 
@@ -36,6 +37,9 @@ public abstract class GameComponent {
     protected Color color;
     protected UpdateSprite updateSprite;
     protected DrawSprite drawSprite;
+    protected FiredBullets tankBullets = FiredBullets.getTankBullets();
+    protected FiredBullets alienBullets = FiredBullets.getAlienBullets();
+
 
     /** 5 argument constructor method
      *
@@ -191,8 +195,6 @@ public abstract class GameComponent {
         return this.color;
     }
 
-
-
     /**
      *
      * @return a string to show that the class is working
@@ -221,7 +223,8 @@ public abstract class GameComponent {
 //        AudioPlayer.player.start(audioStream);
     }
 
-    public int getLivesLeft(){ return 0;};
+    public int getLivesLeft(){ return 0;}
 
-    public boolean isHeightReached(){return false;};
+    public boolean isHeightReached(){return false;}
+
 } // End of class

@@ -1,5 +1,7 @@
 package things.entity;
 
+import things.entity.template_method.DestroyableObject;
+
 import java.awt.*;
 
 /**
@@ -12,12 +14,11 @@ import java.awt.*;
  *
  * @version 2.0
  */
-public class BarrierBlock extends GameComponent {
+public class BarrierBlock extends DestroyableObject {
 
     // class attributes are made private so that they can not be directly accessed outside this class
 
-    // Boolean attribute to signify whether this entity is destroyed or not
-    private boolean destroyed;
+
 
     /**
      * 6 argument constructor method
@@ -34,21 +35,8 @@ public class BarrierBlock extends GameComponent {
         setDestroyed(destroyed);
     }
 
-    /**
-     * This sets the value of destroyed
-     * @param destroyed
-     */
-    public void setDestroyed(boolean destroyed){
-        this.destroyed = destroyed;
-    }
 
-    /**
-     * This returns the value of destroyed
-     * @return
-     */
-    public boolean isDestroyed() {
-        return destroyed;
-    }
+
 
     @Override
     public void draw(Graphics2D g) {
@@ -62,6 +50,11 @@ public class BarrierBlock extends GameComponent {
 
     @Override
     public void update() {
+
+    }
+
+    @Override
+    protected void performDestroyableObjectCollisionAction(DestroyableObject destroyableObject, Bullet tankBullet) {
 
     }
 
