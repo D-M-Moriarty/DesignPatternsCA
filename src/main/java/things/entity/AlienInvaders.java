@@ -5,6 +5,7 @@ import things.Player;
 import things.SpaceInvadersGUI;
 import things.entity.observer.Observer;
 import things.entity.singleton.FiredBullets;
+import things.entity.template_method.DestroyableObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.util.Random;
 /**
  * Created by Darren Moriarty on 17/11/2016.
  */
-public class AlienInvaders extends GameComponent implements Observer {
+public class AlienInvaders extends DestroyableObject implements Observer {
 
 
     // 2d array of alien entities
@@ -227,151 +228,7 @@ public class AlienInvaders extends GameComponent implements Observer {
             }
         }
 
-
-
-        // Checking for collisions between tank bullets and aliens
-        for (int k = 0; k < tankBulls.size(); k++) {
-            Bullet tankBullet = tankBulls.getBullet(k);
-
-            // Checking for collision between alien and tank bullets
-            for (int i = 0; i < alienBulls.size(); i++) {
-                Bullet aBullet = alienBulls.getBullet(i);
-
-                if (tankBullet.collidesWith(aBullet)) {
-                    alienBulls.removeBullet(aBullet);
-                    tankBulls.removeBullet(tankBullet);
-                }
-            }
-
-
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 11; j++) {
-
-                    if (tankBullet.collidesWith(alienEntities[i][j])) {
-
-                        try{
-                            playSound("sounds/invaderkilled.wav");
-                        }
-                        catch (Exception e) { e.printStackTrace(); }
-
-                        // checking the row that an alien was on the determine the enemy value / rank
-                        if (i == 2 || i == 4){
-                            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 10);
-                            System.out.println("1 and 3");
-                        }else if (i == 3 || i == 5){
-                            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 25);
-                            System.out.println("2 and 4");
-                        }else{
-                            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 50);
-                            System.out.println("ekse");
-                        }
-
-                        // drawing the aliens off the screen and reducing their dimensions
-                        tankBulls.removeBullet(tankBullet);
-                        alienEntities[i][j].setHeight(-1000);
-                        alienEntities[i][j].setWidth(-1000);
-                        alienEntities[i][j].setTopLeftXPos(-1000);
-                        alienEntities[i][j].setTopLeftYPos(-1000);
-                        alienEntities[i][j].setDestroyed(true);
-
-                        // keeping track of deaths
-                        deathCount++;
-                        System.out.println(deathCount);
-
-                        if(deathCount == 54){
-                            delta *= 5;
-                            delta2 *= 5;
-
-                        }
-
-                        // all the aliens are dead
-                        if (deathCount == 55){
-
-                            delta /= 5;
-                            delta2 /= 5;
-
-                            for (int l = 0; l < 5; l++) {
-                                for (int m = 0; m < 11; m++) {
-
-                                    // redraw them at their original positions
-                                    alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
-                                    alienEntities[l][m].setTopLeftYPos(originalTopLeftYPos + l * originalHeight);
-                                    alienEntities[l][m].setWidth(originalWidth);
-                                    alienEntities[l][m].setHeight(originalHeight);
-                                    alienEntities[l][m].setColor(originalColor);
-                                    alienEntities[l][m].setDestroyed(false);
-
-                                }
-                            }
-
-                            // doubling the traversal speed
-                            delta *= 2;
-                            delta2 *= 2;
-                            // resetting the death count
-                            deathCount = 0;
-
-                        }
-
-                    }
-
-                    if (tankBullet.collidesWith(alienEntities[i][j])) {
-
-
-                        // drawing the aliens off the screen and reducing their dimensions
-                        tankBulls.removeBullet(tankBullet);
-                        alienEntities[i][j].setHeight(-1000);
-                        alienEntities[i][j].setWidth(-1000);
-                        alienEntities[i][j].setTopLeftXPos(-1000);
-                        alienEntities[i][j].setTopLeftYPos(-1000);
-                        alienEntities[i][j].setDestroyed(true);
-
-                        // keeping track of deaths
-                        deathCount++;
-                        System.out.println(deathCount);
-
-                        if(deathCount == 54){
-                            delta *= 5;
-                            delta2 *= 5;
-
-                        }
-
-                        // all the aliens are dead
-                        if (deathCount == 55){
-
-                            delta /= 5;
-                            delta2 /= 5;
-
-                            for (int l = 0; l < 5; l++) {
-                                for (int m = 0; m < 11; m++) {
-
-                                    // redraw them at their original positions
-                                    alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
-                                    alienEntities[l][m].setTopLeftYPos(originalTopLeftYPos + l * originalHeight);
-                                    alienEntities[l][m].setWidth(originalWidth);
-                                    alienEntities[l][m].setHeight(originalHeight);
-                                    alienEntities[l][m].setColor(originalColor);
-                                    alienEntities[l][m].setDestroyed(false);
-
-                                }
-                            }
-
-                            // doubling the traversal speed
-                            delta *= 2;
-                            delta2 *= 2;
-                            // resetting the death count
-                            deathCount = 0;
-
-                        }
-
-                    }
-
-
-                }
-            }
-
-
-
-        }
+        collisionDecisions(alienEntities);
 
         // checking for collisions with geraldine
         for (int i = 0; i < tankBulls.size(); i++) {
@@ -440,6 +297,122 @@ public class AlienInvaders extends GameComponent implements Observer {
     @Override
     public boolean isHeightReached(){
         return heightReached;
+    }
+
+    @Override
+    protected void performDestroyableObjectCollisionAction(DestroyableObject destroyableObject, Bullet tankBullet) {
+
+        try{
+            playSound("sounds/invaderkilled.wav");
+        }
+        catch (Exception e) { e.printStackTrace(); }
+
+        // checking the row that an alien was on the determine the enemy value / rank
+//        if (i == 2 || i == 4){
+//            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 10);
+//            System.out.println("1 and 3");
+//        }else if (i == 3 || i == 5){
+//            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 25);
+//            System.out.println("2 and 4");
+//        }else{
+//            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 50);
+//            System.out.println("ekse");
+//        }
+
+        // drawing the aliens off the screen and reducing their dimensions
+        tankBulls.removeBullet(tankBullet);
+        destroyableObject.setHeight(-1000);
+        destroyableObject.setWidth(-1000);
+        destroyableObject.setTopLeftXPos(-1000);
+        destroyableObject.setTopLeftYPos(-1000);
+        destroyableObject.setDestroyed(true);
+
+        // keeping track of deaths
+        deathCount++;
+        System.out.println(deathCount);
+
+        if(deathCount == 54){
+            delta *= 5;
+            delta2 *= 5;
+
+        }
+
+        // all the aliens are dead
+        if (deathCount == 55){
+
+            delta /= 5;
+            delta2 /= 5;
+
+            for (int l = 0; l < 5; l++) {
+                for (int m = 0; m < 11; m++) {
+
+                    // redraw them at their original positions
+                    alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
+                    alienEntities[l][m].setTopLeftYPos(originalTopLeftYPos + l * originalHeight);
+                    alienEntities[l][m].setWidth(originalWidth);
+                    alienEntities[l][m].setHeight(originalHeight);
+                    alienEntities[l][m].setColor(originalColor);
+                    alienEntities[l][m].setDestroyed(false);
+
+                }
+            }
+
+            // doubling the traversal speed
+            delta *= 2;
+            delta2 *= 2;
+            // resetting the death count
+            deathCount = 0;
+
+        }
+
+
+
+
+        // drawing the aliens off the screen and reducing their dimensions
+        tankBulls.removeBullet(tankBullet);
+        destroyableObject.setHeight(-1000);
+        destroyableObject.setWidth(-1000);
+        destroyableObject.setTopLeftXPos(-1000);
+        destroyableObject.setTopLeftYPos(-1000);
+        destroyableObject.setDestroyed(true);
+
+        // keeping track of deaths
+        deathCount++;
+        System.out.println(deathCount);
+
+        if(deathCount == 54){
+            delta *= 5;
+            delta2 *= 5;
+
+        }
+
+        // all the aliens are dead
+        if (deathCount == 55){
+
+            delta /= 5;
+            delta2 /= 5;
+
+            for (int l = 0; l < 5; l++) {
+                for (int m = 0; m < 11; m++) {
+
+                    // redraw them at their original positions
+                    alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
+                    alienEntities[l][m].setTopLeftYPos(originalTopLeftYPos + l * originalHeight);
+                    alienEntities[l][m].setWidth(originalWidth);
+                    alienEntities[l][m].setHeight(originalHeight);
+                    alienEntities[l][m].setColor(originalColor);
+                    alienEntities[l][m].setDestroyed(false);
+
+                }
+            }
+
+            // doubling the traversal speed
+            delta *= 2;
+            delta2 *= 2;
+            // resetting the death count
+            deathCount = 0;
+
+        }
     }
 
     public void setFiring(boolean firing) {

@@ -1,11 +1,13 @@
 package things.entity;
 
+import things.entity.template_method.DestroyableObject;
+
 import java.awt.*;
 
 /**
  * Created by Darren Moriarty on 17/11/2016.
  */
-public class AlienEntity extends GameComponent{
+public class AlienEntity extends DestroyableObject {
 
     // Boolean to tell if an alien is destroyed
     private boolean destroyed;
@@ -23,6 +25,11 @@ public class AlienEntity extends GameComponent{
 
     @Override
     public void update() {
+
+    }
+
+    @Override
+    protected void performDestroyableObjectCollisionAction(DestroyableObject destroyableObject, Bullet tankBullet) {
 
     }
 
