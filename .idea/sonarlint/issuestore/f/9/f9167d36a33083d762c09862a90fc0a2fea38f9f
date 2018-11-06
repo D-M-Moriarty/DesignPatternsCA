@@ -1,9 +1,9 @@
 
-W
-squid:S106‡"9Replace this use of System.out or System.err by a logger.(Ûœ¯“8‰¿·÷â,
-Bsquid:S1148Œ"#Use a logger to log this exception.(Â“å´8‰¿·÷â,
-xsquid:S1450&"URemove the "player" field and declare it as a local variable in the relevant methods.(Ç¹Ù±úÿÿÿÿ8‰¿·÷â,
-`squid:S001074"AConstructor has 8 parameters, which is greater than 7 authorized.(–«¿´8‰¿·÷â,
+psquid:S3776g"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Ö×õÄ8‰¿·÷â,
+Bsquid:S1148Ž"#Use a logger to log this exception.(Â“å´8‰¿·÷â,
+Ysquid:S1161Â":Add the "@Override" annotation above this method signature(Á»›ê8†™ðŒä,
 ssquid:S1450 "URemove the "deltaX" field and declare it as a local variable in the relevant methods.(ô®Ä¸8‰¿·÷â,
-psquid:S3776e"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Ö×õÄ8‰¿·÷â,
-Ysquid:S1161À":Add the "@Override" annotation above this method signature(Á»›ê8†™ðŒä,
+esquid:S001074"AConstructor has 8 parameters, which is greater than 7 authorized.(¦ú¹Ùýÿÿÿÿ8‰¿·÷â,
+W
+squid:S106‰"9Replace this use of System.out or System.err by a logger.(Ûœ¯“8‰¿·÷â,
+xsquid:S1450&"URemove the "player" field and declare it as a local variable in the relevant methods.(Ç¹Ù±úÿÿÿÿ8‰¿·÷â,

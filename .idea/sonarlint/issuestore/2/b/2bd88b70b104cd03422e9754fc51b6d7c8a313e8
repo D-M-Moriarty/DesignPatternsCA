@@ -1,7 +1,7 @@
 
-O
-squid:S106J"9Replace this use of System.out or System.err by a logger.(éÇ±
-isquid:S37768"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(Ö×õÄ
-:squid:S1148U"#Use a logger to log this exception.(Â“å´
-:squid:S1148s"#Use a logger to log this exception.(Â“å´
-Ysquid:S1161Ÿ":Add the "@Override" annotation above this method signature(Á»›ê8„™ğŒä,
+V
+squid:S106a"9Replace this use of System.out or System.err by a logger.(éÇ±8ê„‡¨í,
+Asquid:S1148l"#Use a logger to log this exception.(Â“å´8ê„‡¨í,
+Psquid:S1068"-Remove this unused "tankBulls" private field.(€°œ¶ûÿÿÿÿ8à…Ò§í,
+Ysquid:S1161":Add the "@Override" annotation above this method signature(Á»›ê8‰â·í,
+:squid:S1148R"#Use a logger to log this exception.(Â“å´

@@ -1,27 +1,30 @@
 
-Rsquid:S1444/"/Make this "public static tankLife1" field final(•Îòüÿÿÿÿ8×¤ÂÙâ,
-Jsquid:S1948:",Make "keyCommand" transient or serializable.(¨â«£8äÖõ³ä,
-Nsquid:S19486"+Make "tankBulls" transient or serializable.(€°œ¶ûÿÿÿÿ8ú†’²ä,
-Ysquid:S2696f"6Make the enclosing method "static" or remove this set.(ÌüÜ“ùÿÿÿÿ8×¤ÂÙâ,
-Asquid:S1948%"#Make "g" transient or serializable.(Óœé“8×¤ÂÙâ,
-Tsquid:S2696e"6Make the enclosing method "static" or remove this set.(’¯×Á8×¤ÂÙâ,
-Ksquid:S19482"(Make "barrel" transient or serializable.(¨Š˜îüÿÿÿÿ8ú†’²ä,
-Qsquid:S1068;".Remove this unused "wideBarrel" private field.(ù±ªÑüÿÿÿÿ8ÄöÓ¶ä,
-jsquid:CommentedOutCodeLine¥"<This block of commented-out lines of code should be removed.(†€éˆ8×¤ÂÙâ,
-"squid:ClassVariableVisibilityCheck0"UMake tankLife2 a static final constant or non-public and provide accessors if needed.(¨ÌÙÒøÿÿÿÿ8×¤ÂÙâ,
-Osquid:S1948;",Make "wideBarrel" transient or serializable.(ù±ªÑüÿÿÿÿ8Áºç´ä,
-Osquid:S19485",Make "alienBulls" transient or serializable.(Ç€¨Ãşÿÿÿÿ8ú†’²ä,
-Esquid:S1948#"'Make "image" transient or serializable.(ğã’8×¤ÂÙâ,
-Gsquid:S19483")Make "barrier" transient or serializable.(à–”š8ú†’²ä,
-Rsquid:S14440"/Make this "public static tankLife2" field final(¨ÌÙÒøÿÿÿÿ8×¤ÂÙâ,
-"squid:ClassVariableVisibilityCheck1"UMake tankLife3 a static final constant or non-public and provide accessors if needed.(©Ö½Çÿÿÿÿÿ8×¤ÂÙâ,
- squid:S1186‰"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8×¤ÂÙâ,
-Rsquid:S14441"/Make this "public static tankLife3" field final(©Ö½Çÿÿÿÿÿ8×¤ÂÙâ,
-Usquid:S11354"2Complete the task associated to this TODO comment.(­à‘¼ÿÿÿÿÿ8×¤ÂÙâ,
-vsquid:S00117‰"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ ø¥üÿÿÿÿ8×¤ÂÙâ,
-"squid:ClassVariableVisibilityCheck'"UMake isRunning a static final constant or non-public and provide accessors if needed.(È…‡ñÿÿÿÿÿ8×¤ÂÙâ,
-Ksquid:S19487"(Make "aliens" transient or serializable.(š©¹šıÿÿÿÿ8ú†’²ä,
-Dsquid:S1948."&Make "tank" transient or serializable.(ÚïûÖ8ú†’²ä,
-Tsquid:S2696g"6Make the enclosing method "static" or remove this set.(ˆİ£ı8×¤ÂÙâ,
-"squid:ClassVariableVisibilityCheck/"UMake tankLife1 a static final constant or non-public and provide accessors if needed.(•Îòüÿÿÿÿ8×¤ÂÙâ,
-Esquid:S1948)"(Make "thread" transient or serializable.(â£Ÿ48×¤ÂÙâ,
+jsquid:CommentedOutCodeLine¬"<This block of commented-out lines of code should be removed.(†€éˆ8×¤ÂÙâ,
+Lsquid:S19488")Make "barrier" transient or serializable.(ĞÙÏ‚ùÿÿÿÿ8¶ ¥í,
+ squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8×¤ÂÙâ,
+Rsquid:S14444"/Make this "public static tankLife1" field final(ï¬ü¾ûÿÿÿÿ8¶ ¥í,
+Tsquid:S2696m"6Make the enclosing method "static" or remove this set.(İ‚ä•8¶ ¥í,
+isquid:UselessImportCheck">Remove this unused import 'things.entity.factory_method.Type'.(çìŸ8¶ ¥í,
+Lsquid:S14446"/Make this "public static tankLife3" field final(™å°08¶ ¥í,
+Tsquid:S2696n"6Make the enclosing method "static" or remove this set.(ÿäåÙ8¶ ¥í,
+Osquid:S1948@",Make "wideBarrel" transient or serializable.(ù±ªÑüÿÿÿÿ8ğÿ·í,
+Ksquid:S1948<"(Make "aliens" transient or serializable.(îàá²üÿÿÿÿ8¶ ¥í,
+"squid:ClassVariableVisibilityCheck,"UMake isRunning a static final constant or non-public and provide accessors if needed.(È…‡ñÿÿÿÿÿ8¶ ¥í,
+Osquid:S1948:",Make "alienBulls" transient or serializable.(Ç€¨Ãşÿÿÿÿ8¶ ¥í,
+Usquid:S11359"2Complete the task associated to this TODO comment.(­à‘¼ÿÿÿÿÿ8¶ ¥í,
+Esquid:S1948("'Make "image" transient or serializable.(ğã’8¶ ¥í,
+Lsquid:S1948A")Make "factory" transient or serializable.(«óîúøÿÿÿÿ8¶ ¥í,
+Osquid:S1068>",Remove this unused "gameMain" private field.(Éˆƒüÿÿÿÿ8¶ ¥í,
+"squid:ClassVariableVisibilityCheck4"UMake tankLife1 a static final constant or non-public and provide accessors if needed.(ï¬ü¾ûÿÿÿÿ8¶ ¥í,
+Fsquid:S19487"(Make "barrel" transient or serializable.(–„ä¤8¶ ¥í,
+Nsquid:S1948;"+Make "tankBulls" transient or serializable.(€°œ¶ûÿÿÿÿ8¶ ¥í,
+Qsquid:S1068@".Remove this unused "wideBarrel" private field.(ù±ªÑüÿÿÿÿ8¶ ¥í,
+Š"squid:ClassVariableVisibilityCheck5"UMake tankLife2 a static final constant or non-public and provide accessors if needed.(²¸£8¶ ¥í,
+Asquid:S1948*"#Make "g" transient or serializable.(Óœé“8¶ ¥í,
+vsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ ø¥üÿÿÿÿ8×¤ÂÙâ,
+Jsquid:S1948?",Make "keyCommand" transient or serializable.(¨â«£8¶ ¥í,
+Ysquid:S2696l"6Make the enclosing method "static" or remove this set.(´³È°şÿÿÿÿ8¶ ¥í,
+Esquid:S1948."(Make "thread" transient or serializable.(â£Ÿ48¶ ¥í,
+Dsquid:S19483"&Make "tank" transient or serializable.(İûÜÁ8¶ ¥í,
+‰"squid:ClassVariableVisibilityCheck6"UMake tankLife3 a static final constant or non-public and provide accessors if needed.(™å°08¶ ¥í,
+Msquid:S14445"/Make this "public static tankLife2" field final(²¸£8¶ ¥í,

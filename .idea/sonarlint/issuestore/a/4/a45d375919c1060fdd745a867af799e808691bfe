@@ -1,8 +1,9 @@
 
-Nsquid:S1854Χ"6Remove this useless assignment to local variable "in".(ΰέΗ
+?squid:S1481Ω"'Remove this unused "in" local variable.(ΰέΗ
+]squid:S3400β"9Remove this method and declare a constant for this value.(ÿΕ‚ϊÿÿÿÿ8ώϊΒ¨ν,
+]squid:S1126l"AReplace this if-then-else statement by a single return statement.(Θζο³ωÿÿÿÿ
+hsquid:CommentedOutCodeLineά"<This block of commented-out lines of code should be removed.(®”βÿÿÿÿÿ
+Nsquid:S1854Ω"6Remove this useless assignment to local variable "in".(ΰέΗ
 bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³«­Γ
-hsquid:CommentedOutCodeLineΪ"<This block of commented-out lines of code should be removed.(®”βÿÿÿÿÿ
-dsquid:S00112Τ"FDefine and throw a dedicated exception instead of using a generic one.(Ο•ά³ÿÿÿÿÿ
-?squid:S1481Χ"'Remove this unused "in" local variable.(ΰέΗ
-hsquid:CommentedOutCodeLineέ"<This block of commented-out lines of code should be removed.(Έ—ραϊÿÿÿÿ
-]squid:S1126h"AReplace this if-then-else statement by a single return statement.(Θζο³ωÿÿÿÿ
+hsquid:CommentedOutCodeLineί"<This block of commented-out lines of code should be removed.(Έ—ραϊÿÿÿÿ
+dsquid:S00112Φ"FDefine and throw a dedicated exception instead of using a generic one.(Ο•ά³ÿÿÿÿÿ
