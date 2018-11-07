@@ -17,6 +17,7 @@ public class DrawSquareSprite implements DrawSprite {
         int y = gameComponent.getTopLeftYPos();
         int width = gameComponent.getWidth();
         int height = gameComponent.getHeight();
+
         graphics2D.setColor(gameComponent.getColor());
         graphics2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         graphics2D.drawRect(x, y, width, height);

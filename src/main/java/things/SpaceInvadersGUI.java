@@ -173,7 +173,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
 
         // updating the bullets
         for(int i = 0; i < bullets.size(); i++){
-            bullets.get(i).update();
+            bullets.get(i).updateEntity();
         }
 
         for(int i = 0; i < alienBullets.size(); i++){
@@ -213,7 +213,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener{
 
         // Drawing ArrayList of bullets
         for(int i = 0; i < bullets.size(); i++){
-            bullets.get(i).draw(g);
+            bullets.get(i).drawEntity(g);
         }
 
         // Drawing ArrayList of AlienBullets
