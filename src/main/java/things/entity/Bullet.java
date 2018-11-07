@@ -22,10 +22,6 @@ import java.util.List;
 public class Bullet extends GameComponent implements Subject {
 
     // Class Attributes
-
-    /* The difference between the initial y position and the new y position
-        This is the amount of pixels the entity will move per second/update */
-    private static final int DELTA_Y = 5;
     private boolean isAlienBullet;
     private List<Observer> observers;
 
@@ -45,31 +41,19 @@ public class Bullet extends GameComponent implements Subject {
         this.observers = new ArrayList<>();
     }
 
-    // This method fires the bullet by reducing the the y position by Delta_y each update
-    public void fireBullet(){
-        if (isAlienBullet)
-            topLeftYPos += DELTA_Y;
-        else
-            topLeftYPos -= DELTA_Y;
+
+    @Override
+    public void update(){
     }
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(getColor());
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g.drawRect(topLeftXPos, topLeftYPos, width, height);
-        g.fillRect(topLeftXPos, topLeftYPos, width, height);
-
-    }
-
-    public void update() {
-        fireBullet();
-        notifyObservers();
     }
 
     public boolean isAlienBullet() {
         return isAlienBullet;
     }
+
 
     public void registerObserver(Observer observer) {
         this.observers.add(observer);
