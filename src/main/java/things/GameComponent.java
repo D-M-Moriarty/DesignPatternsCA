@@ -146,9 +146,6 @@ public abstract class GameComponent {
      */
     public abstract void draw(Graphics2D g);
 
-    /**
-     *
-     */
     public abstract void update();
 
     public void updateEntity() {
