@@ -1,14 +1,5 @@
 package things;
 
-import things.entity.*;
-import things.entity.command.*;
-import things.entity.decorator.*;
-import things.entity.factory_method.GameComponentFactory;
-import things.entity.factory_method.StandardGameComponentFactory;
-import things.entity.factory_method.Type;
-import things.entity.observer.Observer;
-import things.entity.singleton.FiredBullets;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -198,8 +189,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
 
         // updating the bullets
-        for(int i = 0; i < tankBulls.size(); i++){
-            tankBulls.getBullet(i).update();
+        for(int i = 0; i < bullets.size(); i++){
+            bullets.get(i).updateEntity();
         }
 
         for(int i = 0; i < alienBulls.size(); i++){
@@ -239,8 +230,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         aliens.draw(g);
 
         // Drawing ArrayList of bullets
-        for(int i = 0; i < tankBulls.size(); i++){
-            tankBulls.getBullet(i).draw(g);
+        for(int i = 0; i < bullets.size(); i++){
+            bullets.get(i).drawEntity(g);
         }
 
         // Drawing ArrayList of AlienBullets
