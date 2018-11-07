@@ -1,8 +1,8 @@
 package things.entity.strategy.update;
 
-import things.Bullet;
-import things.GameComponent;
 import things.SpaceInvadersGUI;
+import things.entity.Bullet;
+import things.entity.singleton.FiredBullets;
 
 public class UpdateBullet implements UpdateSprite {
     private Bullet bullet;
@@ -34,8 +34,7 @@ public class UpdateBullet implements UpdateSprite {
     private void removeBullet(){
         if(bullet.getTopLeftYPos() + bullet.getHeight() < 0
                 || bullet.getTopLeftYPos()  > SpaceInvadersGUI.HEIGHT){
-            SpaceInvadersGUI.bullets.remove(this);
-
+            FiredBullets.getTankBullets().removeBullet(bullet);
         }
     }
 }
