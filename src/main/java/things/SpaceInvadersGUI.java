@@ -1,5 +1,15 @@
 package things;
 
+import things.entity.Barrier;
+import things.entity.Bullet;
+import things.entity.GameComponent;
+import things.entity.command.*;
+import things.entity.decorator.AbstractBarrel;
+import things.entity.factory_method.GameComponentFactory;
+import things.entity.factory_method.StandardGameComponentFactory;
+import things.entity.observer.Observer;
+import things.entity.singleton.FiredBullets;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -189,8 +199,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
 
         // updating the bullets
-        for(int i = 0; i < bullets.size(); i++){
-            bullets.get(i).updateEntity();
+        for(int i = 0; i < tankBulls.size(); i++){
+            tankBulls.getBullet(i).updateEntity();
         }
 
         for(int i = 0; i < alienBulls.size(); i++){
@@ -230,8 +240,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         aliens.draw(g);
 
         // Drawing ArrayList of bullets
-        for(int i = 0; i < bullets.size(); i++){
-            bullets.get(i).drawEntity(g);
+        for(int i = 0; i < tankBulls.size(); i++){
+            tankBulls.getBullet(i).drawEntity(g);
         }
 
         // Drawing ArrayList of AlienBullets
@@ -276,6 +286,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
     // This method removes a bullet from the ArrayList of bullets
     // once its left the screen bounds
+    @Override
     public void updateObserver(Bullet bullet) {
         int tplYPos = bullet.getTopLeftYPos();
         int bulletHeight = bullet.getHeight();
@@ -285,4 +296,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
             alienBulls.removeBullet(bullet);
         }
     }
+
+
 }
