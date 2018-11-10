@@ -55,7 +55,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public static GameComponent tankLife3;
     private GameComponent barrel;
     private  GameComponent[] barrier;
-    // TODO instantiated on main thread and refernced on game thread
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
     private GameComponent aliens;
@@ -92,10 +91,11 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
 
         alienBulls.registerObserver(this);
         tankBulls.registerObserver(this);
+
         factory = new StandardGameComponentFactory(gameMain);
     }
 
-    //@Override
+    @Override
     public void run() {
         //set is running to true
         isRunning = true;
@@ -278,7 +278,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public void keyPressed(KeyEvent e) {
         keyCommand.keyPressed(e);
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
         keyCommand.keyReleased(e);
@@ -290,7 +289,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public void updateObserver(Bullet bullet) {
         int tplYPos = bullet.getTopLeftYPos();
         int bulletHeight = bullet.getHeight();
-        if(tplYPos + bulletHeight < 0){
+        if (tplYPos + bulletHeight < 0) {
             tankBulls.removeBullet(bullet);
         } else if (tplYPos > HEIGHT) {
             alienBulls.removeBullet(bullet);

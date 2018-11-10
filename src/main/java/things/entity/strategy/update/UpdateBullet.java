@@ -1,8 +1,6 @@
 package things.entity.strategy.update;
 
-import things.SpaceInvadersGUI;
 import things.entity.Bullet;
-import things.entity.singleton.FiredBullets;
 
 public class UpdateBullet implements UpdateSprite {
     private Bullet bullet;
@@ -16,7 +14,7 @@ public class UpdateBullet implements UpdateSprite {
 
     public void update() {
         fireBullet();
-        removeBullet();
+        bullet.notifyObservers();
     }
 
     // This method fires the bullet by reducing the the y position by Delta_y each update
@@ -29,12 +27,4 @@ public class UpdateBullet implements UpdateSprite {
         bullet.setTopLeftYPos(newTopLeftYPos);
     }
 
-    // This method removes a bullet from the ArrayList of bullets once its hit
-    // an enemy or passed the top of the screen
-    private void removeBullet(){
-        if(bullet.getTopLeftYPos() + bullet.getHeight() < 0
-                || bullet.getTopLeftYPos()  > SpaceInvadersGUI.HEIGHT){
-            FiredBullets.getTankBullets().removeBullet(bullet);
-        }
-    }
 }

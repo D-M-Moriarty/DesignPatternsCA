@@ -22,23 +22,23 @@ public class HighScores extends JPanel{
         // setting the text area font
         Font textAreaFont = new Font("monospaced", Font.PLAIN,25);
 
-        textArea = new JTextArea(15, 30);
+        textArea = new JTextArea(30, 30);
 
         // setting the format of the text area
-        textArea.setText(String.format("%9s%12s\n","Name","Score"));
+        textArea.setText(String.format("%9s%12s%12s%12s%n","Name","Score", "ABulls", "TBulls"));
 
         textArea.setFont(textAreaFont);
 
         // appending the text area
         for (int i = gameMain.getHighScorersSize()-1; i >= 0; i--) {
-            textArea.append(String.format("%-5d%-10s%5d\n",(gameMain.getHighScorersSize() - i) ,
-                    gameMain.highScorers.get(i).getName().toString(),
-                    gameMain.highScorers.get(i).getPlayerScore()));
+            textArea.append(String.format("%-5d%-12s%-10d%-9s%5d%n",(gameMain.getHighScorersSize() - i) ,
+                    gameMain.highScorers.get(i).getName(),
+                    gameMain.highScorers.get(i).getPlayerScore(),
+                    gameMain.getAlienBulletsFired().size(),
+                    gameMain.getTankBulletsFired().size()));
         }
 
         add(textArea);
-
-
         setFocusable(true);
         //gets the focus
         requestFocus();
