@@ -75,3 +75,9 @@ X
 .src/main/java/things/entity/AlienInvaders.java,7/3/73bcff55cf67d75908e88cd8e4eeb4a204187696
 r
 Bsrc/main/java/things/entity/template_method/DestroyableObject.java,e/7/e7f3ef9753005ff0555e29b9477253703e2bc721
+i
+9src/main/java/things/entity/strategy/draw/DrawSprite.java,9/0/909d9704af29c23b318494ec6c77bc7fb590b9d5
+o
+?src/main/java/things/entity/strategy/draw/DrawSquareSprite.java,c/0/c0bddad7a50a7b070f74891929ef38bdfd0afd33
+d
+4src/main/java/things/entity/update/UpdateSprite.java,b/0/b01ec3ee64a005244be2fd024a8d58721560c04c

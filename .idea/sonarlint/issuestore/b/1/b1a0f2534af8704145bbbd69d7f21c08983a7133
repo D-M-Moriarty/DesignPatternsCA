@@ -1,20 +1,28 @@
 
-Š"squid:ClassVariableVisibilityCheck,"UMake tankLife2 a static final constant or non-public and provide accessors if needed.(²¸£8°êÓ‚ï,
-Rsquid:S1444+"/Make this "public static tankLife1" field final(ï¬ü¾ûÿÿÿÿ8°êÓ‚ï,
-Msquid:S1444,"/Make this "public static tankLife2" field final(²¸£8°êÓ‚ï,
-Tsquid:S2696d"6Make the enclosing method "static" or remove this set.(İ‚ä•8°êÓ‚ï,
-"squid:ClassVariableVisibilityCheck+"UMake tankLife1 a static final constant or non-public and provide accessors if needed.(ï¬ü¾ûÿÿÿÿ8°êÓ‚ï,
-Usquid:S11350"2Complete the task associated to this TODO comment.(­à‘¼ÿÿÿÿÿ8°êÓ‚ï,
- squid:S1186‡"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8°êÓ‚ï,
-Ysquid:S2696c"6Make the enclosing method "static" or remove this set.(´³È°şÿÿÿÿ8°êÓ‚ï,
-Esquid:S1948%"(Make "thread" transient or serializable.(â£Ÿ48°êÓ‚ï,
-‰"squid:ClassVariableVisibilityCheck-"UMake tankLife3 a static final constant or non-public and provide accessors if needed.(™å°08°êÓ‚ï,
-vsquid:S00117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ ø¥üÿÿÿÿ8°êÓ‚ï,
-Lsquid:S1444-"/Make this "public static tankLife3" field final(™å°08°êÓ‚ï,
-jsquid:CommentedOutCodeLine£"<This block of commented-out lines of code should be removed.(†€éˆ8°êÓ‚ï,
-Qsquid:S10687".Remove this unused "wideBarrel" private field.(ù±ªÑüÿÿÿÿ8°êÓ‚ï,
-"squid:ClassVariableVisibilityCheck#"UMake isRunning a static final constant or non-public and provide accessors if needed.(È…‡ñÿÿÿÿÿ8°êÓ‚ï,
-Asquid:S1948!"#Make "g" transient or serializable.(Óœé“8°êÓ‚ï,
-Osquid:S10685",Remove this unused "gameMain" private field.(Éˆƒüÿÿÿÿ8°êÓ‚ï,
-Tsquid:S2696e"6Make the enclosing method "static" or remove this set.(ÿäåÙ8°êÓ‚ï,
-Esquid:S1948"'Make "image" transient or serializable.(ğã’8°êÓ‚ï,
+Osquid:S1068>",Remove this unused "gameMain" private field.(Éˆƒüÿÿÿÿ8úº™²ï,
+Qsquid:S1068@".Remove this unused "wideBarrel" private field.(ù±ªÑüÿÿÿÿ8úº™²ï,
+Rsquid:S14445"/Make this "public static tankLife1" field final(ï¬ü¾ûÿÿÿÿ8úº™²ï,
+Msquid:S14446"/Make this "public static tankLife2" field final(²¸£8úº™²ï,
+Lsquid:S14447"/Make this "public static tankLife3" field final(™å°08úº™²ï,
+jsquid:CommentedOutCodeLine¬"<This block of commented-out lines of code should be removed.(†€éˆ8úº™²ï,
+Ysquid:S2696l"6Make the enclosing method "static" or remove this set.(´³È°şÿÿÿÿ8úº™²ï,
+Tsquid:S2696m"6Make the enclosing method "static" or remove this set.(İ‚ä•8úº™²ï,
+Tsquid:S2696n"6Make the enclosing method "static" or remove this set.(ÿäåÙ8úº™²ï,
+"squid:ClassVariableVisibilityCheck-"UMake isRunning a static final constant or non-public and provide accessors if needed.(È…‡ñÿÿÿÿÿ8úº™²ï,
+"squid:ClassVariableVisibilityCheck5"UMake tankLife1 a static final constant or non-public and provide accessors if needed.(ï¬ü¾ûÿÿÿÿ8úº™²ï,
+Š"squid:ClassVariableVisibilityCheck6"UMake tankLife2 a static final constant or non-public and provide accessors if needed.(²¸£8úº™²ï,
+‰"squid:ClassVariableVisibilityCheck7"UMake tankLife3 a static final constant or non-public and provide accessors if needed.(™å°08úº™²ï,
+ squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8úº™²ï,
+vsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦ ø¥üÿÿÿÿ8úº™²ï,
+Esquid:S1948)"'Make "image" transient or serializable.(ğã’8úº™²ï,
+Asquid:S1948+"#Make "g" transient or serializable.(Óœé“8úº™²ï,
+Esquid:S1948/"(Make "thread" transient or serializable.(â£Ÿ48úº™²ï,
+Dsquid:S19484"&Make "tank" transient or serializable.(İûÜÁ8úº™²ï,
+Fsquid:S19488"(Make "barrel" transient or serializable.(–„ä¤8úº™²ï,
+Lsquid:S19489")Make "barrier" transient or serializable.(ĞÙÏ‚ùÿÿÿÿ8úº™²ï,
+Osquid:S1948:",Make "alienBulls" transient or serializable.(Ç€¨Ãşÿÿÿÿ8úº™²ï,
+Nsquid:S1948;"+Make "tankBulls" transient or serializable.(€°œ¶ûÿÿÿÿ8úº™²ï,
+Ksquid:S1948<"(Make "aliens" transient or serializable.(îàá²üÿÿÿÿ8úº™²ï,
+Jsquid:S1948?",Make "keyCommand" transient or serializable.(¨â«£8úº™²ï,
+Osquid:S1948@",Make "wideBarrel" transient or serializable.(ù±ªÑüÿÿÿÿ8úº™²ï,
+Lsquid:S1948A")Make "factory" transient or serializable.(«óîúøÿÿÿÿ8úº™²ï,

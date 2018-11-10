@@ -12,7 +12,7 @@ public abstract class GameComponentFactory {
 
     protected abstract GameComponent createGameComponent(Type component);
 
-    public GameComponent getComponent(Type type) {
+    public synchronized GameComponent getComponent(Type type) {
        return createGameComponent(type);
     }
 }

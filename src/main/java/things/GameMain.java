@@ -1,6 +1,9 @@
 package things;
 
+import things.entity.Bullet;
 import things.entity.GameComponent;
+import things.entity.observer.Observer;
+import things.entity.singleton.FiredBullets;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -10,7 +13,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.net.URL;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
+
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
  * This is the main JFrame class with the main method to run the game
@@ -20,7 +29,9 @@ import java.util.LinkedList;
  *
  * This class inherits from JFrame
  */
-public class GameMain extends JFrame{
+public class GameMain implements Observer {
+
+    private JFrame frame = new JFrame();
 
     private JPanel welcomeGUI = new WelcomeGUI();
 
@@ -47,15 +58,32 @@ public class GameMain extends JFrame{
     public LinkedList<Player> highScorers =  new LinkedList<Player>();
 
 
+    private Set<Bullet> alienBulletsFired;
+    private Set<Bullet> tankBulletsFired;
+
+    public Set<Bullet> getAlienBulletsFired() {
+        return alienBulletsFired;
+    }
+
+    public Set<Bullet> getTankBulletsFired() {
+        return tankBulletsFired;
+    }
+
     // JFrame GUI constructor method
     public GameMain(){
         // Super calls the JFrame constructor and sets the title
-        super("Space Invaders");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocation(200,0);
+        frame.setTitle("Space Invaders");
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setLocation(200,0);
 
         // Loads the highScores.dat file
         loadScores();
+
+        alienBulletsFired = new HashSet<>();
+        tankBulletsFired = new HashSet<>();
+
+        FiredBullets.getAlienBullets().registerObserver(this);
+        FiredBullets.getTankBullets().registerObserver(this);
 
         try{
             GameComponent.playSound("sounds/spaceinvaders1.wav");
@@ -74,7 +102,7 @@ public class GameMain extends JFrame{
         jmenuBack.add(itemBack);
         jmenuBar.add(jmenu);
         jmenuBar.add(jmenuBack);
-        setJMenuBar(jmenuBar);
+        frame.setJMenuBar(jmenuBar);
 
         // listener for the history menu item
         jmenuItem.addActionListener(new ActionListener() {
@@ -112,7 +140,7 @@ public class GameMain extends JFrame{
         startGame2.setBorder(new LineBorder(Color.BLACK));
 
         // setting the content pane
-        setContentPane(welcomeGUI);
+        frame.setContentPane(welcomeGUI);
 
         // button to load the game
         startGame.addActionListener(new ActionListener() {
@@ -121,8 +149,8 @@ public class GameMain extends JFrame{
                 startGame();
                 System.out.println("new panel created");//for debugging purposes
                 // resetting the container
-                validate();
-                setVisible(true);
+                frame.validate();
+                frame.setVisible(true);
             }
         });
 
@@ -135,15 +163,16 @@ public class GameMain extends JFrame{
         });
 
         // setting focus to the current pane
-        getContentPane().setFocusable(true);
-        getContentPane().requestFocusInWindow();
+        frame.getContentPane().setFocusable(true);
+        frame.getContentPane().requestFocusInWindow();
         // This sets the size of the JFrame to whatever the size of the Component inside it is
-        pack();
-        setVisible(true);
+        frame.pack();
+        frame.setVisible(true);
 
         //Changing the window closing, anonymous inner class
-        addWindowListener(
+        frame.addWindowListener(
                 new WindowAdapter(){
+                    @Override
                     public void windowClosing(WindowEvent e){
                         int option = JOptionPane.showConfirmDialog(null,"Are you sure you want to quit the game?");
 
@@ -156,9 +185,9 @@ public class GameMain extends JFrame{
                                 f.printStackTrace();
                             }
 
-                            setDefaultCloseOperation(EXIT_ON_CLOSE);
+                            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
                         }else{
-                            setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                            frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
                         }
                     }//end windowClosing
 
@@ -232,13 +261,13 @@ public class GameMain extends JFrame{
         spaceInvadersGUI = new SpaceInvadersGUI(this);
         jmenuBar.setVisible(false);
         changeScreen(spaceInvadersGUI);
-        pack();
+        frame.pack();
     }
 
     public void viewHighScores() {
         highscores = new HighScores(this);
         changeScreen(highscores);
-        pack();
+        frame.pack();
     }
 
     public void changeContentPane2() {
@@ -247,13 +276,12 @@ public class GameMain extends JFrame{
     }
 
     private void changeScreen(JPanel screen) {
-        setContentPane(screen);
+        frame.setContentPane(screen);
         screen.requestFocusInWindow();
     }
 
     // method for saving scores
     public void saveScores() throws IOException {
-            // TODO use try with resources
             ObjectOutputStream oob = new ObjectOutputStream(new FileOutputStream("HighScores.dat"));
             oob.writeObject(highScorers);
             oob.close();
@@ -261,18 +289,24 @@ public class GameMain extends JFrame{
 
     public void loadScores() {
         try{
-            ObjectInputStream oobIn = new ObjectInputStream(new FileInputStream("HighScores.dat"));
+            URL startImage = classLoader.getResource("HighScores.dat");
+            ObjectInputStream oobIn = new ObjectInputStream(new FileInputStream(startImage.getFile()));
              highScorers = (LinkedList<Player>) oobIn.readObject();
             oobIn.close();
-        }
-        catch (FileNotFoundException e){ e.printStackTrace(); }
-        catch (IOException e){ e.printStackTrace(); }
-        catch (Exception e){ e.printStackTrace(); }
+        } catch (Exception e){ e.printStackTrace(); }
 
     }
 
     // main method creates a new JFrame called GameMain
     public static void main(String[] args) {
         new GameMain();
+    }
+
+    @Override
+    public void updateObserver(Bullet bullet) {
+        if (bullet.isAlienBullet())
+            alienBulletsFired.add(bullet);
+        else
+            tankBulletsFired.add(bullet);
     }
 }

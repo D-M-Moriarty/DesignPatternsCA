@@ -54,7 +54,6 @@ public class Bullet extends GameComponent implements Subject {
         return isAlienBullet;
     }
 
-
     public void registerObserver(Observer observer) {
         this.observers.add(observer);
     }

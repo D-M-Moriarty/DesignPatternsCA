@@ -20,20 +20,42 @@ public class FiredBullets implements Subject, Observer {
     }
 
     public static FiredBullets getAlienBullets() {
-        return alienBullets == null ? alienBullets = new FiredBullets() : alienBullets;
+        if (alienBullets == null)
+            alienBullets = new FiredBullets();
+        return alienBullets;
     }
 
     public static FiredBullets getTankBullets() {
-        return tankBullets == null ? tankBullets = new FiredBullets() : tankBullets;
+        if (tankBullets == null)
+            tankBullets = new FiredBullets();
+        return tankBullets;
     }
 
     public void addBullet(Bullet bullet) {
-        // TODO remove the observation of bullet
-        // TODO notifyObserver when the bullet is added to the list
-        // TODO change the list to a stack
         bullet.registerObserver(this);
         bullets.add(bullet);
     }
+
+    public void notifyObservers() {
+        for (Observer observer: observers)
+            observer.updateObserver(bulletToObserve);
+        bulletToObserve = null;
+    }
+
+    @Override
+    public void updateObserver(Bullet bullet) {
+        this.bulletToObserve = bullet;
+        notifyObservers();
+    }
+
+    public void registerObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+
 
     public Bullet getBullet(int i) {
         return bullets.get(i);
@@ -47,26 +69,8 @@ public class FiredBullets implements Subject, Observer {
         bullets.remove(bulletIndex);
     }
 
-    public void registerObserver(Observer observer) {
-        this.observers.add(observer);
-    }
-
-    public void removeObserver(Observer observer) {
-        this.observers.add(observer);
-    }
-
-    public void notifyObservers() {
-        for (Observer observer: observers)
-            observer.updateObserver(bulletToObserve);
-        bulletToObserve = null;
-    }
-
     public int size() {
         return bullets.size();
     }
 
-    public void updateObserver(Bullet bullet) {
-        this.bulletToObserve = bullet;
-        notifyObservers();
-    }
 }
