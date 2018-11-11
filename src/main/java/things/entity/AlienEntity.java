@@ -33,11 +33,4 @@ public class AlienEntity extends DestroyableObject {
 
     }
 
-    public void setDestroyed(boolean destroyed) {
-        this.destroyed = destroyed;
-    }
-
-    public boolean isDestroyed(){
-        return destroyed;
-    }
 }

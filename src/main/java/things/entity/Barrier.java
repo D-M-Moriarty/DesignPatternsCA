@@ -22,7 +22,6 @@ public class Barrier extends DestroyableObject {
     // Two dimensional array of BarrierBlock objects
     private DestroyableObject[][] barrierBlocks;
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
-    private FiredBullets tankBulls = FiredBullets.getTankBullets();
 
     /**
      * 5 argument constructor
@@ -139,6 +138,7 @@ public class Barrier extends DestroyableObject {
 
     }
 
+    @Override
     public String toString(){
         return "Barrier class is working";
     }

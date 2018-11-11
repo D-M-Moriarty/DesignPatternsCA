@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FiredBullets implements Subject, Observer {
-    private static FiredBullets alienBullets;
-    private static FiredBullets tankBullets;
+    private static FiredBullets alienBullets = new FiredBullets();
+    private static FiredBullets tankBullets = new FiredBullets();
     private List<Observer> observers;
     private List<Bullet> bullets;
     private Bullet bulletToObserve;
@@ -20,14 +20,10 @@ public class FiredBullets implements Subject, Observer {
     }
 
     public static FiredBullets getAlienBullets() {
-        if (alienBullets == null)
-            alienBullets = new FiredBullets();
         return alienBullets;
     }
 
     public static FiredBullets getTankBullets() {
-        if (tankBullets == null)
-            tankBullets = new FiredBullets();
         return tankBullets;
     }
 
@@ -35,27 +31,6 @@ public class FiredBullets implements Subject, Observer {
         bullet.registerObserver(this);
         bullets.add(bullet);
     }
-
-    public void notifyObservers() {
-        for (Observer observer: observers)
-            observer.updateObserver(bulletToObserve);
-        bulletToObserve = null;
-    }
-
-    @Override
-    public void updateObserver(Bullet bullet) {
-        this.bulletToObserve = bullet;
-        notifyObservers();
-    }
-
-    public void registerObserver(Observer observer) {
-        this.observers.add(observer);
-    }
-
-    public void removeObserver(Observer observer) {
-        this.observers.add(observer);
-    }
-
 
     public Bullet getBullet(int i) {
         return bullets.get(i);
@@ -72,5 +47,24 @@ public class FiredBullets implements Subject, Observer {
     public int size() {
         return bullets.size();
     }
+    @Override
+    public void notifyObservers() {
+        for (Observer observer: observers)
+            observer.updateObserver(bulletToObserve);
+        bulletToObserve = null;
+    }
 
+    @Override
+    public void updateObserver(Bullet bullet) {
+        this.bulletToObserve = bullet;
+        notifyObservers();
+    }
+    @Override
+    public void registerObserver(Observer observer) {
+        this.observers.add(observer);
+    }
+    @Override
+    public void removeObserver(Observer observer) {
+        this.observers.add(observer);
+    }
 }
