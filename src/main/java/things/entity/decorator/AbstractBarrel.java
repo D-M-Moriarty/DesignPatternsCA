@@ -3,7 +3,6 @@ package things.entity.decorator;
 import things.entity.Barrel;
 import things.entity.Bullet;
 import things.entity.GameComponent;
-import things.entity.singleton.FiredBullets;
 
 import java.awt.*;
 
@@ -19,7 +18,6 @@ public abstract class AbstractBarrel extends GameComponent {
     protected int deltaX;
     // The initial speed to travel horizontally
     protected int horizontalSpeed;
-    protected FiredBullets tankBullets = FiredBullets.getTankBullets();
     private Barrel barrel;
 
     /**

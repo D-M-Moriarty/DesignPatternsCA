@@ -167,16 +167,7 @@ public class Tank extends GameComponent{
 
 
                     //Keeping track of the highScores
-                    if(gameMain.getHighScorersSize() < 11){
-                        gameMain.addToHighScorers(player);
-
-                        gameMain.sortHighScorers();
-
-                        if(gameMain.getHighScorersSize() == 11){
-                            gameMain.removeFirstLink();
-                        }
-
-                    }
+                    manageHighScores(gameMain, player);
 
                     // changing back to the welcome screen
                     gameMain.changeContentPane2();
@@ -189,6 +180,19 @@ public class Tank extends GameComponent{
 
         }
 
+    }
+
+    static void manageHighScores(GameMain gameMain, Player player) {
+        if(gameMain.getHighScorersSize() < 11){
+            gameMain.addToHighScorers(player);
+
+            gameMain.sortHighScorers();
+
+            if(gameMain.getHighScorersSize() == 11){
+                gameMain.removeFirstLink();
+            }
+
+        }
     }
 
     public String toString(){

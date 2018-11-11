@@ -74,6 +74,14 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         // Initialising the 2d array of aliens
         alienEntities = new AlienEntity[5][11];
 
+        populateAliens();
+
+        // Setting the original positions
+        setOriginalPositions();
+
+    }
+
+    private void populateAliens() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
 
@@ -84,14 +92,14 @@ public class AlienInvaders extends DestroyableObject implements Observer {
             }
 
         }
+    }
 
-        // Setting the original positions
+    private void setOriginalPositions() {
         originalTopLeftXPos = getTopLeftXPos();
         originalTopLeftYPos = getTopLeftYPos();
         originalHeight = getHeight();
         originalWidth = getWidth();
         originalColor = getColor();
-
     }
 
     @Override
@@ -99,49 +107,65 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
-
                 // Drawing the aliens
-                if (!alienEntities[i][j].isDestroyed()) {
-
-                    g.setColor(Color.BLACK);
-
-
-                    g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-                    g.drawRect(alienEntities[i][j].getTopLeftXPos(),
-                            alienEntities[i][j].getTopLeftYPos(),
-                            alienEntities[i][j].getWidth(),
-                            alienEntities[i][j].getHeight());
-
-                    g.fillRect(alienEntities[i][j].getTopLeftXPos(),
-                            alienEntities[i][j].getTopLeftYPos(),
-                            alienEntities[i][j].getWidth(),
-                            alienEntities[i][j].getHeight());
-
-                    // choosing the correct image to draw
-                    if (i == 0 || i == 3){
-                        g.drawImage(alienImage.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
-                    }else if (i == 1 || i == 4){
-                        g.drawImage(alienImage2.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
-
-                    }else{
-                        g.drawImage(alienImage3.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
-                    }
-
-                }
-
+                drawingTheAliens(g, i, j);
             }
-
             // when geraldine is drawn
-            if (gerX > 0)
-                g.drawImage(gerImage.getImage(), gerX, 10, null);
+            drawGer(g);
+        }
+    }
 
-            g.setColor(Color.RED);
-            if (gerX > -20 && gerX < 300) {
-                g.drawString("OH no, Its Ger!!!!!", 400, 20);
+    private void drawGer(Graphics2D g) {
+        if (gerX > 0)
+            g.drawImage(gerImage.getImage(), gerX, 10, null);
 
-            }
+        g.setColor(Color.RED);
+        if (gerX > -20 && gerX < 300) {
+            g.drawString("OH no, Its Ger!!!!!", 400, 20);
 
+        }
+    }
+
+    private void drawingTheAliens(Graphics2D g, int i, int j) {
+        if (!alienEntities[i][j].isDestroyed()) {
+
+            g.setColor(Color.BLACK);
+
+
+            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+            drawRects(g, alienEntities[i][j]);
+
+            fillRects(g, alienEntities[i][j]);
+
+            // choosing the correct image to draw
+            chooseCorrectImages(g, i, j);
+
+        }
+    }
+
+    private void drawRects(Graphics2D g, AlienEntity alienEntity) {
+        g.drawRect(alienEntity.getTopLeftXPos(),
+                alienEntity.getTopLeftYPos(),
+                alienEntity.getWidth(),
+                alienEntity.getHeight());
+    }
+
+    private void fillRects(Graphics2D g, AlienEntity alienEntity) {
+        g.fillRect(alienEntity.getTopLeftXPos(),
+                alienEntity.getTopLeftYPos(),
+                alienEntity.getWidth(),
+                alienEntity.getHeight());
+    }
+
+    private void chooseCorrectImages(Graphics2D g, int i, int j) {
+        if (i == 0 || i == 3){
+            g.drawImage(alienImage.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
+        }else if (i == 1 || i == 4){
+            g.drawImage(alienImage2.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
+
+        }else{
+            g.drawImage(alienImage3.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
         }
     }
 
@@ -149,23 +173,119 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     public void update() {
 
         // moving ger
-        gerX += 2;
-
+        movingGer();
         // resetting ger
-        if(gerX > 1000){
-            gerX = -2000;
-        }
-
-        // sounds for ger every 40 pixels
-        if (gerX % 40 == 0 && gerX > 0 && gerX < SpaceInvadersGUI.WIDTH) {
-            try{
-                playSound("sounds/ufo_highpitch.wav");
-            }
-            catch (Exception e) {e.printStackTrace();}
-        }
+        resettingGer();
+        makeGerSound();
 
 
         //Firing the enemy Bullets
+        fireEnemyBullets();
+
+        //Checking the y axis f the aliens to stop the game
+        aliensStopGameCheck();
+
+        collisionDecisions(alienEntities);
+
+        // checking for collisions with geraldine
+        checkForGerCollisions();
+
+        //Setting the directions of the aliens
+        alienDirections();
+
+
+    }
+
+    private void alienDirections() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 11; j++) {
+
+                //Move right
+                moveRight(alienEntities[i][j]);
+
+                //Move left
+                moveLeft(alienEntities[i][j]);
+
+                //move back right again
+                moveBackRightAgain(alienEntities[i][j]);
+            }
+
+        }
+    }
+
+    private void moveBackRightAgain(AlienEntity alienEntity) {
+        if(alienEntity.topLeftXPos < 0 && !alienEntity.isDestroyed()){
+            for (int k = 0; k < 5; k++) {
+                for (int l = 0; l < 11; l++) {
+                    delta = delta2;
+                    alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
+
+                }
+            }
+        }
+    }
+
+    private void moveLeft(AlienEntity alienEntity) {
+        if(alienEntity.topLeftXPos >= 1000 - alienEntity.width   && !alienEntity.isDestroyed()){
+            for (int k = 0; k < 5; k++) {
+                for (int l = 0; l < 11; l++) {
+                    delta = -delta2;
+                    alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
+
+                }
+
+            }
+
+        }
+    }
+
+    private void moveRight(AlienEntity alienEntity) {
+        if(alienEntity.getTopLeftXPos() < 1000 && !alienEntity.isDestroyed())
+            alienEntity.setTopLeftXPos(alienEntity.getTopLeftXPos() + delta);
+    }
+
+    private void checkForGerCollisions() {
+        for (int i = 0; i < tankBulls.size(); i++) {
+            Rectangle r2 = new Rectangle(tankBulls.getBullet(i).getTopLeftXPos(),
+                    tankBulls.getBullet(i).getTopLeftYPos(),
+                    tankBulls.getBullet(i).getWidth(),
+                    tankBulls.getBullet(i).getHeight());
+
+            // Calculating the random value for hitting geraldine
+            if(r2.intersects(getGerX(), 10, 50 ,50)){
+                System.out.println("It hit ger");
+                tankBulls.removeBullet(i);
+                setGerX(-2000);
+                SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() +
+                        ((int)(Math.random() * 150) + 51));
+                System.out.println(SpaceInvadersGUI.getPlayerScore());
+            }
+        }
+    }
+
+    private void aliensStopGameCheck() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 11; j++) {
+                if(alienEntities[i][j].getTopLeftYPos() + alienEntities[i][j].getHeight() >= 430){
+                    //Create the player class
+                    player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null,
+                            "The aliens have reached you\nPlease enter your name: "));
+                    // Resetting the static score
+                    SpaceInvadersGUI.setPlayerScore(0);
+
+                    //Keeping track of the highScores
+                    Tank.manageHighScores(gameMain, player);
+
+                    gameMain.changeContentPane2();
+                    // breaks the game loop if there are more than one alien crossing the permitted y axis
+                    heightReached = true;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void fireEnemyBullets() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
 
@@ -197,93 +317,26 @@ public class AlienInvaders extends DestroyableObject implements Observer {
             }
 
         }
+    }
 
-        //Checking the y axis f the aliens to stop the game
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
-                if(alienEntities[i][j].getTopLeftYPos() + alienEntities[i][j].getHeight() >= 430){
-                    //Create the player class
-                    player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null,
-                            "The aliens have reached you\nPlease enter your name: "));
-                    // Resetting the static score
-                    SpaceInvadersGUI.setPlayerScore(0);
+    private void movingGer() {
+        gerX += 2;
+    }
 
-                    //Keeping track of the highScores
-                    if(gameMain.getHighScorersSize() < 11){
-                        gameMain.addToHighScorers(player);
-
-                        gameMain.sortHighScorers();
-
-                        if(gameMain.getHighScorersSize() == 11){
-                            gameMain.removeFirstLink();
-                        }
-
-                    }
-
-                    gameMain.changeContentPane2();
-                    // breaks the game loop if there are more than one alien crossing the permitted y axis
-                    heightReached = true;
-                    break;
-                }
-            }
+    private void resettingGer() {
+        if(gerX > 1000){
+            gerX = -2000;
         }
+    }
 
-        collisionDecisions(alienEntities);
-
-        // checking for collisions with geraldine
-        for (int i = 0; i < tankBulls.size(); i++) {
-            Rectangle r2 = new Rectangle(tankBulls.getBullet(i).getTopLeftXPos(),
-                    tankBulls.getBullet(i).getTopLeftYPos(),
-                    tankBulls.getBullet(i).getWidth(),
-                    tankBulls.getBullet(i).getHeight());
-
-            // Calculating the random value for hitting geraldine
-            if(r2.intersects(getGerX(), 10, 50 ,50)){
-                System.out.println("It hit ger");
-                tankBulls.removeBullet(i);
-                setGerX(-2000);
-                SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() +
-                        ((int)(Math.random() * 150) + 51));
-                System.out.println(SpaceInvadersGUI.getPlayerScore());
+    private void makeGerSound() {
+        // sounds for ger every 40 pixels
+        if (gerX % 40 == 0 && gerX > 0 && gerX < SpaceInvadersGUI.WIDTH) {
+            try{
+                playSound("sounds/ufo_highpitch.wav");
             }
+            catch (Exception e) {e.printStackTrace();}
         }
-
-        //Setting the directions of the aliens
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
-
-                //Move right
-                if(alienEntities[i][j].getTopLeftXPos() < 1000 && !alienEntities[i][j].isDestroyed())
-                    alienEntities[i][j].setTopLeftXPos(alienEntities[i][j].getTopLeftXPos() + delta);
-
-                //Move left
-                if(alienEntities[i][j].topLeftXPos >= 1000 - alienEntities[i][j].width   && !alienEntities[i][j].isDestroyed()){
-                    for (int k = 0; k < 5; k++) {
-                        for (int l = 0; l < 11; l++) {
-                            delta = -delta2;
-                            alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
-
-                        }
-
-                    }
-
-                }
-
-                //move back right again
-                if(alienEntities[i][j].topLeftXPos < 0 && !alienEntities[i][j].isDestroyed()){
-                    for (int k = 0; k < 5; k++) {
-                        for (int l = 0; l < 11; l++) {
-                            delta = delta2;
-                            alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
-
-                        }
-                    }
-                }
-            }
-
-        }
-
-
     }
 
     public void setGerX(int x){
@@ -338,34 +391,7 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         }
 
         // all the aliens are dead
-        if (deathCount == 55){
-
-            delta /= 5;
-            delta2 /= 5;
-
-            for (int l = 0; l < 5; l++) {
-                for (int m = 0; m < 11; m++) {
-
-                    // redraw them at their original positions
-                    alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
-                    alienEntities[l][m].setTopLeftYPos(originalTopLeftYPos + l * originalHeight);
-                    alienEntities[l][m].setWidth(originalWidth);
-                    alienEntities[l][m].setHeight(originalHeight);
-                    alienEntities[l][m].setColor(originalColor);
-                    alienEntities[l][m].setDestroyed(false);
-
-                }
-            }
-
-            // doubling the traversal speed
-            delta *= 2;
-            delta2 *= 2;
-            // resetting the death count
-            deathCount = 0;
-
-        }
-
-
+        allAliensDead();
 
 
         // drawing the aliens off the screen and reducing their dimensions
@@ -387,6 +413,10 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         }
 
         // all the aliens are dead
+        allAliensDead();
+    }
+
+    private void allAliensDead() {
         if (deathCount == 55){
 
             delta /= 5;
