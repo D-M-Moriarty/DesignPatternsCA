@@ -12,20 +12,14 @@ public class KeyCommand extends KeyAdapter {
     private Command left;
     private Command right;
     private Command space;
-    private Command w;
-    private Command m;
-    private Command d;
 
     public KeyCommand(Command up, Command down, Command left, Command right,
-                      Command space, Command w, Command m, Command d) {
+                      Command space) {
         this.up = up;
         this.down = down;
         this.left = left;
         this.right = right;
         this.space = space;
-        this.w = w;
-        this.m = m;
-        this.d = d;
     }
 
     @Override
@@ -42,12 +36,6 @@ public class KeyCommand extends KeyAdapter {
             case VK_RIGHT: right.execute();
                 break;
             case VK_SPACE: space.execute();
-                break;
-            case VK_W: w.execute();
-                break;
-            case VK_M: m.execute();
-                break;
-            case VK_D: d.execute();
                 break;
             default:
                 break;

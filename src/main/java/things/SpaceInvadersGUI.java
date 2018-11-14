@@ -1,10 +1,14 @@
 package things;
 
+import things.entity.Barrel;
 import things.entity.Barrier;
 import things.entity.Bullet;
 import things.entity.GameComponent;
 import things.entity.command.*;
 import things.entity.decorator.AbstractBarrel;
+import things.entity.decorator.DoubleBarrel;
+import things.entity.decorator.MoltenBullet;
+import things.entity.decorator.WideBarrel;
 import things.entity.factory_method.GameComponentFactory;
 import things.entity.factory_method.StandardGameComponentFactory;
 import things.entity.observer.Observer;
@@ -17,6 +21,8 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
+import static java.awt.event.KeyEvent.VK_LEFT;
+import static java.awt.event.KeyEvent.VK_W;
 import static things.entity.factory_method.Type.*;
 
 /**
@@ -53,7 +59,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public static GameComponent tankLife1;
     public static GameComponent tankLife2;
     public static GameComponent tankLife3;
-    private GameComponent barrel;
+    private AbstractBarrel barrel;
     private  GameComponent[] barrier;
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
@@ -110,7 +116,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife2 = factory.getComponent(LIFE2);
         tankLife3 = factory.getComponent(LIFE3);
 
-        barrel = factory.getComponent(BARREL);
+        barrel = (AbstractBarrel) factory.getComponent(BARREL);
 
 
         barrier = new Barrier[3];
@@ -132,10 +138,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
                 new DownCommand(),
                 new TankMoveLeftCommand(tank, barrel),
                 new TankMoveRightCommand(tank, barrel),
-                new FireBarrelCommand(barrel),
-                new WidenBarrelCommand(barrel),
-                new MakeBulletMoltenCommand(barrel),
-                new EquipDoubleBarrelCommand(barrel)
+                new FireBarrelCommand(barrel)
         );
 
 
@@ -277,7 +280,37 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     @Override
     public void keyPressed(KeyEvent e) {
         keyCommand.keyPressed(e);
+        int key = e.getKeyCode();
+
+        if (key == KeyEvent.VK_W) {
+//            if (barrel.hasDecorator("WideBarrel")) {
+//                barrel.withoutDecorator("WideBarrel");
+//                barrel = barrel.getBarrel();
+//                System.out.println();
+//            } else
+//                barrel = new WideBarrel(barrel);
+            // TODO fix this horrible issue
+            if (barrel instanceof WideBarrel)
+                barrel = barrel.getBarrel();
+            else
+                barrel = new WideBarrel(barrel);
+        }
+
+        if (key == KeyEvent.VK_D) {
+            if (barrel instanceof DoubleBarrel)
+                barrel = barrel.getBarrel();
+            else
+                barrel = new DoubleBarrel(barrel);
+        }
+
+        if (key == KeyEvent.VK_M) {
+            if (barrel instanceof MoltenBullet)
+                barrel = barrel.getBarrel();
+            else
+                barrel = new MoltenBullet(barrel);
+        }
     }
+
     @Override
     public void keyReleased(KeyEvent e) {
         keyCommand.keyReleased(e);
