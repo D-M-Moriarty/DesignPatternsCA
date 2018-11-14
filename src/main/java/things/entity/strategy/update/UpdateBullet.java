@@ -8,10 +8,11 @@ public class UpdateBullet implements UpdateSprite {
         This is the amount of pixels the entity will move per second/update */
     private static final int DELTA_Y = 5;
 
-    public UpdateBullet(Bullet gameComponent) {
-        this.bullet = gameComponent;
+    public UpdateBullet(Bullet bullet) {
+        this.bullet = bullet;
     }
 
+    @Override
     public void update() {
         fireBullet();
         bullet.notifyObservers();

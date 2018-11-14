@@ -10,17 +10,6 @@ interface BulletSprite extends UpdateSprite {
 
 }
 
-class UpdateAlienInvaders2 implements UpdateSprite {
-    + void update();
-}
-
-class UpdateBarrel implements UpdateSprite {
-    + void update();
-}
-
-class UpdateBarrier implements UpdateSprite {
-    + void update();
-}
 
 class UpdateBullet implements BulletSprite {
     + void update();
@@ -36,18 +25,14 @@ class UpdateTank implements UpdateSprite {
 class DrawSquareSprite implements DrawSprite {
     + void draw(Graphics2D g);
 }
+class DrawPolygonalSprite implements DrawSprite {
+    + void draw(Graphics2D g);
+}
 
-AlienInvaders2 *- UpdateAlienInvaders2
-Barrel *- UpdateBarrel
-Barrier *- UpdateBarrier
-Bullet *- UpdateBullet
 Bullet *- UpdateBulletAlt
+Bullet *- UpdateBullet
 Tank *- UpdateTank
 
-AlienInvaders2 *- DrawSquareSprite
-Barrel *- DrawSquareSprite
-Barrier *- DrawSquareSprite
-BarrierBlock *- DrawSquareSprite
 Bullet *- DrawSquareSprite
 Tank *- DrawSquareSprite
 
@@ -63,16 +48,6 @@ abstract class GameComponent {
     + void drawEntity();
     + void setUpdateSprite(UpdateSprite updateSprite);
     + void setDrawSprite(DrawSprite drawSprite);
-}
-class AlienEntity extends GameComponent {
- }
-class AlienInvaders2 extends GameComponent {
-}
-class Barrel extends GameComponent {
-}
-class Barrier extends GameComponent {
-}
-class BarrierBlock extends GameComponent {
 }
 class Bullet extends GameComponent {
 }
