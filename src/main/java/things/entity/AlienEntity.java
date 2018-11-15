@@ -9,9 +9,6 @@ import java.awt.*;
  */
 public class AlienEntity extends DestroyableObject {
 
-    // Boolean to tell if an alien is destroyed
-    private boolean destroyed;
-
     public AlienEntity(int topLeftXPos, int topLeftYPos, int width, int height, Color color, boolean destroyed){
         super(topLeftXPos, topLeftYPos, width, height, color);
         setDestroyed(destroyed);

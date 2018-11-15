@@ -5,6 +5,7 @@ package things.entity;
 
 import things.entity.singleton.FiredBullets;
 import things.entity.strategy.draw.DrawSprite;
+import things.entity.strategy.movement.HorizontalMovement;
 import things.entity.strategy.update.UpdateSprite;
 
 import java.awt.*;
@@ -37,6 +38,7 @@ public abstract class GameComponent {
     protected Color color;
     protected UpdateSprite updateSprite;
     protected DrawSprite drawSprite;
+    protected HorizontalMovement horizontalMovement;
     protected FiredBullets tankBullets = FiredBullets.getTankBullets();
     protected FiredBullets alienBullets = FiredBullets.getAlienBullets();
 
@@ -77,6 +79,8 @@ public abstract class GameComponent {
         drawSprite.draw(graphics2D);
     }
 
+    public void moveHorizontally() { horizontalMovement.moveHorizontally();}
+
     public UpdateSprite getUpdateSprite() {
         return updateSprite;
     }
@@ -91,6 +95,14 @@ public abstract class GameComponent {
 
     public void setDrawSprite(DrawSprite drawSprite) {
         this.drawSprite = drawSprite;
+    }
+
+    public HorizontalMovement getMovement() {
+        return horizontalMovement;
+    }
+
+    public void setMovement(HorizontalMovement horizontalMovement) {
+        this.horizontalMovement = horizontalMovement;
     }
 
     /**

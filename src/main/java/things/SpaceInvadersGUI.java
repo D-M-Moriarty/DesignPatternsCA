@@ -4,7 +4,6 @@ import things.entity.Barrier;
 import things.entity.Bullet;
 import things.entity.GameComponent;
 import things.entity.command.*;
-import things.entity.decorator.AbstractBarrel;
 import things.entity.factory_method.GameComponentFactory;
 import things.entity.factory_method.StandardGameComponentFactory;
 import things.entity.observer.Observer;
@@ -61,8 +60,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     private static int playerScore = 0;
     private GameMain gameMain;
     private KeyCommand keyCommand;
-    private AbstractBarrel wideBarrel;
-    private GameComponentFactory factory;
+    private transient GameComponentFactory factory;
 
 
     // JPanel Constructor
@@ -128,8 +126,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         aliens = factory.getComponent(ALIENS);
 
         keyCommand = new KeyCommand(
-                new FireBarrelCommand(barrel),
-                new DownCommand(),
+                new TankMoveUpCommand(tank, barrel),
+                new TankMoveDownCommand(tank, barrel),
                 new TankMoveLeftCommand(tank, barrel),
                 new TankMoveRightCommand(tank, barrel),
                 new FireBarrelCommand(barrel),

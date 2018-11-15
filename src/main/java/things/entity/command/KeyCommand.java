@@ -59,13 +59,24 @@ public class KeyCommand extends KeyAdapter {
         int key = e.getKeyCode();
 
         switch (key) {
+            case VK_UP: up.unexecute();
+                break;
+            case VK_DOWN: down.unexecute();
+                break;
             case VK_LEFT: left.unexecute();
                 break;
             case VK_RIGHT: right.unexecute();
                 break;
             case VK_SPACE: space.unexecute();
                 break;
-            default: break;
+            case VK_W: w.unexecute();
+                break;
+            case VK_M: m.unexecute();
+                break;
+            case VK_D: d.unexecute();
+                break;
+            default:
+                break;
         }
     }
 }

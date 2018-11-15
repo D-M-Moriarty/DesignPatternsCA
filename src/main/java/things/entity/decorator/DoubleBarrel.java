@@ -13,9 +13,9 @@ public class DoubleBarrel extends TankBarrelDecorator {
     public DoubleBarrel(AbstractBarrel abstractBarrel) {
         super(abstractBarrel.getTopLeftXPos(), abstractBarrel.getTopLeftYPos(),
                 abstractBarrel.getWidth(), abstractBarrel.getHeight(),
-                abstractBarrel.getColor(), abstractBarrel.getHorizontalSpeed(), abstractBarrel);
-        barrel1 = new Barrel(topLeftXPos, topLeftYPos, width, height, color, horizontalSpeed);
-        barrel2 = new Barrel(topLeftXPos, topLeftYPos, width, height, color, horizontalSpeed);
+                abstractBarrel.getColor(), abstractBarrel.getMovement().getHorizontalSpeed(), abstractBarrel);
+        barrel1 = new Barrel(topLeftXPos, topLeftYPos, width, height, color, getMovement().getHorizontalSpeed());
+        barrel2 = new Barrel(topLeftXPos, topLeftYPos, width, height, color, getMovement().getHorizontalSpeed());
         barrel1.setTopLeftXPos(this.getTopLeftXPos() + 25);
         barrel2.setTopLeftXPos(this.getTopLeftXPos() - 25);
     }

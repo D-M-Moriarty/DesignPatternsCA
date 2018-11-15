@@ -4,24 +4,24 @@ import things.entity.GameComponent;
 import things.entity.Tank;
 import things.entity.decorator.AbstractBarrel;
 
-public class TankMoveLeftCommand implements Command {
+public class TankMoveUpCommand implements Command {
     private Tank tank;
     private AbstractBarrel barrel;
 
-    public TankMoveLeftCommand(GameComponent tank, GameComponent barrel) {
+    public TankMoveUpCommand(GameComponent tank, GameComponent barrel) {
         this.tank = (Tank) tank;
         this.barrel = (AbstractBarrel) barrel;
     }
 
     @Override
     public void execute() {
-        tank.getMovement().setLeft(true);
-        barrel.getMovement().setLeft(true);
+        tank.getMovement().setUp(true);
+        barrel.getMovement().setUp(true);
     }
 
     @Override
     public void unexecute() {
-        tank.getMovement().setLeft(false);
-        barrel.getMovement().setLeft(false);
+        tank.getMovement().setUp(false);
+        barrel.getMovement().setUp(false);
     }
 }

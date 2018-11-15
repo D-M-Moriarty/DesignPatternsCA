@@ -4,6 +4,9 @@ import things.GameMain;
 import things.Player;
 import things.SpaceInvadersGUI;
 import things.entity.singleton.FiredBullets;
+import things.entity.strategy.movement.HorizontalMovement;
+import things.entity.strategy.movement.HorizontalMovementModified;
+import things.entity.strategy.movement.StandardHorizontalMovement;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,23 +22,9 @@ import java.awt.*;
  * @version 2.0
  */
 public class Tank extends GameComponent{
-
-    // class attributes are made private so that they can not be directly accessed outside this class
-
-    // Boolean to see which direction to move the entity
-    private boolean left;
-    private boolean right;
-    // This is the initial amount of lives of the Tank entity
-    private int livesLeft;
-    /* The difference between the initial x position and the new x position
-        This is the amount of pixels the entity will move per second/update */
-    private int deltaX;
-    // The initial speed to travel horizontally
-    private int horizontalSpeed;
-
     private GameMain gameMain;
-
     private Player player;
+    private int livesLeft;
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
 
     /**
@@ -53,7 +42,8 @@ public class Tank extends GameComponent{
                 Color color, int livesLeft, int horizontalSpeed, GameMain gameMain) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         setLivesLeft(livesLeft);
-        setHorizontalSpeed(horizontalSpeed);
+        horizontalMovement = new HorizontalMovementModified(this);
+        horizontalMovement.setHorizontalSpeed(horizontalSpeed);
         this.gameMain = gameMain;
     }
 
@@ -74,20 +64,6 @@ public class Tank extends GameComponent{
         return livesLeft;
     }
 
-    // set the boolean attribute left
-    public void setLeft(boolean direction){
-        left = direction;
-    }
-
-    public void setRight(boolean direction){
-        right = direction;
-    }
-
-    // setting the horizontal speed of the entity
-    public void setHorizontalSpeed(int horizontalSpeed) {
-        this.horizontalSpeed = horizontalSpeed;
-    }
-
     @Override
     public void draw(Graphics2D g) {
 
@@ -102,20 +78,7 @@ public class Tank extends GameComponent{
     @Override
     public void update(){
 
-        // If the left attribute has the value of true
-        if(left){
-            // The next position of deltaX is the value of the horizontal speed ie. 5 pixels to the left
-            deltaX = horizontalSpeed;
-            // The original value of topLeftXPos is now the original value minus the next positions value deltaX
-            topLeftXPos -= deltaX;
-        }
-        // If the right attribute has the value of true
-        if(right){
-            // The next position of x is the value of the horizontal speed ie. 5 pixels to the right
-            deltaX  = horizontalSpeed;
-            // The original value of x is now the original value plus the next positions value
-            topLeftXPos += deltaX;
-        }
+        moveHorizontally();
 
         // This insures that the entity doesn't travel outside the green line at the bottom of the screen
         if(topLeftXPos > 1000 - width - 25){
@@ -124,9 +87,6 @@ public class Tank extends GameComponent{
         if(topLeftXPos < 25){
             topLeftXPos = 25;
         }
-
-        // Resetting deltaX to 0
-        deltaX = 0;
 
         // checking for collisions with the tank
         for (int k = 0; k < alienBulls.size(); k++) {

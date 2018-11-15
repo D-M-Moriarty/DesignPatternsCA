@@ -3,7 +3,9 @@ package things.entity.factory_method;
 import things.GameMain;
 import things.entity.GameComponent;
 
-public abstract class GameComponentFactory {
+import java.io.Serializable;
+
+public abstract class GameComponentFactory implements Serializable {
     protected final GameMain gameMain;
 
     GameComponentFactory(GameMain gameMain) {

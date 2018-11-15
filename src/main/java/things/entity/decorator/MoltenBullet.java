@@ -1,6 +1,5 @@
 package things.entity.decorator;
 
-import things.entity.Barrel;
 import things.entity.Bullet;
 
 import java.awt.*;
@@ -10,7 +9,7 @@ public class MoltenBullet extends TankBarrelDecorator {
     public MoltenBullet(AbstractBarrel abstractBarrel) {
         super(abstractBarrel.getTopLeftXPos(), abstractBarrel.getTopLeftYPos(),
                 abstractBarrel.getWidth(), abstractBarrel.getHeight(),
-                abstractBarrel.getColor(), abstractBarrel.getHorizontalSpeed(), abstractBarrel);
+                abstractBarrel.getColor(), abstractBarrel.getMovement().getHorizontalSpeed(), abstractBarrel);
     }
 
     @Override
