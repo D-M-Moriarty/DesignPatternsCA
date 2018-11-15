@@ -19,6 +19,6 @@ public class FireBarrelCommand implements Command {
 
     @Override
     public void unexecute() {
-        barrel.setFiring(true);
+         barrel.setFiring(true);
     }
 }

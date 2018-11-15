@@ -25,20 +25,15 @@ public abstract class TankBarrelDecorator extends AbstractBarrel {
     }
 
     public AbstractBarrel withoutDecorator(String className) {
-        String name = barrel.getClass().getName();
-        if (isEquals(className)) {
-            name = barrel.getClass().getName();
-            barrel = barrel.getBarrel();
-            name = barrel.getClass().getName();
-            return barrel;
-        }
+        if (isEquals(className))
+            return barrel.getBarrel();
         else
             return barrel.withoutDecorator(className);
     }
 
     private boolean isEquals(String className) {
-        return barrel.getClass().getName()
-                .equals(packageName + className);
+        return this.getClass().getName()
+                .equals(packageName + "." + className);
     }
 
     @Override

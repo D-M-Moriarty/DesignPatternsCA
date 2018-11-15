@@ -13,14 +13,14 @@ public class EquipDoubleBarrelCommand implements Command {
 
     @Override
     public void execute() {
-        if (barrel instanceof DoubleBarrel)
+        if (barrel instanceof DoubleBarrel) {
             barrel = barrel.getBarrel();
-        else
+        } else {
             barrel = new DoubleBarrel(barrel);
+        }
     }
 
     @Override
     public void unexecute() {
-
     }
 }

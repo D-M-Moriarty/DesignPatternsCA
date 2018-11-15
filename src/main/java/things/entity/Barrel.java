@@ -17,7 +17,6 @@ import java.awt.*;
  */
 public class Barrel extends AbstractBarrel {
 
-
     /**
      * 6 argument constructor method
      *
@@ -39,12 +38,5 @@ public class Barrel extends AbstractBarrel {
     public AbstractBarrel getBarrel() {
         return this;
     }
-
-
-
-    public String toString(){
-        return "Barrel class is working";
-    }
-
 
 }
