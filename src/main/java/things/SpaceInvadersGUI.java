@@ -294,5 +294,11 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
     }
 
+    public FiredBullets getAlienBulls() {
+        return alienBulls;
+    }
 
+    public FiredBullets getTankBulls() {
+        return tankBulls;
+    }
 }

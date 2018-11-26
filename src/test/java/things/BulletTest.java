@@ -31,10 +31,16 @@ public class BulletTest {
 
     @BeforeEach
     public void setUp() {
+        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
+            FiredBullets.getAlienBullets().removeBullet(i);
+        }
     }
 
     @AfterEach
     public void tearDown() {
+        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
+            FiredBullets.getAlienBullets().removeBullet(i);
+        }
     }
 
     @Test
@@ -48,10 +54,13 @@ public class BulletTest {
         int newYPosition = alienBullet.getTopLeftYPos();
 
         Assert.assertEquals(newYPosition, predictedYPosition);
+        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
+            FiredBullets.getAlienBullets().removeBullet(i);
+        }
     }
 
     @Test
-    public void countFiredBullets() {
+    public void countFiredBulletsInGameMain() {
         alienBullet = new Bullet(100,
                 100, 100, 50, Color.BLACK, true);
 
@@ -60,12 +69,40 @@ public class BulletTest {
         UpdateBullet updateBullet = new UpdateBullet(alienBullet);
 
         GameMain gameMain = new GameMain();
+        Assert.assertEquals(0, gameMain.getAlienBulletsFired().size());
 
-        while (alienBullet.getTopLeftYPos() <= SpaceInvadersGUI.HEIGHT) {
+        while (alienBullet.getTopLeftYPos() < SpaceInvadersGUI.HEIGHT) {
             updateBullet.update();
             bullets.getBullet(0).notifyObservers();
         }
-        Assert.assertEquals(gameMain.getAlienBulletsFired().size(), 1);
+        Assert.assertEquals(1, gameMain.getAlienBulletsFired().size());
+
+        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
+            FiredBullets.getAlienBullets().removeBullet(i);
+        }
+    }
+
+    @Test
+    public void countFiredBulletsSpaceGUI() {
+        alienBullet = new Bullet(100,
+                100, 100, 50, Color.BLACK, true);
+
+        FiredBullets bullets = FiredBullets.getAlienBullets();
+        bullets.addBullet(alienBullet);
+        UpdateBullet updateBullet = new UpdateBullet(alienBullet);
+
+        GameMain gameMain = new GameMain();
+        SpaceInvadersGUI spaceInvadersGUI = new SpaceInvadersGUI(gameMain);
+
+        Assert.assertEquals(alienBullet, spaceInvadersGUI.getAlienBulls().getBullet(0));
+
+        while (alienBullet.getTopLeftYPos() <= SpaceInvadersGUI.HEIGHT) {
+            updateBullet.update();
+        }
+        Assert.assertEquals(0, spaceInvadersGUI.getAlienBulls().size());
+        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
+            FiredBullets.getAlienBullets().removeBullet(i);
+        }
     }
 
     @Test
@@ -98,7 +135,7 @@ public class BulletTest {
         Bullet alienBullet = new Bullet(100,
                 100, 100, 50, Color.RED, true);
         FiredBullets alienBullets = FiredBullets.getAlienBullets();
-        alienBullets.removeBullet(0);
+
         alienBullets.addBullet(alienBullet);
 
         Bullet tankBullet = new Bullet(100,
@@ -142,7 +179,7 @@ public class BulletTest {
     }
 
     @Test
-    public void testCommand() throws AWTException {
+    public void testCommand() {
         GameComponent tank = new StandardGameComponentFactory(new GameMain()).getComponent(Type.TANK);
         AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory(new GameMain()).getComponent(Type.BARREL);
 
@@ -153,10 +190,6 @@ public class BulletTest {
 
         Assert.assertTrue(newX == originalX);
         Assert.assertEquals(originalX, newX);
-
-        Robot robot = new Robot();
-        robot.keyPress(KeyEvent.VK_LEFT);
-        robot.keyRelease(KeyEvent.VK_LEFT);
 
         moveLeftCommand.execute();
         tank.update();
