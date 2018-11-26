@@ -2,7 +2,7 @@ package things.entity.strategy.movement;
 
 import things.entity.GameComponent;
 
-public class HorizontalMovementModified implements HorizontalMovement {
+public class MovementModified implements Movement {
     private GameComponent gameComponent;
     private boolean left;
     private boolean right;
@@ -12,12 +12,12 @@ public class HorizontalMovementModified implements HorizontalMovement {
     private int deltaY;
     private int horizontalSpeed;
 
-    public HorizontalMovementModified(GameComponent gameComponent) {
+    public MovementModified(GameComponent gameComponent) {
         this.gameComponent = gameComponent;
     }
 
     @Override
-    public void moveHorizontally() {
+    public void moveSprite() {
         if(left){
             deltaX = horizontalSpeed;
             gameComponent.setTopLeftXPos(gameComponent.getTopLeftXPos() - deltaX);
@@ -58,12 +58,12 @@ public class HorizontalMovementModified implements HorizontalMovement {
     }
 
     @Override
-    public int getHorizontalSpeed() {
+    public int getSpeed() {
         return horizontalSpeed;
     }
 
     @Override
-    public void setHorizontalSpeed(int horizontalSpeed) {
+    public void setSpeed(int horizontalSpeed) {
         this.horizontalSpeed = horizontalSpeed;
     }
 }

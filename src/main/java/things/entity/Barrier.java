@@ -54,11 +54,12 @@ public class Barrier extends DestroyableObject {
     // This method decides what to do every time the screen refreshes
     @Override
     public void update() {
-
         // checking for collisions with the barriers
         collisionDecisions(barrierBlocks);
+        collisionsWithAliens();
+    }
 
-
+    private void collisionsWithAliens() {
         // checking for collisions with alien bullets
         for (int k = 0; k < alienBulls.size(); k++) {
             Bullet alienBullet = alienBulls.getBullet(k);
@@ -79,16 +80,10 @@ public class Barrier extends DestroyableObject {
                             playSound("sounds/fastinvader2.wav");
                         }
                         catch (Exception e) { e.printStackTrace(); }
-
                     }
                 }
             }
-
-
         }
-
-
-
     }
 
     @Override
@@ -110,32 +105,24 @@ public class Barrier extends DestroyableObject {
 
     @Override
     public void draw(Graphics2D g) {
-
         // Setting the dimensions of each barrier block in the array with a nested for loops to
         // create a grid of block (7 x 12)
         for (int i = 0; i < 7; i++) {
             for (int j = 0; j < 12; j++) {
-
                 //  Drawing the array of blocks to the screen
-
                 if(!barrierBlocks[i][j].isDestroyed()){
                     g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
                     g.drawRect(barrierBlocks[i][j].getTopLeftXPos(),
                             barrierBlocks[i][j].getTopLeftYPos(),
                             barrierBlocks[i][j].getWidth(),
                             barrierBlocks[i][j].getHeight());
-
                     g.fillRect(barrierBlocks[i][j].getTopLeftXPos(),
                             barrierBlocks[i][j].getTopLeftYPos(),
                             barrierBlocks[i][j].getWidth(),
                             barrierBlocks[i][j].getHeight());
                 }
-
-
             }
         }
-
     }
 
     @Override

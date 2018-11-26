@@ -8,7 +8,7 @@ public class WideBarrel extends TankBarrelDecorator {
     public WideBarrel(AbstractBarrel abstractBarrel) {
         super(abstractBarrel.getTopLeftXPos(), abstractBarrel.getTopLeftYPos(),
                 abstractBarrel.getWidth(), abstractBarrel.getHeight(),
-                abstractBarrel.getColor(), abstractBarrel.getMovement().getHorizontalSpeed(), abstractBarrel);
+                abstractBarrel.getColor(), abstractBarrel.getMovement().getSpeed(), abstractBarrel);
         this.width += NEW_WIDTH;
         this.topLeftXPos -= NEW_POSITION;
     }

@@ -9,7 +9,7 @@ public class MoltenBullet extends TankBarrelDecorator {
     public MoltenBullet(AbstractBarrel abstractBarrel) {
         super(abstractBarrel.getTopLeftXPos(), abstractBarrel.getTopLeftYPos(),
                 abstractBarrel.getWidth(), abstractBarrel.getHeight(),
-                abstractBarrel.getColor(), abstractBarrel.getMovement().getHorizontalSpeed(), abstractBarrel);
+                abstractBarrel.getColor(), abstractBarrel.getMovement().getSpeed(), abstractBarrel);
     }
 
     @Override

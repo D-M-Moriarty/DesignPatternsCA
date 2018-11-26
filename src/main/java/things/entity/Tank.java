@@ -4,9 +4,7 @@ import things.GameMain;
 import things.Player;
 import things.SpaceInvadersGUI;
 import things.entity.singleton.FiredBullets;
-import things.entity.strategy.movement.HorizontalMovement;
-import things.entity.strategy.movement.HorizontalMovementModified;
-import things.entity.strategy.movement.StandardHorizontalMovement;
+import things.entity.strategy.movement.MovementModified;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,8 +40,8 @@ public class Tank extends GameComponent{
                 Color color, int livesLeft, int horizontalSpeed, GameMain gameMain) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         setLivesLeft(livesLeft);
-        horizontalMovement = new HorizontalMovementModified(this);
-        horizontalMovement.setHorizontalSpeed(horizontalSpeed);
+        movement = new MovementModified(this);
+        movement.setSpeed(horizontalSpeed);
         this.gameMain = gameMain;
     }
 
@@ -78,7 +76,7 @@ public class Tank extends GameComponent{
     @Override
     public void update(){
 
-        moveHorizontally();
+        moveSprite();
 
         // This insures that the entity doesn't travel outside the green line at the bottom of the screen
         if(topLeftXPos > 1000 - width - 25){

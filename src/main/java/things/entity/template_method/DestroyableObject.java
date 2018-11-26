@@ -18,13 +18,9 @@ public abstract class DestroyableObject extends GameComponent {
     protected final void collisionDecisions(DestroyableObject[][] destroyableObjects) {
         for (int i = 0; i < tankBullets.size(); i++) {
             Bullet tankBullet = tankBullets.getBullet(i);
-
             removeBulletsThatCollided(tankBullet, alienBullets);
-
             checkForCollisionWithBulletAndDestroyableObject(destroyableObjects, tankBullet);
-
         }
-
     }
 
     private void checkForCollisionWithBulletAndDestroyableObject(DestroyableObject[][] destroyableObjects, Bullet tankBullet) {

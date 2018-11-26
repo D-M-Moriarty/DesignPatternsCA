@@ -2,19 +2,19 @@ package things.entity.strategy.movement;
 
 import things.entity.GameComponent;
 
-public class StandardHorizontalMovement implements HorizontalMovement {
+public class StandardMovement implements Movement {
     private GameComponent gameComponent;
     private boolean left;
     private boolean right;
     private int deltaX;
     private int horizontalSpeed;
 
-    public StandardHorizontalMovement(GameComponent gameComponent) {
+    public StandardMovement(GameComponent gameComponent) {
        this.gameComponent = gameComponent;
     }
 
     @Override
-    public void moveHorizontally() {
+    public void moveSprite() {
         // If the left attribute has the value of true
         if(left){
             // The next position of deltaX is the value of the horizontal speed ie. 5 pixels to the left
@@ -32,7 +32,6 @@ public class StandardHorizontalMovement implements HorizontalMovement {
 
         deltaX = 0;
     }
-
     @Override
     public void setLeft(boolean left) {
         this.left = left;
@@ -41,24 +40,18 @@ public class StandardHorizontalMovement implements HorizontalMovement {
     public void setRight(boolean right) {
         this.right = right;
     }
-
     @Override
-    public void setUp(boolean up) {
-        // not applicable
+    public void setUp(boolean up) {// not applicable
     }
-
     @Override
-    public void setDown(boolean down) {
-        // not applicable
+    public void setDown(boolean down) { // not applicable
     }
-
     @Override
-    public int getHorizontalSpeed() {
+    public int getSpeed() {
         return horizontalSpeed;
     }
-
     @Override
-    public void setHorizontalSpeed(int horizontalSpeed) {
+    public void setSpeed(int horizontalSpeed) {
         this.horizontalSpeed = horizontalSpeed;
     }
 }

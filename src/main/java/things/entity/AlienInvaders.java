@@ -70,27 +70,20 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     public AlienInvaders(int topLeftXPos, int topLeftYPos, int width, int height, Color color, GameMain gameMain) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         this.gameMain = gameMain;
-
         // Initialising the 2d array of aliens
         alienEntities = new AlienEntity[5][11];
-
         populateAliens();
-
         // Setting the original positions
         setOriginalPositions();
-
     }
 
     private void populateAliens() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
-
                 // Populating the array
                 alienEntities[i][j] = new AlienEntity((getTopLeftXPos() + j * getWidth()),
                         (getTopLeftYPos() + i * getHeight()), getWidth(), getHeight(), getColor(),false);
-
             }
-
         }
     }
 
@@ -104,7 +97,6 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
     @Override
     public void draw(Graphics2D g) {
-
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
                 // Drawing the aliens
@@ -128,19 +120,12 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
     private void drawingTheAliens(Graphics2D g, int i, int j) {
         if (!alienEntities[i][j].isDestroyed()) {
-
             g.setColor(Color.BLACK);
-
-
             g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
             drawRects(g, alienEntities[i][j]);
-
             fillRects(g, alienEntities[i][j]);
-
             // choosing the correct image to draw
             chooseCorrectImages(g, i, j);
-
         }
     }
 
@@ -163,7 +148,6 @@ public class AlienInvaders extends DestroyableObject implements Observer {
             g.drawImage(alienImage.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
         }else if (i == 1 || i == 4){
             g.drawImage(alienImage2.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
-
         }else{
             g.drawImage(alienImage3.getImage(), alienEntities[i][j].getTopLeftXPos(), alienEntities[i][j].getTopLeftYPos(), null);
         }
@@ -171,45 +155,32 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
     @Override
     public void update() {
-
         // moving ger
         movingGer();
         // resetting ger
         resettingGer();
         makeGerSound();
-
-
         //Firing the enemy Bullets
         fireEnemyBullets();
-
         //Checking the y axis f the aliens to stop the game
         aliensStopGameCheck();
-
         collisionDecisions(alienEntities);
-
         // checking for collisions with geraldine
         checkForGerCollisions();
-
         //Setting the directions of the aliens
         alienDirections();
-
-
     }
 
     private void alienDirections() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
-
                 //Move right
                 moveRight(alienEntities[i][j]);
-
                 //Move left
                 moveLeft(alienEntities[i][j]);
-
                 //move back right again
                 moveBackRightAgain(alienEntities[i][j]);
             }
-
         }
     }
 
@@ -219,7 +190,6 @@ public class AlienInvaders extends DestroyableObject implements Observer {
                 for (int l = 0; l < 11; l++) {
                     delta = delta2;
                     alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
-
                 }
             }
         }
@@ -231,11 +201,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
                 for (int l = 0; l < 11; l++) {
                     delta = -delta2;
                     alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
-
                 }
-
             }
-
         }
     }
 
@@ -250,7 +217,6 @@ public class AlienInvaders extends DestroyableObject implements Observer {
                     tankBulls.getBullet(i).getTopLeftYPos(),
                     tankBulls.getBullet(i).getWidth(),
                     tankBulls.getBullet(i).getHeight());
-
             // Calculating the random value for hitting geraldine
             if(r2.intersects(getGerX(), 10, 50 ,50)){
                 System.out.println("It hit ger");
@@ -272,10 +238,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
                             "The aliens have reached you\nPlease enter your name: "));
                     // Resetting the static score
                     SpaceInvadersGUI.setPlayerScore(0);
-
                     //Keeping track of the highScores
                     Tank.manageHighScores(gameMain, player);
-
                     gameMain.changeContentPane2();
                     // breaks the game loop if there are more than one alien crossing the permitted y axis
                     heightReached = true;
@@ -288,34 +252,25 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     private void fireEnemyBullets() {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 11; j++) {
-
                 // creating the random firing order of the aliens
                 Random rand = new Random();
                 int  randomFire = rand.nextInt(11);
                 int  randomFireRow = rand.nextInt(5);
-
                 // reducing the firing delay so you can fire
                 timeWaiting -= 1;
-
                 if(timeWaiting <= 0 && firing && !alienEntities[randomFireRow][randomFire].isDestroyed()){
                     Bullet bullet = new Bullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
                             alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10,
                             Color.RED, true);
                     bullet.registerObserver(this);
                     alienBulls.addBullet(bullet);
-
                     Bullet gerBullet = new Bullet(getGerX() + 20,
                             10 + 40, 5, 10, Color.YELLOW, true);
                     alienBulls.addBullet(gerBullet);
-
                     // resetting the time waiting
                     timeWaiting = bulletTimingDelay;
-
                 }
-
-
             }
-
         }
     }
 
@@ -389,11 +344,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
             delta2 *= 5;
 
         }
-
         // all the aliens are dead
         allAliensDead();
-
-
         // drawing the aliens off the screen and reducing their dimensions
         tankBulls.removeBullet(tankBullet);
         destroyableObject.setHeight(-1000);
@@ -401,17 +353,14 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         destroyableObject.setTopLeftXPos(-1000);
         destroyableObject.setTopLeftYPos(-1000);
         destroyableObject.setDestroyed(true);
-
         // keeping track of deaths
         deathCount++;
         System.out.println(deathCount);
-
         if(deathCount == 54){
             delta *= 5;
             delta2 *= 5;
 
         }
-
         // all the aliens are dead
         allAliensDead();
     }

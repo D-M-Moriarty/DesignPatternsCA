@@ -25,11 +25,8 @@ public abstract class TankBarrelDecorator extends AbstractBarrel {
     }
 
     public AbstractBarrel withoutDecorator(String className) {
-        String name = barrel.getClass().getName();
         if (isEquals(className)) {
-            name = barrel.getClass().getName();
             barrel = barrel.getBarrel();
-            name = barrel.getClass().getName();
             return barrel;
         }
         else
@@ -37,8 +34,9 @@ public abstract class TankBarrelDecorator extends AbstractBarrel {
     }
 
     private boolean isEquals(String className) {
+        String cName = barrel.getClass().getName();
         return barrel.getClass().getName()
-                .equals(packageName + className);
+                .equals(packageName + "." + className);
     }
 
     @Override

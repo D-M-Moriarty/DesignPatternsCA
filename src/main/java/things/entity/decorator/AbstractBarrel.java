@@ -2,8 +2,7 @@ package things.entity.decorator;
 
 import things.entity.Bullet;
 import things.entity.GameComponent;
-import things.entity.strategy.movement.HorizontalMovementModified;
-import things.entity.strategy.movement.StandardHorizontalMovement;
+import things.entity.strategy.movement.MovementModified;
 
 import java.awt.*;
 
@@ -21,8 +20,8 @@ public abstract class AbstractBarrel extends GameComponent {
      */
     public AbstractBarrel(int topLeftXPos, int topLeftYPos, int width, int height, Color color, int horizontalSpeed) {
         super(topLeftXPos, topLeftYPos, width, height, color);
-        horizontalMovement = new HorizontalMovementModified(this);
-        horizontalMovement.setHorizontalSpeed(horizontalSpeed);
+        movement = new MovementModified(this);
+        movement.setSpeed(horizontalSpeed);
     }
 
     // sets the boolean firing to the implicit value of firing
@@ -41,7 +40,7 @@ public abstract class AbstractBarrel extends GameComponent {
     }
 
     protected void handleMovement() {
-        moveHorizontally();
+        moveSprite();
 
         // This insures that the entity doesn't travel outside the green line at the bottom of the screen
         if(isTooFarRight()){
