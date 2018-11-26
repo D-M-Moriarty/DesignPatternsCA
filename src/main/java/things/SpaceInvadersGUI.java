@@ -276,30 +276,24 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
 
         if (key == KeyEvent.VK_UP) {
-            if (barrel instanceof DoubleBarrel)
-                barrel = barrel.getBarrel();
-            else
+            if (barrel.hasDecorator("DoubleBarrel")) {
+                barrel = barrel.withoutDecorator("DoubleBarrel");
+            } else
                 barrel = new DoubleBarrel(barrel);
         }
 
         if (key == KeyEvent.VK_W) {
             if (barrel.hasDecorator("WideBarrel")) {
-                barrel.withoutDecorator("WideBarrel");
-                barrel = barrel.getBarrel();
-                System.out.println();
+                barrel = barrel.withoutDecorator("WideBarrel");
             } else
                 barrel = new WideBarrel(barrel);
-            // TODO fix this horrible issue
-//            if (barrel instanceof WideBarrel)
-//                barrel = barrel.getBarrel();
-//            else
-//                barrel = new WideBarrel(barrel);
+
         }
 
         if (key == KeyEvent.VK_M) {
-            if (barrel instanceof MoltenBullet)
-                barrel = barrel.getBarrel();
-            else
+            if (barrel.hasDecorator("MoltenBullet")) {
+                barrel = barrel.withoutDecorator("MoltenBullet");
+            } else
                 barrel = new MoltenBullet(barrel);
         }
     }
