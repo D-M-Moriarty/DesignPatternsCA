@@ -20,10 +20,11 @@ import java.awt.*;
  * @version 2.0
  */
 public class Tank extends GameComponent{
-    private GameMain gameMain;
     private Player player;
     private int livesLeft;
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
+    private final int RIGHT_OF_SCREEN = 1000 - width - 25;
+    private final int LEFT_OF_SCREEN = 25;
 
     /**
      * 6 argument constructor method
@@ -37,12 +38,11 @@ public class Tank extends GameComponent{
      * @param horizontalSpeed The initial horizontal speed of the Tank entity
      */
     public Tank(int topLeftXPos, int topLeftYPos, int width, int height,
-                Color color, int livesLeft, int horizontalSpeed, GameMain gameMain) {
+                Color color, int livesLeft, int horizontalSpeed) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         setLivesLeft(livesLeft);
         movement = new MovementModified(this);
         movement.setSpeed(horizontalSpeed);
-        this.gameMain = gameMain;
     }
 
     /**
@@ -78,12 +78,12 @@ public class Tank extends GameComponent{
 
         moveSprite();
 
-        // This insures that the entity doesn't travel outside the green line at the bottom of the screen
-        if(topLeftXPos > 1000 - width - 25){
-            topLeftXPos = 1000 - width - 25;
+        if (topLeftXPos > RIGHT_OF_SCREEN){
+            topLeftXPos = RIGHT_OF_SCREEN;
         }
-        if(topLeftXPos < 25){
-            topLeftXPos = 25;
+
+        if (topLeftXPos < LEFT_OF_SCREEN){
+            topLeftXPos = LEFT_OF_SCREEN;
         }
 
         // checking for collisions with the tank
@@ -119,16 +119,8 @@ public class Tank extends GameComponent{
                     this.setWidth(-100);
                     this.setHeight(-100);
 
-                    //Create the player class
-                    player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null, "Your tank has been destroyed\nPlease enter your name: "));
-                    SpaceInvadersGUI.setPlayerScore(0);
-
-
                     //Keeping track of the highScores
-                    manageHighScores(gameMain, player);
-
-                    // changing back to the welcome screen
-                    gameMain.changeContentPane2();
+                    GameMain.getGameMain().manageHighScores();
 
                 }
 
@@ -140,18 +132,7 @@ public class Tank extends GameComponent{
 
     }
 
-    static void manageHighScores(GameMain gameMain, Player player) {
-        if(gameMain.getHighScorersSize() < 11){
-            gameMain.addToHighScorers(player);
 
-            gameMain.sortHighScorers();
-
-            if(gameMain.getHighScorersSize() == 11){
-                gameMain.removeFirstLink();
-            }
-
-        }
-    }
 
     public String toString(){
         return "Tank class is working";

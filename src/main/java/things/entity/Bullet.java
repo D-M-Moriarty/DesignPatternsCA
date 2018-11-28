@@ -21,18 +21,9 @@ import java.util.List;
  */
 public class Bullet extends GameComponent implements Subject {
 
-    // Class Attributes
     private boolean isAlienBullet;
     private List<Observer> observers;
 
-    /**
-     *
-     * @param topLeftXPos
-     * @param topLeftYPos
-     * @param width
-     * @param height
-     * @param color
-     */
     public Bullet(int topLeftXPos, int topLeftYPos, int width, int height, Color color, boolean isAlienBullet) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         this.isAlienBullet = isAlienBullet;

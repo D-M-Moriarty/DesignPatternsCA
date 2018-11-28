@@ -6,11 +6,6 @@ import things.entity.GameComponent;
 import java.io.Serializable;
 
 public abstract class GameComponentFactory implements Serializable {
-    protected final GameMain gameMain;
-
-    GameComponentFactory(GameMain gameMain) {
-        this.gameMain = gameMain;
-    }
 
     protected abstract GameComponent createGameComponent(Type component);
 

@@ -68,7 +68,7 @@ public class BulletTest {
         bullets.addBullet(alienBullet);
         UpdateBullet updateBullet = new UpdateBullet(alienBullet);
 
-        GameMain gameMain = new GameMain();
+        GameMain gameMain = GameMain.getGameMain();
         Assert.assertEquals(0, gameMain.getAlienBulletsFired().size());
 
         while (alienBullet.getTopLeftYPos() < SpaceInvadersGUI.HEIGHT) {
@@ -91,8 +91,7 @@ public class BulletTest {
         bullets.addBullet(alienBullet);
         UpdateBullet updateBullet = new UpdateBullet(alienBullet);
 
-        GameMain gameMain = new GameMain();
-        SpaceInvadersGUI spaceInvadersGUI = new SpaceInvadersGUI(gameMain);
+        SpaceInvadersGUI spaceInvadersGUI = new SpaceInvadersGUI();
 
         Assert.assertEquals(alienBullet, spaceInvadersGUI.getAlienBulls().getBullet(0));
 
@@ -120,7 +119,7 @@ public class BulletTest {
     public void testFactoryMethod() {
         GameComponent barrier = new Barrier(90, 470, 120, 70, Color.GREEN);
 
-        GameComponentFactory factory = new StandardGameComponentFactory(new GameMain());
+        GameComponentFactory factory = new StandardGameComponentFactory();
         GameComponent factoryBarrier = factory.getComponent(Type.BARRIER1);
 
         Assert.assertEquals(barrier.getTopLeftXPos(), factoryBarrier.getTopLeftXPos());
@@ -145,7 +144,7 @@ public class BulletTest {
 
         Assert.assertEquals(1, alienBullets.size());
 
-        Barrier barrier = (Barrier) new StandardGameComponentFactory(new GameMain()).getComponent(Type.BARRIER1);
+        Barrier barrier = (Barrier) new StandardGameComponentFactory().getComponent(Type.BARRIER1);
 
         Method method = DestroyableObject.class.getDeclaredMethod("removeBulletsThatCollided",
                 Bullet.class, FiredBullets.class);
@@ -164,7 +163,7 @@ public class BulletTest {
 
     @Test
     public void testDecorator() {
-        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory(new GameMain()).getComponent(Type.BARREL);
+        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory().getComponent(Type.BARREL);
         barrel = new MoltenBullet(barrel);
         barrel = new DoubleBarrel(barrel);
         barrel = new WideBarrel(barrel);
@@ -180,8 +179,8 @@ public class BulletTest {
 
     @Test
     public void testCommand() {
-        GameComponent tank = new StandardGameComponentFactory(new GameMain()).getComponent(Type.TANK);
-        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory(new GameMain()).getComponent(Type.BARREL);
+        GameComponent tank = new StandardGameComponentFactory().getComponent(Type.TANK);
+        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory().getComponent(Type.BARREL);
 
         TankMoveLeftCommand moveLeftCommand = new TankMoveLeftCommand(tank, barrel);
 

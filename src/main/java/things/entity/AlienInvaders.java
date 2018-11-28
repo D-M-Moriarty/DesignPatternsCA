@@ -14,25 +14,23 @@ import java.util.Random;
 /**
  * Created by Darren Moriarty on 17/11/2016.
  */
-public class AlienInvaders extends DestroyableObject implements Observer {
+public class AlienInvaders extends DestroyableObject {
 
 
+    private final int ALIEN_ROWS = 5;
+    private final int ALIEN_COLUMNS = 11;
     // 2d array of alien entities
     private AlienEntity[][] alienEntities;
-
     //Setting the firing delay
     private int bulletTimingDelay = 2000;
     //Time spent waiting
     private int timeWaiting = 0;
-
     // Counts the amount of aliens killed
     private int deathCount;
-
     ClassLoader classLoader = getClass().getClassLoader();
     String gerPath = classLoader.getResource("images/ger.png").getFile();
     // Image of the beautiful Geraldine
     private ImageIcon gerImage = new ImageIcon(gerPath);
-
     // Delta variables for controlling speed
     private int delta = 1;
     private int delta2 = 1;
@@ -40,7 +38,6 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     private static int gerX = -2000;
     // boolean to tell if firing
     private boolean firing = true;
-
     // Imageicons for aliens
     String aP = classLoader.getResource("images/Space-large-invader.png").getFile();
     private ImageIcon alienImage = new ImageIcon(aP);
@@ -48,38 +45,31 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     private ImageIcon alienImage2 =  new ImageIcon(aP2);
     String aP3 = classLoader.getResource("images/Space-medium-invader.png").getFile();
     private ImageIcon alienImage3 =  new ImageIcon(aP3);
-
     // The original positions to reset the aliens
     private int originalTopLeftXPos;
     private int originalTopLeftYPos;
     private int originalHeight;
     private int originalWidth;
     private Color originalColor;
-
     // player
     private Player player;
-    private GameMain gameMain;
-
     // checks if the aliens have reached a certain height on the screen
     private boolean heightReached = false;
-
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
 
-
-    public AlienInvaders(int topLeftXPos, int topLeftYPos, int width, int height, Color color, GameMain gameMain) {
+    public AlienInvaders(int topLeftXPos, int topLeftYPos, int width, int height, Color color) {
         super(topLeftXPos, topLeftYPos, width, height, color);
-        this.gameMain = gameMain;
         // Initialising the 2d array of aliens
-        alienEntities = new AlienEntity[5][11];
+        alienEntities = new AlienEntity[ALIEN_ROWS][ALIEN_COLUMNS];
         populateAliens();
         // Setting the original positions
         setOriginalPositions();
     }
 
     private void populateAliens() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
+        for (int i = 0; i < ALIEN_ROWS; i++) {
+            for (int j = 0; j < ALIEN_COLUMNS; j++) {
                 // Populating the array
                 alienEntities[i][j] = new AlienEntity((getTopLeftXPos() + j * getWidth()),
                         (getTopLeftYPos() + i * getHeight()), getWidth(), getHeight(), getColor(),false);
@@ -97,8 +87,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
     @Override
     public void draw(Graphics2D g) {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
+        for (int i = 0; i < ALIEN_ROWS; i++) {
+            for (int j = 0; j < ALIEN_COLUMNS; j++) {
                 // Drawing the aliens
                 drawingTheAliens(g, i, j);
             }
@@ -172,8 +162,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     }
 
     private void alienDirections() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
+        for (int i = 0; i < ALIEN_ROWS; i++) {
+            for (int j = 0; j < ALIEN_COLUMNS; j++) {
                 //Move right
                 moveRight(alienEntities[i][j]);
                 //Move left
@@ -186,8 +176,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
     private void moveBackRightAgain(AlienEntity alienEntity) {
         if(alienEntity.topLeftXPos < 0 && !alienEntity.isDestroyed()){
-            for (int k = 0; k < 5; k++) {
-                for (int l = 0; l < 11; l++) {
+            for (int k = 0; k < ALIEN_ROWS; k++) {
+                for (int l = 0; l < ALIEN_COLUMNS; l++) {
                     delta = delta2;
                     alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
                 }
@@ -197,8 +187,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
 
     private void moveLeft(AlienEntity alienEntity) {
         if(alienEntity.topLeftXPos >= 1000 - alienEntity.width   && !alienEntity.isDestroyed()){
-            for (int k = 0; k < 5; k++) {
-                for (int l = 0; l < 11; l++) {
+            for (int k = 0; k < ALIEN_ROWS; k++) {
+                for (int l = 0; l < ALIEN_COLUMNS; l++) {
                     delta = -delta2;
                     alienEntities[k][l].setTopLeftYPos(alienEntities[k][l].getTopLeftYPos() + 15);
                 }
@@ -230,17 +220,11 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     }
 
     private void aliensStopGameCheck() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
+        for (int i = 0; i < ALIEN_ROWS; i++) {
+            for (int j = 0; j < ALIEN_COLUMNS; j++) {
                 if(alienEntities[i][j].getTopLeftYPos() + alienEntities[i][j].getHeight() >= 430){
-                    //Create the player class
-                    player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null,
-                            "The aliens have reached you\nPlease enter your name: "));
-                    // Resetting the static score
-                    SpaceInvadersGUI.setPlayerScore(0);
-                    //Keeping track of the highScores
-                    Tank.manageHighScores(gameMain, player);
-                    gameMain.changeContentPane2();
+
+                    GameMain.getGameMain().manageHighScores();
                     // breaks the game loop if there are more than one alien crossing the permitted y axis
                     heightReached = true;
                     break;
@@ -250,22 +234,21 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     }
 
     private void fireEnemyBullets() {
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 11; j++) {
+        for (int i = 0; i < ALIEN_ROWS; i++) {
+            for (int j = 0; j < ALIEN_COLUMNS; j++) {
                 // creating the random firing order of the aliens
                 Random rand = new Random();
-                int  randomFire = rand.nextInt(11);
-                int  randomFireRow = rand.nextInt(5);
+                int  randomFire = rand.nextInt(ALIEN_COLUMNS);
+                int  randomFireRow = rand.nextInt(ALIEN_ROWS);
                 // reducing the firing delay so you can fire
                 timeWaiting -= 1;
                 if(timeWaiting <= 0 && firing && !alienEntities[randomFireRow][randomFire].isDestroyed()){
                     Bullet bullet = new Bullet(alienEntities[randomFireRow][randomFire].getTopLeftXPos() + 20,
-                            alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, 5, 10,
+                            alienEntities[randomFireRow][randomFire].getTopLeftYPos() + 40, ALIEN_ROWS, 10,
                             Color.RED, true);
-                    bullet.registerObserver(this);
                     alienBulls.addBullet(bullet);
                     Bullet gerBullet = new Bullet(getGerX() + 20,
-                            10 + 40, 5, 10, Color.YELLOW, true);
+                            10 + 40, ALIEN_ROWS, 10, Color.YELLOW, true);
                     alienBulls.addBullet(gerBullet);
                     // resetting the time waiting
                     timeWaiting = bulletTimingDelay;
@@ -340,8 +323,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         System.out.println(deathCount);
 
         if(deathCount == 54){
-            delta *= 5;
-            delta2 *= 5;
+            delta *= ALIEN_ROWS;
+            delta2 *= ALIEN_ROWS;
 
         }
         // all the aliens are dead
@@ -357,8 +340,8 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         deathCount++;
         System.out.println(deathCount);
         if(deathCount == 54){
-            delta *= 5;
-            delta2 *= 5;
+            delta *= ALIEN_ROWS;
+            delta2 *= ALIEN_ROWS;
 
         }
         // all the aliens are dead
@@ -368,11 +351,11 @@ public class AlienInvaders extends DestroyableObject implements Observer {
     private void allAliensDead() {
         if (deathCount == 55){
 
-            delta /= 5;
-            delta2 /= 5;
+            delta /= ALIEN_ROWS;
+            delta2 /= ALIEN_ROWS;
 
-            for (int l = 0; l < 5; l++) {
-                for (int m = 0; m < 11; m++) {
+            for (int l = 0; l < ALIEN_ROWS; l++) {
+                for (int m = 0; m < ALIEN_COLUMNS; m++) {
 
                     // redraw them at their original positions
                     alienEntities[l][m].setTopLeftXPos(originalTopLeftXPos + m * originalWidth);
@@ -394,16 +377,4 @@ public class AlienInvaders extends DestroyableObject implements Observer {
         }
     }
 
-    public void setFiring(boolean firing) {
-        this.firing = firing;
-    }
-
-
-    public void updateObserver(Bullet bullet) {
-        if (bullet.isAlienBullet()) {
-            // TODO check for collisions
-        } else {
-
-        }
-    }
 }

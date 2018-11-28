@@ -58,18 +58,14 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     private FiredBullets tankBulls = FiredBullets.getTankBullets();
     private GameComponent aliens;
     private static int playerScore = 0;
-    private GameMain gameMain;
     private KeyCommand keyCommand;
     private transient GameComponentFactory factory;
 
 
     // JPanel Constructor
-    public SpaceInvadersGUI(GameMain gameMain){
+    public SpaceInvadersGUI(){
         // Calls the default constructor
         super();
-        // this instance of the game
-        this.gameMain = gameMain;
-
         // Sets the size of the panel to the Width and Height constants
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
@@ -90,7 +86,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         alienBulls.registerObserver(this);
         tankBulls.registerObserver(this);
 
-        factory = new StandardGameComponentFactory(gameMain);
+        factory = new StandardGameComponentFactory();
     }
 
     @Override

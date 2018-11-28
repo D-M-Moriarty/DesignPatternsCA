@@ -16,6 +16,8 @@ import java.awt.*;
  * @version 2.0
  */
 public class Barrier extends DestroyableObject {
+    private final int BARRIER_ROWS;
+    private final int BARRIER_COLUMNS;
 
     //Class Attributes
 
@@ -33,18 +35,19 @@ public class Barrier extends DestroyableObject {
      */
     public Barrier(int topLeftXPos, int topLeftYPos, int width, int height, Color color) {
         super(topLeftXPos, topLeftYPos, width, height, color);
-
+        BARRIER_ROWS = 7;
+        BARRIER_COLUMNS = 12;
         // Instantiating the array of barrierBlocks
-        barrierBlocks = new BarrierBlock[7][12];
+        barrierBlocks = new BarrierBlock[BARRIER_ROWS][BARRIER_COLUMNS];
         // Setting the dimensions of each barrier block in the array with a nested for loops to
         // create a grid of block (5 x 6)
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 12; j++) {
 
+        for (int i = 0; i < BARRIER_ROWS; i++) {
+            for (int j = 0; j < BARRIER_COLUMNS; j++) {
                 // Setting the dimensions of each block
                 // The position of each block is the width of the block wider relative to the block beside it
-                barrierBlocks[i][j] = new BarrierBlock(getTopLeftXPos() + j * (getWidth() / 12), getTopLeftYPos()
-                        + i * (getHeight() / 7), (getWidth() / 12), (getHeight() / 7), getColor(), false);
+                barrierBlocks[i][j] = new BarrierBlock(getTopLeftXPos() + j * (getWidth() / BARRIER_COLUMNS), getTopLeftYPos()
+                        + i * (getHeight() / BARRIER_ROWS), (getWidth() / BARRIER_COLUMNS), (getHeight() / BARRIER_ROWS), getColor(), false);
             }
         }
 
@@ -65,8 +68,8 @@ public class Barrier extends DestroyableObject {
             Bullet alienBullet = alienBulls.getBullet(k);
 
 
-            for (int i = 0; i < 7; i++) {
-                for (int j = 0; j < 12; j++) {
+            for (int i = 0; i < BARRIER_ROWS; i++) {
+                for (int j = 0; j < BARRIER_COLUMNS; j++) {
 
                     if (alienBullet.collidesWith(barrierBlocks[i][j])) {
                         alienBulls.removeBullet(alienBullet);
@@ -107,8 +110,8 @@ public class Barrier extends DestroyableObject {
     public void draw(Graphics2D g) {
         // Setting the dimensions of each barrier block in the array with a nested for loops to
         // create a grid of block (7 x 12)
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < 12; j++) {
+        for (int i = 0; i < BARRIER_ROWS; i++) {
+            for (int j = 0; j < BARRIER_COLUMNS; j++) {
                 //  Drawing the array of blocks to the screen
                 if(!barrierBlocks[i][j].isDestroyed()){
                     g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);

@@ -30,52 +30,40 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
  * This class inherits from JFrame
  */
 public class GameMain implements Observer {
-
     private JFrame frame = new JFrame();
-
     private JPanel welcomeGUI = new WelcomeGUI();
-
     private SpaceInvadersGUI spaceInvadersGUI;
     private HighScores highscores;
-
-    ClassLoader classLoader = getClass().getClassLoader();
-
-    String startImage = classLoader.getResource("images/1280x960-space-invaders-press-start-wallpaper.jpg").getFile();
+    private ClassLoader classLoader = getClass().getClassLoader();
+    private String startImage = classLoader.getResource("images/1280x960-space-invaders-press-start-wallpaper.jpg").getFile();
     private ImageIcon imageIcon = new ImageIcon(startImage);
     private JButton startGame = new JButton(imageIcon);
-
-    String startImage2 = classLoader.getResource("images/high-scores.png").getFile();
+    private String startImage2 = classLoader.getResource("images/high-scores.png").getFile();
     private ImageIcon imageIcon2 = new ImageIcon(startImage2);
     private JButton startGame2 = new JButton(imageIcon2);
-
     private JMenuBar  jmenuBar;
     private JMenu jmenu;
     private JMenu jmenuBack;
     private JMenuItem itemBack;
     private JMenuItem jmenuItem;
-
-
     public LinkedList<Player> highScorers =  new LinkedList<Player>();
-
-
     private Set<Bullet> alienBulletsFired;
     private Set<Bullet> tankBulletsFired;
-
     public Set<Bullet> getAlienBulletsFired() {
         return alienBulletsFired;
     }
-
     public Set<Bullet> getTankBulletsFired() {
         return tankBulletsFired;
     }
 
-    // JFrame GUI constructor method
-    public GameMain(){
-        // Super calls the JFrame constructor and sets the title
-        frame.setTitle("Space Invaders");
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setLocation(200,0);
+    private static GameMain gameMain = new GameMain();
 
+    public static GameMain getGameMain() {
+        return gameMain;
+    }
+
+    // JFrame GUI constructor method
+    private GameMain(){
         // Loads the highScores.dat file
         loadScores();
 
@@ -84,6 +72,17 @@ public class GameMain implements Observer {
 
         FiredBullets.getAlienBullets().registerObserver(this);
         FiredBullets.getTankBullets().registerObserver(this);
+        initialize();
+
+
+    }
+
+    private void initialize() {
+        // Super calls the JFrame constructor and sets the title
+        frame.setTitle("Space Invaders");
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        frame.setLocation(200,0);
+
 
         try{
             GameComponent.playSound("sounds/spaceinvaders1.wav");
@@ -110,38 +109,32 @@ public class GameMain implements Observer {
                 JOptionPane.showMessageDialog(null,"Space Invaders " +
                         "is an arcade video game created by Tomohiro Nishikado and released in 1978.\n" +
                         "It was originally manufactured and sold by Taito in Japan, and was later licensed\n" +
-                "for production in the United States by the Midway division of Bally. Space Invaders is one of\n" +
+                        "for production in the United States by the Midway division of Bally. Space Invaders is one of\n" +
                         "the earliest shooting games and the aim is to defeat waves of aliens with a laser\n" +
                         "cannon to earn as many points as possible. In designing the game, Nishikado drew\n" +
                         "inspiration from popular media: Breakout, The War of the Worlds, and Star Wars.\n" +
-                                "To complete it, he had to design custom hardware and development tools.\n" +
+                        "To complete it, he had to design custom hardware and development tools.\n" +
                         "\nIt was one of the forerunners of modern video gaming and helped expand the\n" +
                         "video game industry from a novelty to a global industry (see golden age of video arcade games).\n" +
                         "When first released, Space Invaders was very successful.\n");
             }
         });
-
         // listener for the back item to change the content pane
         itemBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 changeContentPane2();
             }
         });
-
-
         // adding the two buttons to the welcome screen
         welcomeGUI.add(startGame);
         welcomeGUI.add(startGame2);
-
         // colouring the button borders black to make them look invisible
         startGame.setBackground(Color.black);
         startGame.setBorder(new LineBorder(Color.BLACK));
         startGame2.setBackground(Color.BLACK);
         startGame2.setBorder(new LineBorder(Color.BLACK));
-
         // setting the content pane
         frame.setContentPane(welcomeGUI);
-
         // button to load the game
         startGame.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -153,7 +146,6 @@ public class GameMain implements Observer {
                 frame.setVisible(true);
             }
         });
-
         // Button for loading the high scores
         startGame2.addActionListener(new ActionListener() {
             //@Override
@@ -161,14 +153,12 @@ public class GameMain implements Observer {
                 viewHighScores();
             }
         });
-
         // setting focus to the current pane
         frame.getContentPane().setFocusable(true);
         frame.getContentPane().requestFocusInWindow();
         // This sets the size of the JFrame to whatever the size of the Component inside it is
         frame.pack();
         frame.setVisible(true);
-
         //Changing the window closing, anonymous inner class
         frame.addWindowListener(
                 new WindowAdapter(){
@@ -200,31 +190,24 @@ public class GameMain implements Observer {
                     }
                 });
 
-
     }
 
     // adding a link to the highScorers
     public void addToHighScorers(Player highScorers){
         this.highScorers.add(highScorers);
     }
-
     // returns the size of the list
     public int getHighScorersSize(){
-
         return highScorers.size();
     }
-
     // prints the contents of the list
     public void printHighScorers(){
-
         for (Player player: highScorers) {
             System.out.println(player);
         }
     }
-
     // sorting the highScorers list
     public void sortHighScorers(){
-
         // using an insertion sort
         int smallest;
         for (int i = 0; i < highScorers.size(); i++) {
@@ -232,7 +215,6 @@ public class GameMain implements Observer {
             for (int j = i + 1; j < highScorers.size(); j++) {
                 if (highScorers.get(j).getPlayerScore() < highScorers.get(smallest).getPlayerScore()) {
                     smallest = j;
-
                 }
             }
             if (smallest != i) {
@@ -243,22 +225,18 @@ public class GameMain implements Observer {
                 highScorers.get(smallest).setPlayerScore(tempScore);
                 highScorers.get(smallest).setName(tempName);
             }
-
         }
-
         for (Player player: highScorers) {
             System.out.println(player.getName() + " has a score of " + player.getPlayerScore());
         }
-
     }
 
     public void removeFirstLink(){
         highScorers.remove(0);
     }
-
     // creates the instance of the GUI
     public void startGame() {
-        spaceInvadersGUI = new SpaceInvadersGUI(this);
+        spaceInvadersGUI = new SpaceInvadersGUI();
         jmenuBar.setVisible(false);
         changeScreen(spaceInvadersGUI);
         frame.pack();
@@ -296,7 +274,6 @@ public class GameMain implements Observer {
         } catch (Exception e){ e.printStackTrace(); }
 
     }
-
     // main method creates a new JFrame called GameMain
     public static void main(String[] args) {
         new GameMain();
@@ -308,5 +285,22 @@ public class GameMain implements Observer {
             alienBulletsFired.add(bullet);
         else
             tankBulletsFired.add(bullet);
+    }
+
+    public void manageHighScores() {
+        //Create the player class
+        Player player = new Player(SpaceInvadersGUI.getPlayerScore(), JOptionPane.showInputDialog(null, "Your tank has been destroyed\nPlease enter your name: "));
+        SpaceInvadersGUI.setPlayerScore(0);
+        if(getHighScorersSize() < 11){
+            addToHighScorers(player);
+
+            sortHighScorers();
+
+            if(getHighScorersSize() == 11){
+                removeFirstLink();
+            }
+
+        }
+        initialize();
     }
 }
