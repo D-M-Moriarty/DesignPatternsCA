@@ -1,6 +1,8 @@
 package things;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,14 +31,14 @@ public class BulletTest {
 
     private Bullet alienBullet;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
             FiredBullets.getAlienBullets().removeBullet(i);
         }
     }
 
-    @AfterEach
+    @After
     public void tearDown() {
         for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
             FiredBullets.getAlienBullets().removeBullet(i);
@@ -54,9 +56,6 @@ public class BulletTest {
         int newYPosition = alienBullet.getTopLeftYPos();
 
         Assert.assertEquals(newYPosition, predictedYPosition);
-        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
-            FiredBullets.getAlienBullets().removeBullet(i);
-        }
     }
 
     @Test
@@ -77,9 +76,6 @@ public class BulletTest {
         }
         Assert.assertEquals(1, gameMain.getAlienBulletsFired().size());
 
-        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
-            FiredBullets.getAlienBullets().removeBullet(i);
-        }
     }
 
     @Test
@@ -99,9 +95,7 @@ public class BulletTest {
             updateBullet.update();
         }
         Assert.assertEquals(0, spaceInvadersGUI.getAlienBulls().size());
-        for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
-            FiredBullets.getAlienBullets().removeBullet(i);
-        }
+
     }
 
     @Test

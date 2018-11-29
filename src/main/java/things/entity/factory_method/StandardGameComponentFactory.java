@@ -1,6 +1,5 @@
 package things.entity.factory_method;
 
-import things.GameMain;
 import things.entity.*;
 
 import java.awt.*;

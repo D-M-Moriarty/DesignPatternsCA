@@ -7,8 +7,11 @@ import things.entity.strategy.movement.MovementModified;
 import java.awt.*;
 
 public abstract class AbstractBarrel extends GameComponent {
+    private final int LEFT_BORDER = 80;
     // Boolean to show that space bar has been pressed
     protected boolean firing;
+    private int RIGHT_BORDER = 1000 - width - 80;
+
     /**
      * 5 argument constructor method
      *
@@ -44,10 +47,10 @@ public abstract class AbstractBarrel extends GameComponent {
 
         // This insures that the entity doesn't travel outside the green line at the bottom of the screen
         if(isTooFarRight()){
-            topLeftXPos = 1000 - width - 80;
+            topLeftXPos = RIGHT_BORDER;
         }
         if(isTooFarLeft()){
-            topLeftXPos = 80;
+            topLeftXPos = LEFT_BORDER;
         }
 
     }
@@ -67,11 +70,11 @@ public abstract class AbstractBarrel extends GameComponent {
     }
 
     private boolean isTooFarLeft() {
-        return topLeftXPos < 80;
+        return topLeftXPos < LEFT_BORDER;
     }
 
     private boolean isTooFarRight() {
-        return topLeftXPos > 1000 - width - 80;
+        return topLeftXPos > RIGHT_BORDER;
     }
 
     @Override

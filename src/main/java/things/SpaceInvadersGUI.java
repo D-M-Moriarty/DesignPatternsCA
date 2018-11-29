@@ -1,6 +1,5 @@
 package things;
 
-import things.entity.Barrier;
 import things.entity.Bullet;
 import things.entity.GameComponent;
 import things.entity.command.*;
@@ -46,7 +45,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     private Thread thread;
     // initial Frames per Second
     private int fps = 60;
-
     // Declaring entity objects
     private GameComponent tank;
     public static GameComponent tankLife1;
@@ -103,11 +101,10 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife1 = factory.getComponent(LIFE1);
         tankLife2 = factory.getComponent(LIFE2);
         tankLife3 = factory.getComponent(LIFE3);
-
         barrel = factory.getComponent(BARREL);
 
 
-        barrier = new Barrier[3];
+        barrier = new GameComponent[3];
 
         // creating an array of barriers to signify lives up the top right corner
         for (int i = 0; i < 3; i++) {
@@ -294,7 +291,4 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         return alienBulls;
     }
 
-    public FiredBullets getTankBulls() {
-        return tankBulls;
-    }
 }
