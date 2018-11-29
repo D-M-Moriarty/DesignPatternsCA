@@ -67,7 +67,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         // Sets the size of the panel to the Width and Height constants
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
-        if(thread == null){
+        if (thread == null){
             // Sets the new thread to the class
             thread = new Thread(this);
             // Starts the thread
@@ -95,7 +95,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         // Sets the value of the graphics object
         g = (Graphics2D) image.getGraphics();
-
         // Initialises the GameComponents entities
         tank = factory.getComponent(TANK);
         tankLife1 = factory.getComponent(LIFE1);
@@ -103,9 +102,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         tankLife3 = factory.getComponent(LIFE3);
         barrel = factory.getComponent(BARREL);
 
-
         barrier = new GameComponent[3];
-
         // creating an array of barriers to signify lives up the top right corner
         for (int i = 0; i < 3; i++) {
             barrier[i] = factory.getComponent(BARRIER1);
@@ -129,7 +126,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
                 new EquipDoubleBarrelCommand(barrel)
         );
 
-
         // Declaring variables to determine loop length time
         long startTime;
         //UpdateRenderDrawTime in milliseconds
@@ -138,23 +134,18 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         long waitTime;
         // the length of time it takes for the loop to run
         long targetTime = 1000 / fps;
-
         // The main game loop
         while (isRunning){
-
             // sets the Systems current time in nanoseconds
             startTime  = System.nanoTime();
-
             // Methods to re-draw the graphics to the screen each iteration of the loop
             gameUpdate();
             gameRender();
             gameDraw();
-
             //UpdateRenderDrawTime is set to current system time minus the startTime divided by a million since its in nanoseconds
             URDTimeMilliS = (System.nanoTime() - startTime) / 1000000;
             // time spent waiting before the loop runs again
             waitTime = targetTime - URDTimeMilliS;
-
             // Try and catch block
             try {
                 // Try sleeping for the length of the waitTime
@@ -165,8 +156,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
             }
         }
     }
-
-
     // static player score, was originally made for debugging purposes
     public static int getPlayerScore(){
         return playerScore;
@@ -175,20 +164,16 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public static void setPlayerScore(int playerScoreS){
         playerScore = playerScoreS;
     }
-
     // Responsible for updating everything in the game eg.Positions, values
     private void gameUpdate() {
         tank.update();
         barrel.update();
-
         // updating the barriers
         for (int i = 0; i < 3; i++) {
             barrier[i].update();
         }
 
         aliens.update();
-
-
         // updating the bullets
         for(int i = 0; i < tankBulls.size(); i++){
             tankBulls.getBullet(i).updateEntity();
@@ -199,11 +184,8 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
 
     }
-
-
     // Draws to the offscreen image, ie. determines what to draw on the next frame
     private void gameRender() {
-
         // These are constants that will be in every frame
         g.setColor(Color.BLACK);
         g.fillRect(0, 0 , WIDTH, HEIGHT);
@@ -216,7 +198,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         //drawing the line at the bottom of the screen
         Rectangle2D bottomLine = new Rectangle2D.Float(25, 650, 950, 10);
         g.fill(bottomLine);
-
         // draws the updated object values
         tank.draw(g);
         tankLife1.draw(g);
@@ -229,24 +210,18 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
 
         aliens.draw(g);
-
         // Drawing ArrayList of bullets
         for(int i = 0; i < tankBulls.size(); i++){
             tankBulls.getBullet(i).drawEntity(g);
         }
-
         // Drawing ArrayList of AlienBullets
         for(int i = 0; i < alienBulls.size(); i++){
             alienBulls.getBullet(i).drawEntity(g);
         }
-
-
     }
-
     // drawing on to the game screen
     private void gameDraw() {
         Graphics gRef = this.getGraphics();
-
         // stopping the game loop if the lives have run out or the aliens have come
         // down to far on the screen
         if (tank.getLivesLeft() > 0 && !aliens.isHeightReached()){
@@ -256,9 +231,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
             // Save Players score and name and store it
             isRunning = false;
         }
-
     }
-
     // KeyListener interface methods
     @Override
     public void keyTyped(KeyEvent e) {
@@ -273,7 +246,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public void keyReleased(KeyEvent e) {
         keyCommand.keyReleased(e);
     }
-
     // This method removes a bullet from the ArrayList of bullets
     // once its left the screen bounds
     @Override

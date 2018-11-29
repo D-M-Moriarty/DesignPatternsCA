@@ -28,9 +28,6 @@ public class KeyCommand extends KeyAdapter {
         this.d = d;
     }
 
-    public KeyCommand() {
-    }
-
     @Override
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
@@ -83,6 +80,4 @@ public class KeyCommand extends KeyAdapter {
         }
     }
 
-    public void setLeft(Command command) {
-    }
 }
