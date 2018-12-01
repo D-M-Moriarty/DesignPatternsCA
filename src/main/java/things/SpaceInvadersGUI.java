@@ -15,7 +15,7 @@ import java.awt.event.KeyListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
-import static things.entity.factory_method.Type.*;
+import static things.entity.factory_method.ComponentType.*;
 
 /**
  * This is the JPanel class which is just a flat container for holding components
@@ -35,6 +35,7 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     public static final int WIDTH = 1000;
     // height of the panel
     public static final int HEIGHT = 700;
+    private final int TOP_OF_SCREEN = 0;
     // Buffered image
     private BufferedImage image;
     // creating a Graphics object
@@ -249,14 +250,23 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     // This method removes a bullet from the ArrayList of bullets
     // once its left the screen bounds
     @Override
-    public void updateObserver(Bullet bullet) {
+    public void updateObserver(GameComponent gameComponent) {
+        Bullet bullet = (Bullet) gameComponent;
         int tplYPos = bullet.getTopLeftYPos();
         int bulletHeight = bullet.getHeight();
-        if (tplYPos + bulletHeight < 0) {
+        if (bulletLeftTopOfScreen(tplYPos, bulletHeight)) {
             tankBulls.removeBullet(bullet);
-        } else if (tplYPos > HEIGHT) {
+        } else if (bulletLeftBottomOfScreen(tplYPos)) {
             alienBulls.removeBullet(bullet);
         }
+    }
+
+    private boolean bulletLeftBottomOfScreen(int tplYPos) {
+        return tplYPos > HEIGHT;
+    }
+
+    private boolean bulletLeftTopOfScreen(int tplYPos, int bulletHeight) {
+        return tplYPos + bulletHeight < TOP_OF_SCREEN;
     }
 
     public FiredBullets getAlienBulls() {

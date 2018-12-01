@@ -280,7 +280,8 @@ public class GameMain implements Observer {
     }
 
     @Override
-    public void updateObserver(Bullet bullet) {
+    public void updateObserver(GameComponent gameComponent) {
+        Bullet bullet = (Bullet) gameComponent;
         if (bullet.isAlienBullet())
             alienBulletsFired.add(bullet);
         else

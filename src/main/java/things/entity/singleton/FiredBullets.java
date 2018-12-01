@@ -1,6 +1,7 @@
 package things.entity.singleton;
 
 import things.entity.Bullet;
+import things.entity.GameComponent;
 import things.entity.observer.Observer;
 import things.entity.observer.Subject;
 
@@ -12,7 +13,7 @@ public class FiredBullets implements Subject, Observer {
     private static FiredBullets tankBullets = new FiredBullets();
     private List<Observer> observers;
     private List<Bullet> bullets;
-    private Bullet bulletToObserve;
+    private GameComponent bulletToObserve;
 
     private FiredBullets() {
         this.observers = new ArrayList<>();
@@ -55,8 +56,8 @@ public class FiredBullets implements Subject, Observer {
     }
 
     @Override
-    public void updateObserver(Bullet bullet) {
-        this.bulletToObserve = bullet;
+    public void updateObserver(GameComponent gameComponent) {
+        this.bulletToObserve = gameComponent;
         notifyObservers();
     }
     @Override

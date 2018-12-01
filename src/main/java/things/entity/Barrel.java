@@ -40,8 +40,6 @@ public class Barrel extends AbstractBarrel {
         return this;
     }
 
-
-
     public String toString(){
         return "Barrel class is working";
     }

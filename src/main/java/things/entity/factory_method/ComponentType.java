@@ -1,6 +1,6 @@
 package things.entity.factory_method;
 
-public enum Type {
+public enum ComponentType {
     TANK,
     LIFE1,
     LIFE2,

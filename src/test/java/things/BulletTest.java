@@ -4,8 +4,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import things.entity.Barrier;
 import things.entity.Bullet;
 import things.entity.GameComponent;
@@ -16,23 +14,24 @@ import things.entity.decorator.MoltenBullet;
 import things.entity.decorator.WideBarrel;
 import things.entity.factory_method.GameComponentFactory;
 import things.entity.factory_method.StandardGameComponentFactory;
-import things.entity.factory_method.Type;
+import things.entity.factory_method.ComponentType;
 import things.entity.singleton.FiredBullets;
 import things.entity.strategy.update.UpdateBullet;
 import things.entity.template_method.DestroyableObject;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 
 public class BulletTest {
 
+    private Bullet tankBullet;
     private Bullet alienBullet;
 
     @Before
     public void setUp() {
+        tankBullet = new Bullet(100, 100, 100, 50, Color.BLACK, true);
         for (int i = 0; i < FiredBullets.getAlienBullets().size(); i++) {
             FiredBullets.getAlienBullets().removeBullet(i);
         }
@@ -101,8 +100,8 @@ public class BulletTest {
     @Test
     public void createSingleton() {
         FiredBullets firedBullets1 = FiredBullets.getTankBullets();
-        firedBullets1.addBullet(alienBullet = new Bullet(100,
-                100, 100, 50, Color.BLACK, true));
+
+        firedBullets1.addBullet(tankBullet);
 
         FiredBullets firedBullets2 = FiredBullets.getTankBullets();
 
@@ -114,7 +113,7 @@ public class BulletTest {
         GameComponent barrier = new Barrier(90, 470, 120, 70, Color.GREEN);
 
         GameComponentFactory factory = new StandardGameComponentFactory();
-        GameComponent factoryBarrier = factory.getComponent(Type.BARRIER1);
+        GameComponent factoryBarrier = factory.getComponent(ComponentType.BARRIER1);
 
         Assert.assertEquals(barrier.getTopLeftXPos(), factoryBarrier.getTopLeftXPos());
         Assert.assertEquals(barrier.getTopLeftYPos(), factoryBarrier.getTopLeftYPos());
@@ -127,6 +126,7 @@ public class BulletTest {
     public void testTemplate() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Bullet alienBullet = new Bullet(100,
                 100, 100, 50, Color.RED, true);
+
         FiredBullets alienBullets = FiredBullets.getAlienBullets();
 
         alienBullets.addBullet(alienBullet);
@@ -138,7 +138,7 @@ public class BulletTest {
 
         Assert.assertEquals(1, alienBullets.size());
 
-        Barrier barrier = (Barrier) new StandardGameComponentFactory().getComponent(Type.BARRIER1);
+        Barrier barrier = (Barrier) new StandardGameComponentFactory().getComponent(ComponentType.BARRIER1);
 
         Method method = DestroyableObject.class.getDeclaredMethod("removeBulletsThatCollided",
                 Bullet.class, FiredBullets.class);
@@ -157,7 +157,7 @@ public class BulletTest {
 
     @Test
     public void testDecorator() {
-        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory().getComponent(Type.BARREL);
+        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory().getComponent(ComponentType.BARREL);
         barrel = new MoltenBullet(barrel);
         barrel = new DoubleBarrel(barrel);
         barrel = new WideBarrel(barrel);
@@ -173,8 +173,8 @@ public class BulletTest {
 
     @Test
     public void testCommand() {
-        GameComponent tank = new StandardGameComponentFactory().getComponent(Type.TANK);
-        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory().getComponent(Type.BARREL);
+        GameComponent tank = new StandardGameComponentFactory().getComponent(ComponentType.TANK);
+        AbstractBarrel barrel = (AbstractBarrel) new StandardGameComponentFactory().getComponent(ComponentType.BARREL);
 
         TankMoveLeftCommand moveLeftCommand = new TankMoveLeftCommand(tank, barrel);
 

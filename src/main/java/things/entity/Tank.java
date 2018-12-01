@@ -41,7 +41,7 @@ public class Tank extends GameComponent{
                 Color color, int livesLeft, int horizontalSpeed) {
         super(topLeftXPos, topLeftYPos, width, height, color);
         setLivesLeft(livesLeft);
-        movement = new MovementModified(this);
+        setMovement(new MovementModified(this));
         movement.setSpeed(horizontalSpeed);
     }
 
@@ -78,11 +78,11 @@ public class Tank extends GameComponent{
 
         moveSprite();
 
-        if (topLeftXPos > RIGHT_OF_SCREEN){
+        if (metRightBorder()){
             topLeftXPos = RIGHT_OF_SCREEN;
         }
 
-        if (topLeftXPos < LEFT_OF_SCREEN){
+        if (metLeftBorder()){
             topLeftXPos = LEFT_OF_SCREEN;
         }
 
@@ -132,6 +132,13 @@ public class Tank extends GameComponent{
 
     }
 
+    private boolean metLeftBorder() {
+        return topLeftXPos < LEFT_OF_SCREEN;
+    }
+
+    private boolean metRightBorder() {
+        return topLeftXPos > RIGHT_OF_SCREEN;
+    }
 
 
     public String toString(){

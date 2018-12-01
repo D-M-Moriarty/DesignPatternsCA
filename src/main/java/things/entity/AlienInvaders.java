@@ -15,8 +15,6 @@ import java.util.Random;
  * Created by Darren Moriarty on 17/11/2016.
  */
 public class AlienInvaders extends DestroyableObject {
-
-
     private final int ALIEN_ROWS = 5;
     private final int ALIEN_COLUMNS = 11;
     // 2d array of alien entities
@@ -51,8 +49,6 @@ public class AlienInvaders extends DestroyableObject {
     private int originalHeight;
     private int originalWidth;
     private Color originalColor;
-    // player
-    private Player player;
     // checks if the aliens have reached a certain height on the screen
     private boolean heightReached = false;
     private FiredBullets alienBulls = FiredBullets.getAlienBullets();
@@ -298,18 +294,14 @@ public class AlienInvaders extends DestroyableObject {
         }
         catch (Exception e) { e.printStackTrace(); }
 
-        // checking the row that an alien was on the determine the enemy value / rank
-//        if (i == 2 || i == 4){
-//            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 10);
-//            System.out.println("1 and 3");
-//        }else if (i == 3 || i == 5){
-//            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 25);
-//            System.out.println("2 and 4");
-//        }else{
-//            SpaceInvadersGUI.setPlayerScore(SpaceInvadersGUI.getPlayerScore() + 50);
-//            System.out.println("ekse");
-//        }
+        drawAliensOffScreen(destroyableObject, tankBullet);
 
+        // all the aliens are dead
+        allAliensDead();
+
+    }
+
+    private void drawAliensOffScreen(DestroyableObject destroyableObject, Bullet tankBullet) {
         // drawing the aliens off the screen and reducing their dimensions
         tankBulls.removeBullet(tankBullet);
         destroyableObject.setHeight(-1000);
@@ -322,30 +314,11 @@ public class AlienInvaders extends DestroyableObject {
         deathCount++;
         System.out.println(deathCount);
 
-        if(deathCount == 54){
+        if (deathCount == 54) {
             delta *= ALIEN_ROWS;
             delta2 *= ALIEN_ROWS;
 
         }
-        // all the aliens are dead
-        allAliensDead();
-        // drawing the aliens off the screen and reducing their dimensions
-        tankBulls.removeBullet(tankBullet);
-        destroyableObject.setHeight(-1000);
-        destroyableObject.setWidth(-1000);
-        destroyableObject.setTopLeftXPos(-1000);
-        destroyableObject.setTopLeftYPos(-1000);
-        destroyableObject.setDestroyed(true);
-        // keeping track of deaths
-        deathCount++;
-        System.out.println(deathCount);
-        if(deathCount == 54){
-            delta *= ALIEN_ROWS;
-            delta2 *= ALIEN_ROWS;
-
-        }
-        // all the aliens are dead
-        allAliensDead();
     }
 
     private void allAliensDead() {

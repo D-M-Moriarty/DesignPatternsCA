@@ -1,15 +1,14 @@
 package things.entity.factory_method;
 
-import things.GameMain;
 import things.entity.GameComponent;
 
 import java.io.Serializable;
 
 public abstract class GameComponentFactory implements Serializable {
 
-    protected abstract GameComponent createGameComponent(Type component);
+    protected abstract GameComponent createGameComponent(ComponentType component);
 
-    public synchronized GameComponent getComponent(Type type) {
-       return createGameComponent(type);
+    public synchronized GameComponent getComponent(ComponentType componentType) {
+       return createGameComponent(componentType);
     }
 }
