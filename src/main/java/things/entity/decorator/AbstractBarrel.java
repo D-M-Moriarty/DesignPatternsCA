@@ -20,7 +20,6 @@ public abstract class AbstractBarrel extends GameComponent {
     // The initial speed to travel horizontally
     protected int horizontalSpeed;
     protected FiredBullets tankBullets = FiredBullets.getTankBullets();
-    private Barrel barrel;
 
     /**
      * 5 argument constructor method

@@ -6,7 +6,6 @@ import things.entity.Bullet;
 import java.awt.*;
 
 public class DoubleBarrel extends TankBarrelDecorator {
-
     private Barrel barrel1;
     private Barrel barrel2;
 
@@ -41,7 +40,6 @@ public class DoubleBarrel extends TankBarrelDecorator {
             // setting firing to false
             firing = false;
         }
-
 
     }
 
