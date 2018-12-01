@@ -248,22 +248,18 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
     }
 
     // KeyListener interface methods
-    //@Override
+    @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
-    //@Override
+    @Override
     public void keyPressed(KeyEvent e) {
-
         int key = e.getKeyCode();
 
-        // If the left key is pressed
         if(key == KeyEvent.VK_LEFT){
-            // sets the setLeft methods to true which will tell the update method which direction to travel
             tank.setLeft(true);
             barrel.setLeft(true);
-            System.out.println("left was pressed");
         }
 
         if(key == KeyEvent.VK_RIGHT){
@@ -298,12 +294,10 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
         }
     }
 
-    //@Override
+    @Override
     public void keyReleased(KeyEvent e) {
-
         int key = e.getKeyCode();
 
-        // If the left key is released it will set the value of setLeft to false to stop the entity moving
         if(key == KeyEvent.VK_LEFT){
             tank.setLeft(false);
             barrel.setLeft(false);
@@ -313,7 +307,6 @@ public class SpaceInvadersGUI extends JPanel implements Runnable, KeyListener, O
             tank.setRight(false);
             barrel.setRight(false);
         }
-
 
         if(key == KeyEvent.VK_SPACE){
             barrel.setFiring(true);
